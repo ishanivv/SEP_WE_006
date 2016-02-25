@@ -64,16 +64,16 @@
 
                                     if (isset($this->session->userdata['logged_in'])) {
                                         $email = ($this->session->userdata['logged_in']['email']);
-                                        //$type = ($this->session->userdata['logged_in']['type']);
+                                        $type = ($this->session->userdata['logged_in']['type']);
 
-                                        /*if ($type=="admin") {
+                                        if ($type=="admin") {
                                             echo '<li>';
                                             echo '<a href="http://localhost/ci/admintable_ctrl">Manage Admins</a>';
                                             echo '</li>';
                                             echo '<li>';
                                             echo '<a href="http://localhost/ci/notify_ctrl">Notifications</a>';
                                             echo '</li>';
-                                        }*/
+                                        }
                                        
 
                             ?>
