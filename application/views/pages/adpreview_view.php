@@ -1,9 +1,9 @@
-<div class="main" role="main">
+<div class="main" role="main" style="background-color:#ffffff">
     	<div id="content" class="content full">
         	<div class="container">
             	<div class="row">
             	<div style="width:600px;height:700px;float:left">
-					<section class="slider">
+					    <section class="slider">
         			<div id="slider" class="flexslider">
         			  <ul class="slides">
             			<li>
@@ -80,28 +80,44 @@
                             </div>
                       </div>
                       </div>
-                    <!-- <b><p style="color:#000">BRAND: <?php //echo $detail->Brand;?></p>
-                     <b><p style="color:#000">MODEL: <?php //echo $detail->Model;?></p>
-                     <b><p style="color:#000">MODEL YEAR: <?php //echo $detail->Modelyear;?>
-                     <b><p style="color:#000">VEHICLE CONDITION: <?php //echo $detail->VehicleCondition;?></p>
-                     <b><p style="color:#000">MILEAGE: <?php //echo $detail->Mileage;?></p>
-                     <b><p style="color:#000">BODY TYPE: <?php //echo $detail->BodyType;?></p>
-                     <b><p style="color:#000">TRANSMISSION: <?php //echo $detail->Transmission;?></p>
-                     <b><p style="color:#000">FUEL TYPE: <?php //echo $detail->Fueltype;?></p>
-                     <b><p style="color:#000">ENGINE CAPACITY: <?php //echo $detail->EngineCapacity;?></p>
-                     <b><p style="color:#000">PRICE: <?php //echo $detail->Price;?></p>
-                     <b><p style="color:#000">DESCRIPTION: <?php //echo $detail->Description;?></p>
-                     <b><p style="color:#000">PHONE: <?php //echo $detail->Phone;?></p>
-                     <b><p style="color:#000">EMAIL: <?php //echo $detail->Email;?></p>-->
                 <?php  }
                 ?>
 
       			</div>
       		</div>
           <div class="spacer-20"></div>
+          <div class="tabs vehicle-details-tabs">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"> <a data-toggle="tab" href="#vehicle-overview">Overview</a></li>
+                                    <li> <a data-toggle="tab" href="#vehicle-add-features">Additional Features</a></li>
+                                    <li> <a data-toggle="tab" href="#vehicle-location">Location</a> </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="vehicle-overview" class="tab-pane fade in active">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam.</p>
+                                    </div>
+                                        <!-- End Toggle --> 
+                                    
+                                    <div id="vehicle-add-features" class="tab-pane fade">
+                                      <ul class="add-features-list">
+                                          <li>6 Speaker Stereo</li>
+                                            <li>Driver &amp; Passenger Airbags</li>
+                                            <li>Antilock Brakes</li>
+                                            <li>Park Assist</li>
+                                            <li>Cruise Control</li>
+                                            <li>Power Steering</li>
+                                            <li>17" Alloy Wheels</li>
+                                        </ul>
+                                    </div>
+                                    <div id="vehicle-location" class="tab-pane fade">
+                                        <iframe width="100%" height="300px" frameBorder="0" src="http://a.tiles.mapbox.com/v3/imicreation.map-zkcdvthf.html?secure"></iframe>
+                                    </div>
+                                  </div>
+          </div>
       	</div>
       </div>
-     </div>
+    </div>
 
 
 

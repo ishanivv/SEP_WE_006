@@ -48,36 +48,51 @@
                         <ul class="top-navigation sf-menu">
                             <?php
 
-                                    if(isset($_COOKIE['type'])){
+                                    //if(isset($_COOKIE['type'])){
+                                      //  $_SESSION['type']=$_COOKIE['type'];
+
+                                    /*    if(isset($_SESSION['type']))
+                                    {
                                         echo '<li>';
                                         echo '<a href="http://localhost/ci/admintable_ctrl">Manage Admins</a>';
                                         echo '</li>';
                                         echo '<li>';
                                         echo '<a href="http://localhost/ci/notify_ctrl">Notifications</a>';
                                         echo '</li>';
-                                    }  
+                                    }*/
+                                    //}
+
+                                    if (isset($this->session->userdata['logged_in'])) {
+                                        $email = ($this->session->userdata['logged_in']['email']);
+                                        //$type = ($this->session->userdata['logged_in']['type']);
+
+                                        /*if ($type=="admin") {
+                                            echo '<li>';
+                                            echo '<a href="http://localhost/ci/admintable_ctrl">Manage Admins</a>';
+                                            echo '</li>';
+                                            echo '<li>';
+                                            echo '<a href="http://localhost/ci/notify_ctrl">Notifications</a>';
+                                            echo '</li>';
+                                        }*/
+                                       
+
                             ?>
                             <li>
-                            <?php
-                                if((isset($_COOKIE['remember']))&&(isset($_COOKIE['email']))&&($_COOKIE['remember']=='yes'))
-                                {
-                                    $_SESSION['email'] = $_COOKIE['email'];
-                                }
-                                if(isset($_SESSION['email']))
-                                {
-                                    echo '<a href="">';
-                                    echo $_SESSION['email'];
+                                <a href="<?php echo 'http://localhost/ci/dashboard_ctrl/loadmyads/'.$email?>">
+                                <?php    
+                                    echo $email;
                                     echo '</a>';
                                 }
                                 else
                                 {
+                                    echo "<li>";
                                     echo '<a href="http://localhost/ci/Login">Login</a>';
                                 }
                             ?>
                             </li>
                             <li>
                             <?php
-                                if(!(isset($_SESSION['email'])))
+                                if(!(isset($this->session->userdata['logged_in'])))
                                 {
                                     echo '<a href="http://localhost/ci/Register">Register</a>';
                                 }

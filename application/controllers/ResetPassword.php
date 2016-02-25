@@ -4,7 +4,7 @@ class ResetPassword extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('pages/templates/header1');
+		$this->load->view('pages/templates/header');
 		$this->load->view('pages/resetPassword');
 		$this->load->view('pages/templates/footer');
 	}
@@ -28,7 +28,7 @@ class ResetPassword extends CI_Controller
 		);
         if($this->form_validation->run() == FALSE)
         {
-        	$this->load->view('pages/templates/header1');
+        	$this->load->view('pages/templates/header');
         	$this->load->view('pages/resetPassword');
         	$this->load->view('pages/templates/footer');
         }
@@ -37,7 +37,7 @@ class ResetPassword extends CI_Controller
         	$newPassword = $this->database->resetPassword($_POST['email']);
         	$data['message'] = 'Check your email inbox for new password';
         	
-        	$this->load->view('pages/templates/header1');
+        	$this->load->view('pages/templates/header');
         	$this->load->view('pages/login',$data);
         	$this->load->view('pages/templates/footer');
         }

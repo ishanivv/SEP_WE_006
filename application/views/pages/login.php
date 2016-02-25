@@ -50,18 +50,20 @@
                             	<!-- Login -->
                                 
                                 <div class="regular-signup">
+                                    <h3>Login</h3>
+                                    <div style="color:red">
                                     <?php
                                         if(isset($message))
                                         {
                                             echo $message;
+                                            echo "<br/>";
                                         }
-                                        
-                                        echo '</br>';
+
                                         $CI =& get_instance();
                                         $CI->load->library('form_validation');
                                         echo validation_errors();
                                     ?>
-                        			<h3>Login</h3>
+                        			</div>
                                     <input type="email" id="email" class="form-control" name="email" value="<?php echo set_value("email")?>" placeholder="E-mail"/>
                                     <input type="password" id="password" class="form-control" name="password" placeholder="Password"/>
                                     <input type='checkbox' checked='checked' name='rememberMe' id='rememberMe' value='yes'/>&nbspRemember me

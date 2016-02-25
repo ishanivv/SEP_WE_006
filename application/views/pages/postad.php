@@ -1,5 +1,5 @@
  <?php
-    if(!isset($_SESSION['email']))
+    if(!(isset($this->session->userdata['logged_in']))) 
     {
         redirect("http://localhost/ci/Login");
     }
@@ -17,6 +17,14 @@
 						<form name="myForm2" method="post" action="<?php echo base_url();?>post_ctrl/insert_into_vehicle">
 						<div class="regular-signup">
 						<h2>Post your Ad</h2>
+						<div style="color:green">
+						<?php
+							if(isset($message))
+                            {
+                                echo $message;
+                            }
+						?>
+						</div>
                         <label><h4>Add Photos</h4></label>
                         <div>
 						<!--<?php //echo form_open_multipart('post_ctrl/upload') ?>-->

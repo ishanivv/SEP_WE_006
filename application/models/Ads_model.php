@@ -34,5 +34,14 @@
 			$this->db->where('Vehicleid',$vehicleid);
 			$this->db->delete('vehicle');
 		}
+
+		public function getmyads($email)
+		{
+			$this->db->select("Vehicleid,Image1,Brand,Model,Modelyear,VehicleCondition,Mileage,BodyType,Transmission,Fueltype,EngineCapacity,Price,Negotiable,Description,Phone,Email,Status,Timestamp");
+			//$this->db->from('vehicle');
+			$this->db->where('Email',$email);
+			$query=$this->db->get('vehicle');
+			return $query->result();
+		}
 	}
 ?>

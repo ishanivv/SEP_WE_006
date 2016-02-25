@@ -19,6 +19,7 @@ class Login extends CI_Controller
             $this->load->model('database','',TRUE);
             $this->load->helper(array('form', 'url','security'));
             $this->load->library('form_validation');
+            $this->load->library('session');
 
             $this->form_validation->set_rules
             (
@@ -38,15 +39,15 @@ class Login extends CI_Controller
                 'required',
                 array
                 (
-                    'required'      => 'Enter %s.'
+                    'required'      => 'Enter your %s.'
                 )
             );
 
             if ($this->form_validation->run() == FALSE)
             {
-                $data['message'] = 'correct these mistakes or <a href="http://localhost/ci/ResetPassword">Reset password</a>';
+                //$data['message'] = 'correct these mistakes or <a href="http://localhost/ci/ResetPassword">Reset password</a>';
                 $this->load->view('pages/templates/header');
-                $this->load->view('pages/login',$data);
+                $this->load->view('pages/login');
                 $this->load->view('pages/templates/footer');
             }
             else
@@ -57,40 +58,53 @@ class Login extends CI_Controller
                 {
                     $this->rememberMe = $_POST['rememberMe'];
                 }
-                if($this->database->login($_POST['email'],$_POST['password']) == TRUE)
+
+                $result=$this->database->login($_POST['email'],$_POST['password']);
+                if($result)
                 {
-                    session_start();
-                    $_SESSION['email'] = $_POST['email'];
+                    //session_start();
+                    //$_SESSION['email'] = $_POST['email'];
+                    $session_data=array();
+                    foreach($result as $row)
+                    {
+                        $session_data=array(
+                            'email'=>$row->Email,
+                            'type'=>$row->Type,
+                        );
+                        $this->session->set_userdata('logged_in',$session_data);
+                    }
+                    
+                    
                     if(isset($_POST['rememberMe']))
                     {
                         if(true/*$_POST['rememberMe'] == 'yes'*/)
                         {
-                            setcookie('remember', 'yes', time() + (600), "/");
-                            setcookie('email',$_SESSION['email'], time() + (600), "/");
+                    //        setcookie('remember', 'yes', time() + (86400 * 30), "/");
+                    //        setcookie('email',$_SESSION['email'], time() + (86400 * 30), "/");
+                            
                         }
                     }
                     //$data['message'] = '<p>Hello '.$_SESSION['name'].'</p>';
-                    if($this->database->isadmin($_POST['email'])==TRUE)
+                    /*if($this->database->isadmin($_POST['email'])==TRUE)
                      {
                         $_SESSION['type']='admin';
-                        setcookie('type',$_SESSION['type'],time()+(600),"/");
+                    //    setcookie('type',$_SESSION['type'],time()+(86400 * 30),"/");
                         //$data['admin']='yes';
-                        $this->load->view('pages/templates/header');
-                       
-                     } 
-                     else {  
-                        $data['admin']='';
-                        $this->load->view('pages/templates/header',$data);
-                       
-                    }
+                        
+                     } */
+                    
+                   /*     $this->load->model('Ads_model');
+                        $this->data['posts']=$this->Ads_model->getmyads($_SESSION['email']);
+                        $_SESSION['ads']=count($this->data);*/
+                    //    setcookie('ads',$_SESSION['ads'],time()+(86400 * 30),"/");
 
-                    $data['auth'] = '<a href="http://localhost/ci/Logout/out" style="text-align:right">Log Out</a>';
-                    $this->load->view('pages/loginSuccessful',$data);
-                    $this->load->view('pages/templates/footer');
+                        $this->load->view('pages/templates/header');
+                        $this->load->view('pages/loginSuccessful');
+                        $this->load->view('pages/templates/footer');
                 }
                 else
                 {
-                    $data['message'] = 'correct these mistakes or <a href="http://localhost/ci/ResetPassword">Reset password</a><br/>Invalid username password combination';
+                    $data['message'] = 'Invalid username password combination';
                     $this->load->view('pages/templates/header');
                     $this->load->view('pages/login',$data);
                     $this->load->view('pages/templates/footer');

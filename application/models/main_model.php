@@ -10,7 +10,7 @@
 		{
 			//$handle = fopen($_FILES["image1"]["tmp_name"], 'r');
 
-			$data=array('Category'=>'Car','Image1'=>$this->input->post('image1'),'Image2'=>$this->input->post('image2'),'Image3'=>$this->input->post('image3'),'Brand' =>$this->input->post('Brand') ,'Model'=>$this->input->post('Model'),'Modelyear'=>$this->input->post('ModelYear'),'VehicleCondition'=>$this->input->post('VehicleCondition'),'Mileage'=>$this->input->post('Mileage'),'BodyType'=>$this->input->post('BodyType'),'Transmission'=>$this->input->post('Transmission'),'Fueltype'=>$this->input->post('groupFuel'),'EngineCapacity'=>$this->input->post('EngineCapacity'),'Price'=>$this->input->post('Price'),'Negotiable'=>$this->input->post('checkbox5'),'Description'=>$this->input->post('Description'),'Phone'=>$this->input->post('Phone'),'Email'=>$this->input->post('Email'),'Status'=>'Pending' );
+			$data=array('Category'=>'Car','Image1'=>$this->input->post('image1'),'Image2'=>$this->input->post('image2'),'Image3'=>$this->input->post('image3'),'Brand' =>$this->input->post('Brand') ,'Model'=>$this->input->post('Model'),'Modelyear'=>$this->input->post('ModelYear'),'VehicleCondition'=>$this->input->post('VehicleCondition'),'Mileage'=>$this->input->post('Mileage'),'BodyType'=>$this->input->post('BodyType'),'Transmission'=>$this->input->post('Transmission'),'Fueltype'=>$this->input->post('groupFuel'),'EngineCapacity'=>$this->input->post('EngineCapacity'),'Price'=>$this->input->post('Price'),'Negotiable'=>$this->input->post('checkbox5'),'Description'=>$this->input->post('Description'),'Phone'=>$this->input->post('Phone'),'Email'=>$this->input->post('Email'),'Status'=>'Pending');
 			$this->db->insert('vehicle',$data);
 		}
 		public function insert_into_feedback()
@@ -26,17 +26,6 @@
 			//$query=$this->db->get('user');
 			return $query->result();
 		}
-		/*function search($category,$make,$model)
-		{
-			$this->db->where('Category', $category);
-			$this->db->where('Brand', $make);
-			$this->db->where('Model', $model); 
-		
-
-			$query = $this->db->get('vehicle');
-			return $query->result();
-			
-		}*/
 
 		function search($category,$make,$model)
 		{

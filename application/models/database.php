@@ -38,7 +38,7 @@ class Database extends CI_Model
 
 	public function login($em,$pw)
 	{
-		$this -> db -> select('Email','Name','Password','Type');
+		$this -> db -> select('*');
 		$this -> db -> from('user');
 		$this -> db -> where('Email',$em);
 		$this -> db -> where('Password',$pw);
@@ -46,7 +46,7 @@ class Database extends CI_Model
 		$query = $this -> db -> get();
 		if($query -> num_rows() == 1)
 		{
-			return TRUE;
+			return $query->result();
 		}
 		else
 		{
@@ -100,6 +100,12 @@ class Database extends CI_Model
 		{
 			return 'ABC';//$row['Name'];
 		}
+	}
+
+	public function set_new_password($password,$email)
+	{
+		$this->db->query("UPDATE user SET Password = '".$password."' WHERE Email = '".$email."'");
+		return;
 	}
 }
 ?>

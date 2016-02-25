@@ -3,15 +3,15 @@ class NewPassword extends CI_Controller {
 
         public function index()
         {
-            $data['message'] = 'Please correct these errors...';
-            $this->load->view('pages/templates/header1');
-            $this->load->view('pages/newPassword',$data);
+            
+            $this->load->view('pages/templates/header');
+            $this->load->view('pages/myprofile');
             $this->load->view('pages/templates/footer');
         }
 
         public function newp()
         {
-
+            $data['message'] = 'Please correct these errors...';
         	$this->load->model('database','',TRUE);
         	$this->load->helper(array('form', 'url','security'));
         	$this->load->library('form_validation');
@@ -31,10 +31,11 @@ class NewPassword extends CI_Controller {
 
         	if ($this->form_validation->run() == FALSE)
         	{
-                $data['message'] = 'Enter and confirm your new password. Correct the following errors !';
-                $data['resetPassword'] = 'yes';
-                $this->load->view('pages/templates/header1');
-        		$this->load->view('pages/newPassword',$data);
+                //$data['message'] = 'Correct the following errors !';
+                //$data['resetPassword'] = 'yes';
+                $this->load->view('pages/templates/header');
+        		//$this->load->view('pages/newPassword',$data);
+                $this->load->view('pages/changePassword');
                 $this->load->view('pages/templates/footer');
         	}
         	else
@@ -42,9 +43,10 @@ class NewPassword extends CI_Controller {
         		$this->Password = $_POST['password'];
 
         		$this->database->set_new_password($_POST['password'],$_COOKIE['email']);
-
-                $this->load->view('pages/templates/header1');
-        		$this->load->view('pages/newPasswordSet');
+                $data['message']='Password has been changed';
+                $this->load->view('pages/templates/header');
+        		//$this->load->view('pages/newPasswordSet');
+                $this->load->view('pages/changePassword',$data);
                 $this->load->view('pages/templates/footer');
         	}
         }

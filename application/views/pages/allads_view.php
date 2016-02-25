@@ -3,8 +3,8 @@
   	<div class="main" role="main">
     	<div id="content" class="content full">
         	<div class="container">
-            	<div>
-            	<div>
+            	<div class="row">
+            	<div class="results-container">
 				<h3>All Ads</h3>
 				<?php
 					foreach($posts as $post){?>
