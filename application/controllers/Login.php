@@ -64,16 +64,16 @@ class Login extends CI_Controller
                 {
                     //session_start();
                     //$_SESSION['email'] = $_POST['email'];
-                    $session_data=array();
-                    foreach($result as $row)
-                    {
+                        $this->load->model('Ads_model');
+                        $ads=$this->Ads_model->countmyads($_POST['email']);
+                        //$ads=count($this->data);
+
                         $session_data=array(
-                            'email'=>$row->Email,
-                            'type'=>$row->Type,
+                            'email'=>$result[0]->Email,
+                            'type'=>$result[0]->Type,
+                            'ads'=>$ads,
                         );
                         $this->session->set_userdata('logged_in',$session_data);
-                    }
-                    
                     
                     if(isset($_POST['rememberMe']))
                     {

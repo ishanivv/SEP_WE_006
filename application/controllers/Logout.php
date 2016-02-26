@@ -17,7 +17,8 @@
 
 			$sess_array = array(
 			'email' => '',
-			'type' =>''
+			'type' =>'',
+			'ads'=>'',
 			);
 			$this->session->unset_userdata('logged_in', $sess_array);
 
