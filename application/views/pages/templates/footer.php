@@ -4,7 +4,7 @@
         	<div class="container">
                 <div class="row">
                 	<div class="col-md-6 col-sm-6 copyrights-left">
-                    	<p>&copy; 2014 AutoStars. All Rights Reserved</p>
+                    	<p>&copy; 2014 AutoTraders. All Rights Reserved</p>
                     </div>
                 </div>
             </div>

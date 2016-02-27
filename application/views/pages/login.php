@@ -35,7 +35,7 @@
                                     <br>
                                     <p><a href="http://localhost/ci/ResetPassword">Forgot password?</a></p>
                                     <div>
-                                    <p>Don't have an account? <span class="accent-color"><a href="register">Register here</a></span></p>
+                                    <p>Don't have an account? <span class="accent-color"><a href="http://localhost/ci/Register">Register here</a></span></p>
                                     </div>
                                     <div class="spacer-20"></div>
                                     <input type="submit" class="btn btn-primary btn-lg btn-block" name="login" value="Login">

@@ -48,20 +48,6 @@
                         <ul class="top-navigation sf-menu">
                             <?php
 
-                                    //if(isset($_COOKIE['type'])){
-                                      //  $_SESSION['type']=$_COOKIE['type'];
-
-                                    /*    if(isset($_SESSION['type']))
-                                    {
-                                        echo '<li>';
-                                        echo '<a href="http://localhost/ci/admintable_ctrl">Manage Admins</a>';
-                                        echo '</li>';
-                                        echo '<li>';
-                                        echo '<a href="http://localhost/ci/notify_ctrl">Notifications</a>';
-                                        echo '</li>';
-                                    }*/
-                                    //}
-
                                     if (isset($this->session->userdata['logged_in'])) {
                                         $email = ($this->session->userdata['logged_in']['email']);
                                         $type = ($this->session->userdata['logged_in']['type']);

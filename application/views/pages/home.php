@@ -43,7 +43,7 @@
     	<div id="content" class="content full padding-b0">
             <div class="container">
             	<!-- Welcome Content and Services overview -->
-            	<div class="col-md-4">
+            	<div class="col-md-3" style="padding-left:0px">
             		<section class="signup-form sm-margint">
             		<form name="form1" method="post" action="http://localhost/ci/search/search_keyword">
             		<div class="regular-signup">
@@ -98,9 +98,9 @@
 					</section>
             		</div>
             		<div class="row">
-                		<div class="col-md-6">
-                    		<h1 class="uppercase strong">Welcome to AutoStars<br>Listing portal</h1>
-                        	<p class="lead">AutoStars is the Sri Lanka's leading portal for<br>easy and quick <span class="accent-color">buying and selling</span></p>
+                		<div class="col-md-8">
+                    		<h1 class="uppercase strong">Welcome to AutoTraders<br>Listing portal</h1>
+                        	<p class="lead">AutoTraders is the Sri Lanka's leading portal for<br>easy and quick <span class="accent-color">buying and selling</span></p>
                     		<p>Welcome to Sri Lanka's largest vehicle portal. Best choice for buying and selling of each type of vehicles.</p>
                         	<p>You can browse through vehicles according to your requirement. Feel free to inform your experience and inquiries through <span class="accent-color"><a href="contactus">customer feedback</a></span></p>
                     	</div>

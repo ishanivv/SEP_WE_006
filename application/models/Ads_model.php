@@ -29,6 +29,14 @@
 			$this->db->update('vehicle',$data);
 		}
 
+		public function getadtosend($vehicleid)
+		{
+			$this->db->select("Vehicleid,Image1,Brand,Model,Modelyear,VehicleCondition,Mileage,BodyType,Transmission,Fueltype,EngineCapacity,Price,Negotiable,Description,Phone,Email");
+			//$this->db->from('vehicle');
+			$this->db->where('Vehicleid',$vehicleid);
+			$query=$this->db->get('vehicle');
+			return $query->result();
+		}
 
 		public function reject($vehicleid){
 			$this->db->where('Vehicleid',$vehicleid);

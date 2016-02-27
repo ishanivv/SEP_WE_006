@@ -55,6 +55,7 @@ $route['NewPassword']="NewPassword";
 $route['NewPassword/newp']="NewPassword/newp";
 $route['ResetPassword']="ResetPassword";
 $route['Login/log']="Login/log";
+$route['Register']="Register";
 $route['Logout/out']="Logout/out";
 $route['notify_ctrl']="notify_ctrl";
 //$route['adpreview_ctrl/getad_preview/(:num)']="adpreview_ctrl/getad_preview/$1";

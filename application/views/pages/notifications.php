@@ -8,7 +8,7 @@
 				<h4>Pending Ads</h4>
 				<?php
 					if (isset($message)) {?>
-						<h4 style="color:green;">Ad has been approved</h4>	
+						<h4 style="color:green;">$message</h4>	
 				<?php	}
 				?>
 				<?php
@@ -17,6 +17,7 @@
 						<div style="width: 200px;height: 150px;float: left;padding: 20px">
 							<?php $image=$post->Image1; 
 								  $vehicleid=$post->Vehicleid;
+								  $email=$post->Email;
 							echo '<img src="http://localhost/ci/images/' . $image . '" style="width:200px; height:150px;"/>';?>
 						</div>
 						<div style="width: 700px;height: 200px;float: left;margin:0;padding-left: 10px">
@@ -39,7 +40,7 @@
 							</div>
 							<div>
 							<a href="<?php echo 'adpreview_ctrl/getad_preview_notify/'.$vehicleid?>"><input type="button" value="View" class="btn-primary"></a>
-							<a href="<?php echo 'http://localhost/ci/approve_ctrl/approve/'.$vehicleid?>"><input type="button" value="Approve" class="btn-primary"></a>
+							<a href="<?php echo 'http://localhost/ci/approve_ctrl/approve/'.$vehicleid.'/'.$email?>"><input type="button" value="Approve" class="btn-primary"></a>
 							<a href="<?php echo 'approve_ctrl/reject/'.$vehicleid?>"><input type="button" value="Reject" class="btn-primary"></a>
 							</div>
 						</div>
