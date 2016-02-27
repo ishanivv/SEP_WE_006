@@ -62,11 +62,9 @@ class Login extends CI_Controller
                 $result=$this->database->login($_POST['email'],$_POST['password']);
                 if($result)
                 {
-                    //session_start();
-                    //$_SESSION['email'] = $_POST['email'];
                         $this->load->model('Ads_model');
                         $ads=$this->Ads_model->countmyads($_POST['email']);
-                        //$ads=count($this->data);
+                       
 
                         $session_data=array(
                             'email'=>$result[0]->Email,
@@ -84,20 +82,7 @@ class Login extends CI_Controller
                             
                         }
                     }
-                    //$data['message'] = '<p>Hello '.$_SESSION['name'].'</p>';
-                    /*if($this->database->isadmin($_POST['email'])==TRUE)
-                     {
-                        $_SESSION['type']='admin';
-                    //    setcookie('type',$_SESSION['type'],time()+(86400 * 30),"/");
-                        //$data['admin']='yes';
-                        
-                     } */
                     
-                   /*     $this->load->model('Ads_model');
-                        $this->data['posts']=$this->Ads_model->getmyads($_SESSION['email']);
-                        $_SESSION['ads']=count($this->data);*/
-                    //    setcookie('ads',$_SESSION['ads'],time()+(86400 * 30),"/");
-
                         $this->load->view('pages/templates/header');
                         $this->load->view('pages/loginSuccessful');
                         $this->load->view('pages/templates/footer');

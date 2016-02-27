@@ -34,12 +34,36 @@ class ResetPassword extends CI_Controller
         }
         else
         {
-        	$newPassword = $this->database->resetPassword($_POST['email']);
-        	$data['message'] = 'Check your email inbox for new password';
+        	$newpassword= $this->database->resetPassword($_POST['email']);
+
+        	if($newpassword)
+        	{
+        		if($this->database->sendPasswordResetMail($_POST['email'],$newpassword))
+        		{
+        			$data['message'] = 'Your password has been reset. Check your email inbox for new password';
         	
-        	$this->load->view('pages/templates/header');
-        	$this->load->view('pages/login',$data);
-        	$this->load->view('pages/templates/footer');
+        			$this->load->view('pages/templates/header');
+        			$this->load->view('pages/resetPassword',$data);
+        			$this->load->view('pages/templates/footer');
+        		}
+        		else
+        		{
+        			$data['message'] = 'Please try again';
+        	
+        			$this->load->view('pages/templates/header');
+        			$this->load->view('pages/resetPassword',$data);
+        			$this->load->view('pages/templates/footer');
+        		}
+        		
+        	}
+        	else
+        	{
+        		$data['message'] = 'Please try again';
+        	
+        		$this->load->view('pages/templates/header');
+        		$this->load->view('pages/resetPassword',$data);
+        		$this->load->view('pages/templates/footer');
+        	}
         }
 	}
 

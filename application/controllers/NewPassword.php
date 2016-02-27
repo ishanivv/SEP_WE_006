@@ -31,10 +31,7 @@ class NewPassword extends CI_Controller {
 
         	if ($this->form_validation->run() == FALSE)
         	{
-                //$data['message'] = 'Correct the following errors !';
-                //$data['resetPassword'] = 'yes';
                 $this->load->view('pages/templates/header');
-        		//$this->load->view('pages/newPassword',$data);
                 $this->load->view('pages/changePassword');
                 $this->load->view('pages/templates/footer');
         	}

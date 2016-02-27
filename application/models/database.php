@@ -80,17 +80,52 @@ class Database extends CI_Model
 		{
 			$randomString .= $characters[rand(0, $charactersLength - 1)];
 		}
-		/////////////////////////////////////////////////////////////////////////////////
+		
 
 		$this->password = $randomString;
 
-		///////////////////////////code to send email////////////////////////////////////
+		
 		$msg = 'Your new password is : '.$randomString.'';
-		//mail($email,"New password",$msg);
-		/////////////////////////////////////////////////////////////////////////////////
+		
+		$data=array('Password' => $this->password);
+		$this->db->where('Email',$email);
+		$this->db->update('user',$data);
 
-		$this->db->update('user', $this);
-		return;
+		return $randomString;
+		
+	}
+
+	public function sendPasswordResetMail($email,$password)
+	{
+		$config = Array
+		(
+			'protocol' => 'smtp',
+			'smtp_host' => 'ssl://smtp.googlemail.com',
+			'smtp_port' => 465,
+			'smtp_user' => 'ishanivv@gmail.com',
+			'smtp_pass' => '31947vvv',
+			'mailtype' => 'html',
+			'charset' => 'iso-8859-1',
+			'wordwrap' => TRUE
+		);
+
+		$this->load->library('email',$config);
+		$this->email->set_newline("\r\n");
+		$this->email->from('ishanivv@gmail.com');
+		$this->email->to($email);
+		$this->email->subject('New Password');
+		$message = 'Your password has been reset. Your new password is "'.$password.'"(without quotes). Use this password to login. We recommend you to change the password after logged in.';
+		$this->email->message($message);	
+		
+		if($this->email->send())
+    	{
+      		return true;
+     	}
+     	else
+    	{
+     		show_error($this->email->print_debugger());
+     		return false;
+    	}
 	}
 
 	public function get_name($email)

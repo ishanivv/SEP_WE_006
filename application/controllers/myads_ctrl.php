@@ -25,7 +25,6 @@ class Myads_ctrl extends CI_Controller
 
 	public function sendemail()
 	{
-		
 
 		$config = Array(
   			'protocol' => 'smtp',
