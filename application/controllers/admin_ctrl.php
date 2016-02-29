@@ -76,11 +76,13 @@ class Admin_ctrl extends CI_Controller
 		$this->load->view('pages/addadmin',$this->data);
 		$this->load->view('pages/templates/footer');
 	}
-	function email_exists($value)
-        {
-            $this->load->model('admin_model','',TRUE);
-            return $this->admin_model->email_exists($value);
-        }
+
+
+	public function email_exists($value)
+    {
+        $this->load->model('admin_model','',TRUE);
+        return $this->admin_model->email_exists($value);
+    }
 }
 
 ?>

@@ -40,8 +40,8 @@
 							</div>
 							<div>
 							<a href="<?php echo 'adpreview_ctrl/getad_preview_notify/'.$vehicleid?>"><input type="button" value="View" class="btn-primary"></a>
-							<a href="<?php echo 'http://localhost/ci/approve_ctrl/approve/'.$vehicleid.'/'.$email?>"><input type="button" value="Approve" class="btn-primary"></a>
-							<a href="<?php echo 'approve_ctrl/reject/'.$vehicleid?>"><input type="button" value="Reject" class="btn-primary"></a>
+							<a href="<?php echo 'http://localhost/ci/approve_ctrl/approve/'.$vehicleid.'/'.$email?>"><input type="button" value="Approve" class="btn-primary" onclick="return approveconfirm();"></a>
+							<a href="<?php echo 'approve_ctrl/reject/'.$vehicleid?>"><input type="button" value="Reject" class="btn-primary" onclick="return rejectconfirm();"></a>
 							</div>
 						</div>
 						</div>
@@ -53,3 +53,20 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+    function approveconfirm()
+    {
+        job=confirm("Are you sure you want to approve this advertisement?");
+        if (job!=true) {
+        	return false
+        }
+    }
+
+    function rejectconfirm()
+    {
+        job=confirm("Are you sure you want to reject this advertisement?");
+        if (job!=true) {
+        	return false
+        }
+    }
+</script>

@@ -39,7 +39,7 @@ class NewPassword extends CI_Controller {
         	{
         		$this->Password = $_POST['password'];
 
-        		$this->database->set_new_password($_POST['password'],$_COOKIE['email']);
+        		$this->database->set_new_password(md5($_POST['password']),$this->session->userdata['logged_in']['email']);
                 $data['message']='Password has been changed';
                 $this->load->view('pages/templates/header');
         		//$this->load->view('pages/newPasswordSet');

@@ -15,7 +15,7 @@
                                     <li class="list-group-item active"> <span class="badge"><?php echo $this->session->userdata['logged_in']['ads']; ?></span> <a href="<?php echo 'http://localhost/ci/myads_ctrl/getmyads/'.$this->session->userdata['logged_in']['email']?>"><i class="fa fa-edit"></i> Manage Ads</a></li>
                                     <li class="list-group-item"> <a href="http://localhost/ci/NewPassword"><i class="fa fa-user"></i> My Profile</a></li>
                                     <li class="list-group-item"> <a href="user-dashboard-settings.html"><i class="fa fa-cog"></i> Account Settings</a></li>
-                                    <li class="list-group-item"> <a href="javascript:void(0)"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                                    <li class="list-group-item"> <a href="http://localhost/ci/Logout/out"><i class="fa fa-sign-out"></i> Log Out</a></li>
                                 </ul>
                             </div>
                         </div>

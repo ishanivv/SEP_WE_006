@@ -28,7 +28,6 @@
 <!-- SCRIPTS
   ================================================== -->
 <script src="http://localhost/ci/js/modernizr.js"></script><!-- Modernizr -->
-
 </head>
 <body class="home">
 <!--[if lt IE 7]>

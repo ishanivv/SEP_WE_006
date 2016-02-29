@@ -59,7 +59,8 @@ class Login extends CI_Controller
                     $this->rememberMe = $_POST['rememberMe'];
                 }
 
-                $result=$this->database->login($_POST['email'],$_POST['password']);
+
+                $result=$this->database->login($_POST['email'],md5($_POST['password']));
                 if($result)
                 {
                         $this->load->model('Ads_model');

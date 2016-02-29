@@ -36,6 +36,12 @@ class Database extends CI_Model
 		}
 	}
 
+	public function register()
+	{
+		$data=array('Email'=>$this->input->post('email'),'Name'=>$this->input->post('Name'),'Password'=>md5($this->input->post('password')),'Type' =>$this->input->post('userType'));
+		$this->db->insert('user',$data);
+	}
+
 	public function login($em,$pw)
 	{
 		$this -> db -> select('*');
@@ -52,6 +58,15 @@ class Database extends CI_Model
 		{
 			return FALSE;
 		}
+	}
+
+	public function decryptpwd($email)
+	{
+		$this -> db -> select('*');
+		$this -> db -> from('user');
+		$this -> db -> where('Email',$em);
+		$query = $this -> db -> get();
+		return $query->result();
 	}
 
 	public function isadmin($em)
@@ -87,7 +102,7 @@ class Database extends CI_Model
 		
 		$msg = 'Your new password is : '.$randomString.'';
 		
-		$data=array('Password' => $this->password);
+		$data=array('Password' => md5($this->password));
 		$this->db->where('Email',$email);
 		$this->db->update('user',$data);
 

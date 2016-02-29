@@ -1,11 +1,6 @@
 <?php
 class Register extends CI_Controller {
 
-        public $Name;
-        public $Email;
-        public $Password;
-        public $Type;
-
         public function index()
         {
                 $this->load->view('pages/templates/header');
@@ -19,6 +14,7 @@ class Register extends CI_Controller {
             $this->load->model('database','',TRUE);
             $this->load->helper(array('form', 'url','security'));
             $this->load->library('form_validation');
+            $this->load->library('encrypt');
 
             $this->form_validation->set_rules
             (
@@ -33,15 +29,12 @@ class Register extends CI_Controller {
             );
             $this->form_validation->set_rules
             (
-                'userName', 
-                'Username',
-                'required|min_length[6]|max_length[12]|callback_userName_exists|alpha',
+                'Name', 
+                'Name',
+                'required|alpha',
                 array
                 (
                     'required'      => 'You have not provided %s.',
-                    'userName_exists'     => 'This %s already exists.',
-                    'min_length'      => 'Name must be atleast 6 characters long.',
-                    'max_length'      => 'Name must be shorter than 12 characters.',
                     'alpha'      => 'Name can only contain alphabatical values.'
                 )
             );
@@ -66,16 +59,42 @@ class Register extends CI_Controller {
             }
             else
             {
-                $this->Name = $_POST['userName'];
-                $this->Email = $_POST['email'];
-                $this->Password = $_POST['password'];
-                $this->Type = $_POST['userType'];
+        
+                $this->database->register();
+                $config = Array(
+                    'protocol' => 'smtp',
+                    'smtp_host' => 'ssl://smtp.googlemail.com',
+                    'smtp_port' => 465,
+                    'smtp_user' => 'autotraderslk@gmail.com', // change it to yours
+                    'smtp_pass' => 'autotraderslk1', // change it to yours
+                    'mailtype' => 'html',
+                    'charset' => 'iso-8859-1',
+                    'wordwrap' => TRUE
+                );
 
-                $this->db->insert('user', $this);
+                $this->load->library('email',$config);
+                $this->email->set_newline("\r\n");
+                $this->email->from('autotraderslk@gmail.com');
+                $this->email->to($_POST['email']); 
+                //$this->email->cc('another@another-example.com'); 
+                //$this->email->bcc('them@their-example.com'); 
 
-                $this->load->view('pages/templates/header');
-                $this->load->view('pages/registrationSuccessful');
-                $this->load->view('pages/templates/footer');
+                $this->email->subject('Thank you for registering with Autotraders');
+                $this->email->message('Dear customer,You are successfully registered as a private member in our web site. You can now proceed with posting free advertisements.');  
+
+                //$this->email->send();
+
+                if($this->email->send())
+                {
+                    $this->load->view('pages/templates/header');
+                    $this->load->view('pages/registrationSuccessful');
+                    $this->load->view('pages/templates/footer');
+                }
+                else
+                {
+                    show_error($this->email->print_debugger());
+                }
+                
             }
         }
 

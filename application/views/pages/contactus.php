@@ -8,7 +8,7 @@
                             <form method="post" action="<?php echo base_url();?>feedback_ctrl/insert_into_feedback">
                             	<!-- Regular Signup -->
                                 <div class="regular-signup">
-                        			<h3>Send a feedback</h3>
+                        			<h3>Contact Us</h3>
                                     <?php if (isset($message)) { ?>
                                     <h6 style="color:green;">Data inserted successfully</h6><br>
                                     <?php } ?>

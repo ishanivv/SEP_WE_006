@@ -54,7 +54,7 @@
                                     <input type="radio" checked='checked' name='userType' value='Private'> Private
                                     <input type="radio" name='userType' value='Business'> Business Advertiser
                                     <div class="spacer-20"></div>
-                                    <input type="text" id='userName' value='<?php echo set_value("userName"); ?>' name='userName' class="form-control" placeholder="Name">
+                                    <input type="text" id='Name' value='<?php echo set_value("Name"); ?>' name='Name' class="form-control" placeholder="Name">
                                     <input type="email" value='<?php echo set_value("email"); ?>' class="form-control" placeholder="E-mail" id='email' name='email'>
                                     <input type="password" name="password" class="form-control" placeholder="Password" id='password'/>
                                     <input type="password" class="form-control" id='confirmPassword' name='confirmPassword' placeholder="Confirm Password"/>

@@ -27,6 +27,12 @@
 			$this->db->delete('user');
 		}
 
+		public function edit_admin($email)
+		{
+			$data=array('Email' => $this->input->post('email'),'Name'=>$this->input->post('name'),'Password'=>$this->input->post('pwd'));
+			$this->db->where('Email',$email);
+			$this->db->update('user',$data);
+		}
 
 		public function email_exists($value)
 		{
