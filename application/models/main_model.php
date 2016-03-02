@@ -5,7 +5,6 @@
 	class Main_Model extends CI_Model
 	{
 		
-
 		public function insert_into_vehicle()
 		{
 			//$handle = fopen($_FILES["image1"]["tmp_name"], 'r');
@@ -15,26 +14,42 @@
 		}
 		public function insert_into_feedback()
 		{
-			$data=array('Email' => $this->input->post('email'),'Name'=>$this->input->post('name'),'Message'=>$this->input->post('message'));
+			$data=array('Email' => $this->input->post('email'),'Name'=>$this->input->post('name'),'Message'=>$this->input->post('message'),'Status'=>'Not Checked');
 			$this->db->insert('feedback',$data);
 				
 		}
-		public function getad_preview($vehicleid){
-			$this->db->select("Vehicleid,Image1,Image2,Image3,Brand,Model,Modelyear,VehicleCondition,Mileage,BodyType,Transmission,Fueltype,EngineCapacity,Price,Negotiable,Description,Phone,Email");
-			$query=$this->db->get_where('vehicle',array('Vehicleid' => $vehicleid));
+
+		public function get_feedback(){
+			$this->db->select("Feedbackid,Email,Name,Message,Status,Timestamp");
+			$query=$this->db->get_where('feedback');
 			//$this->db->from('user');
 			//$query=$this->db->get('user');
 			return $query->result();
 		}
 
-		function search($category,$make,$model)
+		public function change_feedback_status($feedbackid)
 		{
-			
+			$data=array('Status' => 'Checked');
+			$this->db->where('Feedbackid',$feedbackid);
+			$this->db->update('feedback',$data);
+		}
 
-			//$this->db->where('Category', $category);
-			//$this->db->where('Brand', $make);
-			//$this->db->where('Model', $model); 
+		public function get_feedback_email($feedbackid){
 
+			$this->db->select("Feedbackid,Email,Message");
+			$query=$this->db->get_where('feedback',array('Feedbackid' => $feedbackid));
+			return $query->result();
+		}
+
+		public function count_feedbacks()
+		{
+			$this->db->select("Feedbackid,Email,Name,Message,Status,Timestamp");
+			$query=$this->db->get_where('feedback');
+			return $query->num_rows();
+		}
+
+		public function search($category,$make,$model)
+		{
 			$querywhere="";
 			if($category!="Any"){
 				if (empty($querywhere)){
@@ -63,43 +78,35 @@
 				}
 
 			}	
-			$querywhere=$querywhere." and Status='Approved'";
-			$this->db->where($querywhere); 
-			$query = $this->db->get('vehicle');
-			return $query->result();
+
+			if (empty($querywhere)){
+				$this->db->select("Vehicleid,Image1,Brand,Model,Modelyear,VehicleCondition,Mileage,BodyType,Transmission,Fueltype,EngineCapacity,Price,Negotiable,Description,Phone,Email");
+				//$this->db->from('vehicle');
+				$this->db->where('Status','Approved');
+				$query=$this->db->get('vehicle');
+				return $query->result();
+			}
+			
+			else{	
+				$querywhere=$querywhere." and Status='Approved'";
+				$this->db->where($querywhere); 
+				$query = $this->db->get('vehicle');
+				return $query->result();
+			}
 			
 		}
 
-		function advanced_ctrl ($category,$make,$model,$condition,$pria,$prib,$transmission,$year1,$year2,$fuel,$dis1,$dis2,$cap1,$cap2)
+		public function advanced_ctrl ($category,$make,$model,$condition,$pria,$prib,$transmission,$year1,$year2,$fuel,$dis1,$dis2,$cap1,$cap2)
 		{
-
-		//$this->db->where('Price >=',$pria);
-        //$this->db->where('Price <=',$prib);
-        //$price = $this->db->get('vehicle');
-
-        //$this->db->where('Modelyear >=',$year1);
-        //$this->db->where('Modelyear <=',$year2);
-        //$year = $this->db->get('vehicle');
-
-        //$this->db->where('Mileage >=',$dis1);
-        //$this->db->where('Mileage  <=',$dis2);
-        //$distance = $this->db->get('vehicle');
-
-        //$this->db->where('EngineCapacity >=',$cap1);
-        //$this->db->where('EngineCapacity <=',$cap2);
-        //$capacity = $this->db->get('vehicle');
-
-
-
 			$querywhere="";
 			if($category!="Any"){
 				if (empty($querywhere)){
 					$querywhere=$querywhere." Category = '$category'";
-					}
+				}
 				else {
 					$querywhere=$querywhere." and Category = '$category'";
-					}
 				}
+			}
 
 			if ($make!="Any"){
 				if (empty($querywhere)){
@@ -119,6 +126,7 @@
 				}
 
 			}
+
 			if ($condition!="Any"){
 				if(empty($querywhere)){
 					$querywhere=$querywhere."VehicleCondition = '$condition'";
@@ -129,6 +137,7 @@
 				}
 
 			}	
+
 			if (!empty($pria) && !empty($prib)){
 				if(empty($querywhere)){
 					$querywhere=$querywhere.'Price BETWEEN "'.$pria.'" and "'.$prib.'"';
@@ -149,6 +158,7 @@
 				}
 
 			}
+
 			if (!empty($year1) && !empty($year2)){
 				if(empty($querywhere)){
 					$querywhere=$querywhere.'Modelyear BETWEEN "'.$year1.'" and "'.$year2.'"';
@@ -158,7 +168,8 @@
 					$querywhere=$querywhere. 'and Modelyear BETWEEN "'.$year1.'" and "'.$year2.'"';
 				}
 
-			}	
+			}
+
 			if ($fuel!="Any"){
 				if(empty($querywhere)){
 					$querywhere=$querywhere."Fueltype= '$fuel'";
@@ -169,6 +180,7 @@
 				}
 
 			}
+
 			if (!empty($dis1) && !empty($dis2)){
 				if(empty($querywhere)){
 					$querywhere=$querywhere.'Mileage BETWEEN "'.$dis1.'" and "'.$dis2.'"';
@@ -177,8 +189,9 @@
 
 					$querywhere=$querywhere.' and Mileage BETWEEN "'.$dis1.'" and "'.$dis2.'"';
 
+				}
 			}
-		}
+
 			if (!empty($cap1) && !empty($cap2)){
 				if(empty($querywhere)){
 					$querywhere=$querywhere.'EngineCapacity BETWEEN "'.$cap1.'" and "'.$cap2.'"';
@@ -188,14 +201,32 @@
 					$querywhere=$querywhere.'and EngineCapacity BETWEEN "'.$cap1.'" and "'.$cap2.'"';
 				}
 
+			}
+
+
+			if (empty($querywhere)){
+				$this->db->select("Vehicleid,Image1,Brand,Model,Modelyear,VehicleCondition,Mileage,BodyType,Transmission,Fueltype,EngineCapacity,Price,Negotiable,Description,Phone,Email");
+				//$this->db->from('vehicle');
+				$this->db->where('Status','Approved');
+				$query=$this->db->get('vehicle');
+				return $query->result();
+			}
+			
+			else{
+				$this->db->where($querywhere); 
+				$querywhere=$querywhere." and Status = 'Approved'";
+				$query = $this->db->get('vehicle');
+				return $query->result();
 			}		
 
 
-			$querywhere=$querywhere." and Status='Approved'";
-			$this->db->where($querywhere); 
-			$query = $this->db->get('vehicle');
-			return $query->result();
+		}
 
+		public function delete_feedback($feedbackid)
+		{
+
+			$this->db->where('Feedbackid',$feedbackid);
+			$this->db->delete('feedback');
 
 		}
 	}

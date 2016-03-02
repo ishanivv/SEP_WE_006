@@ -10,15 +10,12 @@
 		public function out()
 		{
 			
-        	/*setcookie('remember', null, -1, '/');
-			setcookie('email', null, -1, '/');
-			setcookie('resetPassword', null, -1, '/');
-			setcookie('type',null,-1,'/');*/
-
 			$sess_array = array(
 			'email' => '',
 			'type' =>'',
 			'ads'=>'',
+			'pendingads'=>'',
+			'messages'=>'',
 			);
 			$this->session->unset_userdata('logged_in', $sess_array);
 

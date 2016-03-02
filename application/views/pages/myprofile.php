@@ -8,12 +8,12 @@
                             <div class="users-sidebar tbssticky">
                             	<a href="user-dashboard.html" class="btn btn-block btn-primary add-listing-btn">New Ad listing</a>
                                 <ul class="list-group">
-                                    <li class="list-group-item"> <span class="badge">5</span> <a href="<?php echo 'http://localhost/ci/dashboard_ctrl/loadmyads/'.$this->session->userdata['logged_in']['email']?>"><i class="fa fa-home"></i> Dashboard</a></li>
+                                    <li class="list-group-item"> <span class="badge">5</span> <a href="<?php echo 'http://localhost/ci/dashboard_ctrl/load_my_ads/'.$this->session->userdata['logged_in']['email']?>"><i class="fa fa-home"></i> Dashboard</a></li>
                                     <li class="list-group-item"> <span class="badge">5</span> <a href="user-dashboard-saved-searches.html"><i class="fa fa-folder-o"></i> Saved Searches</a></li>
                                     <li class="list-group-item"> <span class="badge">12</span> <a href="user-dashboard-saved-cars.html"><i class="fa fa-star-o"></i> Saved Cars</a></li>
                                     <li class="list-group-item"> <a href="add-listing-form.html"><i class="fa fa-plus-square-o"></i> Create new Ad</a></li>
-                                    <li class="list-group-item"> <span class="badge"><?php echo $this->session->userdata['logged_in']['ads']; ?></span> <a href="<?php echo 'myads_ctrl/getmyads/'.$this->session->userdata['logged_in']['email']?>"><i class="fa fa-edit"></i> Manage Ads</a></li>
-                                    <li class="list-group-item active"> <a href="http://localhost/ci/NewPassword"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li class="list-group-item"> <span class="badge"><?php echo $this->session->userdata['logged_in']['ads']; ?></span> <a href="<?php echo 'my_ads_ctrl/get_my_ads/'.$this->session->userdata['logged_in']['email']?>"><i class="fa fa-edit"></i> Manage Ads</a></li>
+                                    <li class="list-group-item active"> <a href="http://localhost/ci/New_Password"><i class="fa fa-user"></i> My Profile</a></li>
                                     <li class="list-group-item"> <a href="user-dashboard-settings.html"><i class="fa fa-cog"></i> Account Settings</a></li>
                                     <li class="list-group-item"> <a href="http://localhost/ci/Logout/out"><i class="fa fa-sign-out"></i> Log Out</a></li>
                                 </ul>
@@ -76,7 +76,7 @@
                                             <div id="changepassword" class="tab-pane fade">
                                             	<div class="row">
                                                     <div class="col-md-8">
-                                                    <form method="post" action="http://localhost/ci/NewPassword/newp">
+                                                    <form method="post" action="http://localhost/ci/New_Password/newp">
                                                     <?php
                                                         if(isset($message))
                                                         {

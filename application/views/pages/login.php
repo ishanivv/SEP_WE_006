@@ -33,7 +33,7 @@
                                     <input type="password" id="password" class="form-control" name="password" placeholder="Password"/>
                                     <input type='checkbox' checked='checked' name='rememberMe' id='rememberMe' value='yes'/>&nbspRemember me
                                     <br>
-                                    <p><a href="http://localhost/ci/ResetPassword">Forgot password?</a></p>
+                                    <p><a href="http://localhost/ci/Reset_Password">Forgot password?</a></p>
                                     <div>
                                     <p>Don't have an account? <span class="accent-color"><a href="http://localhost/ci/Register">Register here</a></span></p>
                                     </div>

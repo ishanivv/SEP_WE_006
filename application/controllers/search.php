@@ -7,13 +7,6 @@
         $this->load->database();
         $this->load->model('main_model');
     }
-
-    /**function search_keyword1()
-    {
-        $keyword    =   $this->input->post('keyword');
-        $data['query']    =   $this->main_model->search($keyword);
-        $this->load->view('pages/result_view',$data);
-    }**/
  
     function search_keyword ()
     {
@@ -28,7 +21,6 @@
 
 
     }
-
 
 }
 ?>

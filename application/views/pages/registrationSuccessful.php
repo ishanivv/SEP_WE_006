@@ -1,7 +1,5 @@
 
     <!-- Start Body Content -->
-
-
     <div class="main" role="main">
     	<div id="content" class="content full">
         	<div class="container">

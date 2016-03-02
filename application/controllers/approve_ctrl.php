@@ -29,7 +29,7 @@ class Approve_ctrl extends CI_Controller
   			'wordwrap' => TRUE
 		);
 
-		$this->data['posts']=$this->Ads_model->getadtosend($vehicleid);
+		$this->data['posts']=$this->Ads_model->get_ad_to_send($vehicleid);
 
 		$this->load->library('email',$config);
 		$this->email->set_newline("\r\n");
@@ -47,32 +47,70 @@ class Approve_ctrl extends CI_Controller
 		if($this->email->send())
     	{
     		$this->Ads_model->approve($vehicleid);
-			$this->data['posts']=$this->Ads_model->getpendingads();
-      		$data['message']='Ad has been approved';
-			$this->load->view('pages/templates/header');
-			$this->load->view('pages/notifications',$this->data);
-			$this->load->view('pages/templates/footer');
+			/*$this->data['posts']=$this->Ads_model->getpendingads();
+      		$data['message']='Ad has been approved';*/
+      		$pendingads=$this->Ads_model->count_pending_ads;
+      		$pendingads--;
+      		//$this->session->set_userdata('pendingads',$pendingads);
+      		$this->session->set_userdata((['logged_in']['pendingads']),$pendingads);
+      		$this->session->set_flashdata('success_msg', 'Advertisement has been approved and email has sent successfully');
+      		redirect("http://localhost/ci/notify_ctrl");
+      		
      	}
      	else
      	{
-			$this->data['posts']=$this->Ads_model->getpendingads();
-     		//$data['message']='Please try again';
-			$this->load->view('pages/templates/header');
-			$this->load->view('pages/notifications',$this->data);
-			$this->load->view('pages/templates/footer');
+			$this->session->set_flashdata('success_msg', 'Check your internet connection and try again');
+      		redirect("http://localhost/ci/notify_ctrl");
      	}
 
 		
 	}
 
-	public function reject($vehicleid)
+	public function reject($vehicleid,$email)
 	{
-		$this->Ads_model->reject($vehicleid);
-		$this->data['posts']=$this->Ads_model->getpendingads();
-		$data['message']='Ad has been approved';
-		$this->load->view('pages/templates/header');
-		$this->load->view('pages/notifications',$this->data);
-		$this->load->view('pages/templates/footer');
+		$config = Array(
+  			'protocol' => 'smtp',
+  			'smtp_host' => 'ssl://smtp.googlemail.com',
+  			'smtp_port' => 465,
+  			'smtp_user' => 'autotraderslk@gmail.com', // change it to yours
+  			'smtp_pass' => 'autotraderslk1', // change it to yours
+  			'mailtype' => 'html',
+  			'charset' => 'iso-8859-1',
+  			'wordwrap' => TRUE
+		);
+
+		$this->data['posts']=$this->Ads_model->get_ad_to_send($vehicleid);
+
+		$this->load->library('email',$config);
+		$this->email->set_newline("\r\n");
+		$this->email->from('autotraderslk@gmail.com');
+		$this->email->to($email); 
+		//$this->email->cc('another@another-example.com'); 
+		//$this->email->bcc('them@their-example.com'); 
+
+		$this->email->subject('Your ad has been rejected');
+		$body=$this->load->view('pages/send_rejectemail',$this->data,TRUE);
+		$this->email->message($body);	
+
+		//$this->email->send();
+
+		if($this->email->send())
+    	{
+    		$this->Ads_model->reject($vehicleid);
+    		$pendingads=$this->Ads_model->count_pending_ads;
+      		$pendingads--;
+      		//$this->session->set_userdata('pendingads',$pendingads);
+      		$this->session->set_userdata((['logged_in']['pendingads']),$pendingads);
+      		//$this->session->set_userdata('pendingads',$pendingads);
+      		$this->session->set_flashdata('success_msg', 'Advertisement has been rejected and email has sent successfully');
+      		redirect("http://localhost/ci/notify_ctrl");
+    	}
+    	else
+    	{
+    		$this->session->set_flashdata('success_msg', 'Check your internet connection and try again');
+      		redirect("http://localhost/ci/notify_ctrl");
+    	}
+
 	}
 }
 

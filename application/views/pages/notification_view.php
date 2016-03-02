@@ -82,22 +82,9 @@
                       </div>
                       </div>
                       <div>
-                        <a href="<?php echo 'http://localhost/ci/approve_ctrl/approve/'.$vehicleid?>"><input type="button" value="Approve" class="btn-primary"></a>
-                        <a href="<?php echo 'approve_ctrl/reject/'.$vehicleid?>"><input type="button" value="Reject" class="btn-primary"></a>
+                        <a href="<?php echo 'http://localhost/ci/approve_ctrl/approve/'.$vehicleid.'/'.$email?>"><input type="button" value="Approve" class="btn-primary" onclick="return approveconfirm();"></a>
+                        <a href="<?php echo 'approve_ctrl/reject/'.$vehicleid.'/'.$email?>"><input type="button" value="Reject" class="btn-primary" onclick="return rejectconfirm();"></a>
                       </div>
-                    <!-- <b><p style="color:#000">BRAND: <?php //echo $detail->Brand;?></p>
-                     <b><p style="color:#000">MODEL: <?php //echo $detail->Model;?></p>
-                     <b><p style="color:#000">MODEL YEAR: <?php //echo $detail->Modelyear;?>
-                     <b><p style="color:#000">VEHICLE CONDITION: <?php //echo $detail->VehicleCondition;?></p>
-                     <b><p style="color:#000">MILEAGE: <?php //echo $detail->Mileage;?></p>
-                     <b><p style="color:#000">BODY TYPE: <?php //echo $detail->BodyType;?></p>
-                     <b><p style="color:#000">TRANSMISSION: <?php //echo $detail->Transmission;?></p>
-                     <b><p style="color:#000">FUEL TYPE: <?php //echo $detail->Fueltype;?></p>
-                     <b><p style="color:#000">ENGINE CAPACITY: <?php //echo $detail->EngineCapacity;?></p>
-                     <b><p style="color:#000">PRICE: <?php //echo $detail->Price;?></p>
-                     <b><p style="color:#000">DESCRIPTION: <?php //echo $detail->Description;?></p>
-                     <b><p style="color:#000">PHONE: <?php //echo $detail->Phone;?></p>
-                     <b><p style="color:#000">EMAIL: <?php //echo $detail->Email;?></p>-->
                 <?php  }
                 ?>
 
@@ -146,3 +133,21 @@
       });
     });
   </script>
+
+  <script type="text/javascript">
+    function approveconfirm()
+    {
+        job=confirm("Are you sure you want to approve this advertisement?");
+        if (job!=true) {
+          return false;
+        }
+    }
+
+    function rejectconfirm()
+    {
+        job=confirm("Are you sure you want to reject this advertisement?");
+        if (job!=true) {
+          return false;
+        }
+    }
+</script>

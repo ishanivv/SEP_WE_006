@@ -64,25 +64,21 @@ class Login extends CI_Controller
                 if($result)
                 {
                         $this->load->model('Ads_model');
-                        $ads=$this->Ads_model->countmyads($_POST['email']);
-                       
+                        $ads=$this->Ads_model->count_my_ads($_POST['email']);
+                        $pendingads=$this->Ads_model->count_pending_ads();
+
+                        $this->load->model('main_model');
+                        $messages=$this->main_model->count_feedbacks();
 
                         $session_data=array(
                             'email'=>$result[0]->Email,
                             'type'=>$result[0]->Type,
                             'ads'=>$ads,
+                            'pendingads'=>$pendingads,
+                            'messages'=>$messages,
                         );
                         $this->session->set_userdata('logged_in',$session_data);
                     
-                    if(isset($_POST['rememberMe']))
-                    {
-                        if(true/*$_POST['rememberMe'] == 'yes'*/)
-                        {
-                    //        setcookie('remember', 'yes', time() + (86400 * 30), "/");
-                    //        setcookie('email',$_SESSION['email'], time() + (86400 * 30), "/");
-                            
-                        }
-                    }
                     
                         $this->load->view('pages/templates/header');
                         $this->load->view('pages/loginSuccessful');

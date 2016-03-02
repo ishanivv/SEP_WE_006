@@ -3,7 +3,7 @@
 /**
 *  
 */
-class Notify_ctrl extends CI_Controller
+class My_ads_ctrl extends CI_Controller
 {
 	
 	public function __construct()
@@ -14,11 +14,12 @@ class Notify_ctrl extends CI_Controller
 
 	}
 
-	public function index()
+	public function get_my_ads($email)
 	{
-		$this->data['posts']=$this->Ads_model->get_pending_ads();
+		$this->data['posts']=$this->Ads_model->get_my_ads($email);
+		//$_SESSION['ads']=count($this->data);
 		$this->load->view('pages/templates/header');
-		$this->load->view('pages/notifications',$this->data);
+		$this->load->view('pages/manageads',$this->data);
 		$this->load->view('pages/templates/footer');
 	}
 

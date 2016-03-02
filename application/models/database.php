@@ -60,15 +60,6 @@ class Database extends CI_Model
 		}
 	}
 
-	public function decryptpwd($email)
-	{
-		$this -> db -> select('*');
-		$this -> db -> from('user');
-		$this -> db -> where('Email',$em);
-		$query = $this -> db -> get();
-		return $query->result();
-	}
-
 	public function isadmin($em)
 	{
 		$this->db->select('Email','Type');
@@ -117,8 +108,8 @@ class Database extends CI_Model
 			'protocol' => 'smtp',
 			'smtp_host' => 'ssl://smtp.googlemail.com',
 			'smtp_port' => 465,
-			'smtp_user' => 'ishanivv@gmail.com',
-			'smtp_pass' => '31947vvv',
+			'smtp_user' => 'autotraderslk@gmail.com',
+			'smtp_pass' => 'autotraderslk1',
 			'mailtype' => 'html',
 			'charset' => 'iso-8859-1',
 			'wordwrap' => TRUE
@@ -126,7 +117,7 @@ class Database extends CI_Model
 
 		$this->load->library('email',$config);
 		$this->email->set_newline("\r\n");
-		$this->email->from('ishanivv@gmail.com');
+		$this->email->from('autotraderslk@gmail.com');
 		$this->email->to($email);
 		$this->email->subject('New Password');
 		$message = 'Your password has been reset. Your new password is "'.$password.'"(without quotes). Use this password to login. We recommend you to change the password after logged in.';
@@ -138,7 +129,7 @@ class Database extends CI_Model
      	}
      	else
     	{
-     		show_error($this->email->print_debugger());
+     		//show_error($this->email->print_debugger());
      		return false;
     	}
 	}

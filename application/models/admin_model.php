@@ -5,7 +5,8 @@
 	class Admin_model extends CI_Model
 	{
 		
-		public function get_admin(){
+		public function get_all_admins()
+		{
 			$this->db->select("Email,Name,Password");
 			$query=$this->db->get_where('user',array('Type' => "admin"));
 			//$this->db->from('user');
@@ -13,10 +14,17 @@
 			return $query->result();
 		}
 
+		public function get_admin($email)
+		{
+			$this->db->select("Email,Name,Password");
+			$query=$this->db->get_where('user',array('Email'=>$email,'Type' => "admin"));	
+			return $query->result();
+		}
+
 		public function insert_into_admin()
 		{
 			
-			$data=array('Email' => $this->input->post('email'),'Name'=>$this->input->post('name'),'Password'=>$this->input->post('pwd'),'Type'=>'admin' );
+			$data=array('Email' => $this->input->post('email'),'Name'=>$this->input->post('name'),'Password'=>md5($this->input->post('pwd')),'Type'=>'admin' );
 			$this->db->insert('user',$data);
 			//$this->db->query("insert into user values('$email','$name','$pwd','admin')");
 		}
@@ -27,10 +35,10 @@
 			$this->db->delete('user');
 		}
 
-		public function edit_admin($email)
+		public function edit_admin()
 		{
-			$data=array('Email' => $this->input->post('email'),'Name'=>$this->input->post('name'),'Password'=>$this->input->post('pwd'));
-			$this->db->where('Email',$email);
+			$data=array('Name'=>$this->input->post('name'),'Password'=>md5($this->input->post('pwd')));
+			$this->db->where('Email',$this->input->post('email'));
 			$this->db->update('user',$data);
 		}
 

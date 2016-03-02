@@ -31,7 +31,7 @@
 							</div>
 							<div style="width:200px;height:150px;float:left;padding:5px">
 							<p style="width:100px;background-color:#4d4d4d;color:#fff;padding:5px;font-size:16px"><b>Rs. </b><?php echo $post->Price;?></p>
-							<a href="<?php echo 'adpreview_ctrl/getad_preview/'.$vehicleid?>"><input type="button" value="View" class="btn-primary"></a>
+							<a href="<?php echo 'ad_preview_ctrl/getad_preview/'.$vehicleid?>"><input type="button" value="View" class="btn-primary"></a>
 				
 							</div>
 						</div>

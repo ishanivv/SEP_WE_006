@@ -9,7 +9,7 @@
             	<div class="row">
                     <div class="col-md-4">
                     	<section class="signup-form sm-margint">
-                            <form method="post" action="http://localhost/ci/ResetPassword/reset">
+                            <form method="post" action="http://localhost/ci/Reset_Password/reset">
                                 <div class="regular-signup">
                                 <h3>Forgot Password</h3>
                                 <div style="color:green">

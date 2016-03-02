@@ -4,7 +4,7 @@
 <!-- Basic Page Needs
   ================================================== -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>AutoStars - Responsive Car Dealership Template</title>
+<title>Autotraders Vehicle Portal</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="">
@@ -15,7 +15,7 @@
 <!-- CSS
   ================================================== -->
 <link href="http://localhost/ci/css/bootstrap.css" rel="stylesheet" type="text/css">
-<!--<link rel="stylesheet" href="http://localhost/ci/vendor/flexslider/css/flexslider.css" type="text/css" media="screen" />-->
+<!--<link rel="stylesheet" href="http://localhost/ci/css/flexslider.css" type="text/css"/>-->
 <link href="http://localhost/ci/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
 <link href="http://localhost/ci/css/style.css" rel="stylesheet" type="text/css">
 <link href="http://localhost/ci/vendor/prettyphoto/css/prettyPhoto.css" rel="stylesheet" type="text/css">
@@ -50,20 +50,27 @@
                                     if (isset($this->session->userdata['logged_in'])) {
                                         $email = ($this->session->userdata['logged_in']['email']);
                                         $type = ($this->session->userdata['logged_in']['type']);
+                                        $pendingads=($this->session->userdata['logged_in']['pendingads']);
+                                        $messages=($this->session->userdata['logged_in']['messages']);
+                                        $notifications=$pendingads+$messages;
 
                                         if ($type=="admin") {
                                             echo '<li>';
-                                            echo '<a href="http://localhost/ci/admintable_ctrl">Manage Admins</a>';
+                                            echo '<a href="http://localhost/ci/admin_table_ctrl">Manage Admins</a>';
                                             echo '</li>';
                                             echo '<li>';
-                                            echo '<a href="http://localhost/ci/notify_ctrl">Notifications</a>';
+                                            echo '<a href="javascript:void(0)">Notifications <span class="badge">'.$notifications.'</span></a>';
+                                            echo '<ul class="dropdown">';
+                                            echo '<li><a href="http://localhost/ci/notify_ctrl">Pending Ads <span class="badge">'.$pendingads.'</span></a></li>';
+                                            echo '<li><a href="http://localhost/ci/admin_feedback_ctrl">Messages <span class="badge">'.$messages.'</span></a></li>';
+                                            echo '</ul>';
                                             echo '</li>';
                                         }
                                        
 
                             ?>
                             <li>
-                                <a href="<?php echo 'http://localhost/ci/dashboard_ctrl/loadmyads/'.$email?>">
+                                <a href="<?php echo 'http://localhost/ci/dashboard_ctrl/load_my_ads/'.$email?>">
                                 <?php    
                                     echo $email;
                                     echo '</a>';
@@ -105,7 +112,7 @@
                 <nav class="main-navigation dd-menu toggle-menu" role="navigation">
                     <ul class="sf-menu">
                         <li><a href="http://localhost/ci/home">HOME</a></li>
-                        <li><a href="http://localhost/ci/allads_ctrl">ALL ADS</a></li>
+                        <li><a href="http://localhost/ci/all_ads_ctrl">ALL ADS</a></li>
                         <li><a href="http://localhost/ci/postad">POST AD</a></li>
                         <li><a href="http://localhost/ci/contactus">CONTACT US</a> </li>
                     </ul>

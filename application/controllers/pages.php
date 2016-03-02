@@ -8,11 +8,11 @@ class Pages extends CI_Controller
 	function view($page='home')
 	{
 
-//		if ( ! file_exists('application/views/pages/'.$page.'.php'))
-//        {
+		if ( ! file_exists('application/views/pages/'.$page.'.php'))
+        {
                 // Whoops, we don't have a page for that!
- //               show_404();
-   //     }
+                show_404();
+       }
 		//$this->load->model('Main_model');
 		//$this->Main_model->insert_into_user();
 		$this->load->view('pages/templates/header');

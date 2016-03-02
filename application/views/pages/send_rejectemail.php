@@ -38,7 +38,7 @@
 						$vehicleid=$post->Vehicleid;
 						?>
 					<p>Dear Customer, </p>
-					<p>Your vehicle adverstisement has been posted successfully. To view your ad <a href="<?php echo 'http://localhost/ci/adpreview_ctrl/getad_preview/'.$vehicleid?>">Click here</a></p>
+					<p>We are sorry to inform you that your vehicle adverstisement has been rejected due to invalid information you have provided. Please use valid information and edit the post.</p>
 				</div>
 						<div style="width: 915px;height: 200px;float: left;background-color:#fff;opacity:0.9;border-color:#cc3e19;border-style:solid;margin-bottom:30px">
 						<div style="width: 200px;height: 150px;float: left;padding: 20px">
@@ -62,8 +62,6 @@
 							</div>
 							<div style="width:200px;height:150px;float:left;padding:5px">
 							<h4 style="width:105px;background-color:#66b2ff;border-radius:3px;color:#fff;padding:5px;font-size:16px"><b>Rs. </b><?php echo $post->Price;?></h4>
-							<a href="<?php echo 'http://localhost/ci/ad_preview_ctrl/get_ad_preview/'.$vehicleid?>"><input type="button" value="View" class="btn-primary"></a>
-				
 							</div>
 						</div>
 						</div>
