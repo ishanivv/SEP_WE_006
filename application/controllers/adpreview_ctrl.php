@@ -28,6 +28,23 @@ class Adpreview_ctrl extends CI_Controller
 		$this->load->view('pages/notification_view',$this->data);
 		$this->load->view('pages/templates/footer');
 	}
+
+	public function get_map($district,$location)
+	{
+		$this->load->library('googlemaps');
+
+		$config= array();
+		$config['center']=$location.$district;
+		$this->googlemaps->initialize($config);
+
+		$marker= array();
+		$marker['position']=$location.$district;
+		$this->googlemaps->add_marker($marker);
+
+		$data['map'] = $this->googlemaps->create_map();
+
+		$this->load->view('pages/demomap', $data);
+	}
 }
 
 ?>

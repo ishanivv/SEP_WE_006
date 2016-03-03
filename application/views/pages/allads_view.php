@@ -5,6 +5,7 @@
         	<div class="container">
             	<div class="row">
             	<div class="results-container">
+            	<div id="results-holder" class="results-list-view" style="padding-left:10px">
 				<h3>All Ads</h3>
 				<?php
 					foreach($posts as $post){?>
@@ -35,8 +36,9 @@
 							</div>
 						</div>
 						</div>
-						</div>
 				<?php }?>
+				</div>
+				</div>
 				</div>
 
 				</div>

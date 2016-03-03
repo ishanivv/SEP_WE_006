@@ -72,36 +72,38 @@
                                     <li class="list-group-item"> <span class="badge">Condition</span> <?php echo $detail->VehicleCondition;?></li>
                                     <li class="list-group-item"> <span class="badge">Fuel Type</span> <?php echo $detail->Fueltype;?></li>
                                     <li class="list-group-item"> <span class="badge">Engine Capacity</span> <?php echo $detail->EngineCapacity.'cc';?></li>
-                                    <li class="list-group-item"> <span class="badge">Price</span> <?php echo 'Rs. '.$detail->Price;?></li>
                                     <li class="list-group-item"> <span class="badge">Negotiable</span> <?php echo $Negotiable;?></li>
-                                    <li class="list-group-item"> <span class="badge">Description</span> <?php echo $detail->Description;?></li>
-                                    <li class="list-group-item"> <span class="badge">Phone</span> <?php echo $detail->Phone;?></li>
                                     <li class="list-group-item"> <span class="badge">E-mail</span> <?php echo $detail->Email;?></li>
                                 </ul>
                             </div>
+                            <div class="btn btn-info price"><?php echo 'Rs. '.$detail->Price;?></div>
+                              <div class="vehicle-enquiry-foot">
+                                    <span class="vehicle-enquiry-foot-ico"><i class="fa fa-phone"></i></span>
+                                    <strong><?php echo $detail->Phone;?></strong>Seller's Phone Number
+                              </div>
                       </div>
                       </div>
-                <?php  }
-                ?>
-
             </div>
           </div>
           <div class="spacer-20"></div>
           <div class="tabs vehicle-details-tabs">
                                 <ul class="nav nav-tabs">
-                                    <li class="active"> <a data-toggle="tab" href="#vehicle-overview">Overview</a></li>
-                                    <li class="active"> <a data-toggle="tab" href="#vehicle-location">Location</a> </li>
+                                    <li class="active"> <a data-toggle="tab" href="#vehicle-overview">Description and location</a></li>
+                                    
                                 </ul>
                                 <div class="tab-content">
                                     <div id="vehicle-overview" class="tab-pane fade in active">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam.</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam.</p>
+                                        <p><?php echo $detail->Description; ?></p>
+                                        <?php
+                                          $location=$detail->Location;
+                                          $district=$detail->District;
+                                        ?>
+                                        <iframe width="100%" height="300px" frameBorder="0" src="<?php echo 'http://localhost/ci/adpreview_ctrl/get_map/'.$district.'/'.$location?>"></iframe>
+                                    
+                                    <?php }
+                                    ?>
                                     </div>
-                                        <!-- End Toggle --> 
-                                    <div id="vehicle-location" class="tab-pane fade in active">
-                                        <iframe width="100%" height="300px" frameBorder="0" src="http://a.tiles.mapbox.com/v3/imicreation.map-zkcdvthf.html?secure/colombo"></iframe>
-                                    </div>
-                                  </div>
+                                </div>
           </div>
         </div>
       </div>

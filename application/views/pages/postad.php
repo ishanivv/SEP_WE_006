@@ -10,6 +10,9 @@
 				background-attachment:fixed">
     	<div id="content" class="content full">
         	<div class="container">
+        		<div style="color:green">
+                        <h4 align="center" style="color:green;background-color:#ffffff"><?php echo $this->session->flashdata('success_msg');?></h4>
+                </div>
             	<div class="row">
                     <div class="col-md-8">
                     <section class="signup-form sm-margint">
@@ -17,13 +20,12 @@
 						<form name="myForm2" method="post" action="<?php echo base_url();?>post_ctrl/insert_into_vehicle">
 						<div class="regular-signup">
 						<h2>Post your Ad</h2>
-						<div style="color:green">
+						<div style="color:red">
 						<?php
-							if(isset($message))
-                            {
-                                echo $message;
-                            }
-						?>
+                            $CI =& get_instance();
+                            $CI->load->library('form_validation');
+                            echo validation_errors();
+                        ?>
 						</div>
                         <label><h4>Add Photos</h4></label>
                         <div>
@@ -38,7 +40,7 @@
 						<h4>Fill the details</h4>
 						<p>All field marked with * are required</p>
 						<select name="Brand" class="form-control selectpicker">
-							<option value="select1">Brand*</option>
+							<option value="<?php echo set_value("Brand")?>">Brand*</option>
 							<option value="af">Alfa Romeo</option>
 							<option value="am">Aston Martin</option>
 							<option value="Audi">Audi</option>
@@ -83,17 +85,18 @@
 							<option value="Toyota">Toyota</option>
 
 					</select>
-					<input type="text" name="Model" Placeholder="Model*" class="form-control">
-					<input type="text" name="ModelYear" Placeholder="Model Year*" class="form-control">
+					<input type="text" name="Model" value="<?php echo set_value("Model");?>" Placeholder="Model*" class="form-control">
+					<input type="text" name="ModelYear" value="<?php echo set_value("ModelYear")?>" Placeholder="Model Year*" class="form-control">
+					
 					<select name="VehicleCondition" class="form-control selectpicker">
-						<option value="select2">Condition*</option>
+						<option value="<?php echo set_value("VehicleCondition")?>">Condition*</option>
 						<option value="New">New</option>
 						<option value="Used">Used</option>
 						<option value="Reconditioned">Reconditioned</option>
 					</select>
-					<input type="text" name="Mileage" placeholder="Mileage*" class="form-control">
+					<input type="text" name="Mileage" value="<?php echo set_value("Mileage")?>" placeholder="Mileage*" class="form-control">
 					<select name="BodyType" class="form-control selectpicker">
-						<option value="select3">Body Type*</option>
+						<option value="<?php echo set_value("BodyType")?>">Body Type*</option>
 						<option value="Saloon">Saloon</option>
 						<option value="Hatchbatch">Hatchback</option>
 						<option value="Station wagen">Station wagon</option>
@@ -103,25 +106,26 @@
 						<option value="MPV">MPV</option>
 					</select>
 					<select name="Transmission" class="form-control selectpicker">
-						<option value="select4">Transmission*</option>
+						<option value="<?php echo set_value("Transmission")?>">Transmission*</option>
 						<option value="Manual">Manual</option>
 						<option value="Automatic">Automatic</option>
 						<option value="Other">Other Transmission</option>
 					</select>
 					<label class="col-md-4">Fuel Type* </label>
-					<input type="radio" name="groupFuel" value="Petrol" /> Petrol
+					<input type="radio" name="groupFuel" value="Petrol" checked='checked' /> Petrol
 					<input type="radio" name="groupFuel" value="Diesel" />Diesel
 					<input type="radio" name="groupFuel" value="CNG" /> CNG
 					<input type="radio" name="groupFuel" value="Other" />Other
 					<div class="spacer-20"></div>
-					<input type="text" name="EngineCapacity" placeholder="Engine capacity (cc)*" class="form-control">
+					<input type="text" name="EngineCapacity" value="<?php echo set_value("EngineCapacity")?>" placeholder="Engine capacity (cc)*" class="form-control">
 					<div class="spacer-20"></div>
-					<input type="text" name="Price" placeholder="Price(Rs.)*" class="col-md-4" />
-					<input type="checkbox" name="checkbox5" value="1" class="col-md-1">Negotiable
+					<input type="text" name="Price" value="<?php echo set_value("Price")?>" placeholder="Price(Rs.)*" class="col-md-4" />
+					<input id="nego" type="checkbox" name="checkbox5" value="1" class="col-md-1">Negotiable
+					<input id="negohidden" type="hidden" name="checkbox5" value="0" class="col-md-1">
 					<div class="spacer-20"></div>		
-					<textarea rows="10" cols="103" name="Description" placeholder="Description*" class="form-control"></textarea>
-					<input type="text" name="Phone" placeholder="Phone*" class="form-control">
-					<input type="email" name="Email" placeholder="Email*" class="form-control">
+					<textarea rows="10" cols="103" name="Description" value="<?php echo set_value("Description")?>" placeholder="Description*" class="form-control"></textarea>
+					<input type="text" name="Phone" value="<?php echo set_value("Phone")?>" placeholder="Phone*" class="form-control">
+					<input type="text" name="Email" placeholder="Email*" class="form-control" value="<?php echo $this->session->userdata['logged_in']['email'] ?>">
 					<input type="submit" name="postad" class="btn btn-primary btn-lg" value="POST AD">
 				</div>
 			</form>
@@ -132,3 +136,9 @@
 	</div>
 </div>
 </div>
+<script type="text/javascript">
+	if(document.getElementById("nego").checked) {
+    document.getElementById('negohidden').disabled = true;
+}
+
+</script>

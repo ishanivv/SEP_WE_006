@@ -44,7 +44,7 @@
 		public function count_feedbacks()
 		{
 			$this->db->select("Feedbackid,Email,Name,Message,Status,Timestamp");
-			$query=$this->db->get_where('feedback');
+			$query=$this->db->get_where('feedback',array('Status'=>'Not Checked'));
 			return $query->num_rows();
 		}
 

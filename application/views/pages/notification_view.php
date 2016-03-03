@@ -1,4 +1,4 @@
-<div class="main" role="main">
+<div class="main" role="main" style="background-color:#ffffff">
     	<div id="content" class="content full">
         	<div class="container">
             	<div class="row">
@@ -18,6 +18,7 @@
                         $Negotiable='No';
                       }
                       $vehicleid=$detail->Vehicleid;
+                      $email=$detail->Email;
                       $image1=$detail->Image1;
   	    	    		    echo '<img src="http://localhost/ci/images/'.$image1.'" style="width:100%; height:100%" />';?>
   	    				</li>
@@ -72,25 +73,43 @@
                                     <li class="list-group-item"> <span class="badge">Condition</span> <?php echo $detail->VehicleCondition;?></li>
                                     <li class="list-group-item"> <span class="badge">Fuel Type</span> <?php echo $detail->Fueltype;?></li>
                                     <li class="list-group-item"> <span class="badge">Engine Capacity</span> <?php echo $detail->EngineCapacity.'cc';?></li>
-                                    <li class="list-group-item"> <span class="badge">Price</span> <?php echo 'Rs. '.$detail->Price;?></li>
                                     <li class="list-group-item"> <span class="badge">Negotiable</span> <?php echo $Negotiable;?></li>
-                                    <li class="list-group-item"> <span class="badge">Description</span> <?php echo $detail->Description;?></li>
-                                    <li class="list-group-item"> <span class="badge">Phone</span> <?php echo $detail->Phone;?></li>
                                     <li class="list-group-item"> <span class="badge">E-mail</span> <?php echo $detail->Email;?></li>
                                 </ul>
                             </div>
+                            <div class="btn btn-info price"><?php echo 'Rs. '.$detail->Price;?></div>
+                              <div class="vehicle-enquiry-foot">
+                                    <span class="vehicle-enquiry-foot-ico"><i class="fa fa-phone"></i></span>
+                                    <strong><?php echo $detail->Phone;?></strong>Seller's Phone Number
+                              </div>
                       </div>
                       </div>
+                      <div class="spacer-10"></div>
                       <div>
                         <a href="<?php echo 'http://localhost/ci/approve_ctrl/approve/'.$vehicleid.'/'.$email?>"><input type="button" value="Approve" class="btn-primary" onclick="return approveconfirm();"></a>
                         <a href="<?php echo 'approve_ctrl/reject/'.$vehicleid.'/'.$email?>"><input type="button" value="Reject" class="btn-primary" onclick="return rejectconfirm();"></a>
                       </div>
-                <?php  }
-                ?>
-
       			</div>
       		</div>
           <div class="spacer-20"></div>
+          <div class="tabs vehicle-details-tabs">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"> <a data-toggle="tab" href="#vehicle-overview">Description and location</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="vehicle-overview" class="tab-pane fade in active">
+                                        <p><?php echo $detail->Description;; ?></p>
+                                        <?php
+                                          $location=$detail->Location;
+                                          $district=$detail->District;
+                                        ?>
+                                        <iframe width="100%" height="300px" frameBorder="0" src="<?php echo 'http://localhost/ci/adpreview_ctrl/get_map/'.$district.'/'.$location?>"></iframe>
+                                    
+                                    <?php }
+                                    ?>
+                                    </div>
+                                </div>
+          </div>
       	</div>
       </div>
      </div>

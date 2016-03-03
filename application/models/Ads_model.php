@@ -15,7 +15,7 @@
 		}
 
 		public function getad_preview($vehicleid){
-			$this->db->select("Vehicleid,Image1,Image2,Image3,Brand,Model,Modelyear,VehicleCondition,Mileage,BodyType,Transmission,Fueltype,EngineCapacity,Price,Negotiable,Description,Phone,Email");
+			$this->db->select("Vehicleid,Image1,Image2,Image3,Brand,Model,Modelyear,VehicleCondition,Mileage,BodyType,Transmission,Fueltype,EngineCapacity,Price,Negotiable,Description,Phone,Email,Location,District");
 			$query=$this->db->get_where('vehicle',array('Vehicleid' => $vehicleid));
 			return $query->result();
 		}

@@ -43,9 +43,9 @@
                                             <tr>
                                                 <td>
                                                     <!-- Result -->
-                                                    <a href="<?php echo 'http://localhost/ci/adpreview_ctrl/get_ad_preview/'.$vehicleid?>" class="car-image"><?php echo '<img src="http://localhost/ci/images/' . $image . '" style="width:100px; height:70px;"/>';?></a>
+                                                    <a href="<?php echo 'http://localhost/ci/adpreview_ctrl/getad_preview/'.$vehicleid?>" class="car-image"><?php echo '<img src="http://localhost/ci/images/' . $image . '" style="width:100px; height:70px;"/>';?></a>
                                                     <div class="search-find-results">
-                                                        <h5><a href="<?php echo 'http://localhost/ci/ad_preview_ctrl/get_ad_preview/'.$vehicleid?>"><?php echo $post->Brand . " " . $post->Model . " " . $post->Modelyear;?></a></h5>
+                                                        <h5><a href="<?php echo 'http://localhost/ci/adpreview_ctrl/getad_preview/'.$vehicleid?>"><?php echo $post->Brand . " " . $post->Model . " " . $post->Modelyear;?></a></h5>
                                                         <ul class="inline">
                                                             <li><i class="fa fa-caret-right"> <?php echo $post->VehicleCondition;?></i></li>
                                                             <li><i class="fa fa-caret-right"> <?php echo $post->Mileage;?>KM</i></li>
@@ -74,7 +74,7 @@
                                                     }
                                                     ?>   
                                                 <td align="center">
-                                                    <a href="<?php echo 'my_ads_ctrl/edit_my_ad/'.$vehicleid?>"><input type="button" class="btn-primary" title="Edit" value="Edit"></a>
+                                                    <a href="<?php echo 'http://localhost/ci/editad_ctrl/show_myad/'.$vehicleid?>"><input type="button" class="btn-primary" title="Edit" value="Edit"></a>
                                                     <!--<a href="<?php //echo 'myads_ctrl/delete_myad/'.$vehicleid?>"><input type="button" class="btn-primary" value="Delete"></a>-->
                                                     <!--<button class="text-default" title="Archive"><i class="fa fa-archive"></i></button>  -->                                              
                                                     <button class="text-danger" title="Delete"><i class="fa fa-times"></i></button>
