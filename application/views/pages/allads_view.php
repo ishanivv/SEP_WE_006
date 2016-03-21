@@ -8,12 +8,13 @@
             	<div id="results-holder" class="results-list-view" style="padding-left:10px">
 				<h3>All Ads</h3>
 				<?php
+					$offset=$this->uri->segment(3,0)+1;
 					foreach($posts as $post){?>
 						<div style="width: 915px;height: 200px;float: left;background-color:#fff;opacity:0.9;border-color:#cc3e19;border-style:solid;margin-bottom:30px">
 						<div style="width: 200px;height: 150px;float: left;padding: 20px">
 							<?php $image=$post->Image1; 
 								  $vehicleid=$post->Vehicleid;
-							echo '<img src="http://localhost/ci/images/' . $image . '" style="width:200px; height:150px;"/>';?>
+							echo '<img src="http://localhost/ci/images/Vehicleimages/' . $image . '" style="width:200px; height:150px;"/>';?>
 						</div>
 						<div style="width: 700px;height: 200px;float: left;margin:0;padding-left: 10px">
 							<div style="width: 703px;height:26px;float:left;background-color:#cc3e19;border-radius:3px;color:#ffffff;top:0;padding-left:5px">
@@ -35,13 +36,15 @@
 							<a href="<?php echo 'http://localhost/ci/adpreview_ctrl/getad_preview/'.$vehicleid?>"><input type="button" value="View" class="btn-primary"></a>
 							</div>
 						</div>
-						</div>
+						</div>	
 				<?php }?>
-				</div>
 				</div>
 				</div>
 
 				</div>
+				<div><?php echo $page_links; ?></div>
+				</div>
+				
 			</div>
 		</div>
 	</div>

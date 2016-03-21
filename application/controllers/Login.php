@@ -7,12 +7,14 @@ class Login extends CI_Controller
     public $password = '';
     public $rememberMe = '';
 
+    //index() function is starting to work when localhost/ci/Login.php has typed.
     public function index()
     {
         $data['message'] = "";
         $this->load->view('login',$data);
     }
 
+    //Use for validation of the Login part
     public function log()
     {
             $data['message'] = "";
@@ -79,9 +81,21 @@ class Login extends CI_Controller
                         );
                         $this->session->set_userdata('logged_in',$session_data);
                     
-                    
+                        setcookie('remember', 'yes', time() + (86400 * 30), "/");
+                        setcookie('email',$_POST['email'], time() + (86400 * 30), "/");
+
+                        if($this->database->randPass($_POST['email']))
+                        {
+                            $data['resetPassword'] = 'yes';
+                        }
+                        else
+                        {
+                            $data['resetPassword'] = 'no';
+                        }
+
+
                         $this->load->view('pages/templates/header');
-                        $this->load->view('pages/loginSuccessful');
+                        $this->load->view('pages/loginSuccessful',$data);
                         $this->load->view('pages/templates/footer');
                 }
                 else
@@ -94,6 +108,8 @@ class Login extends CI_Controller
             }
     }
 
+    
+    //function is used when the time email does not exist.
     public function email_does_not_exists($value)
     {
         $this->load->model('database','',TRUE);

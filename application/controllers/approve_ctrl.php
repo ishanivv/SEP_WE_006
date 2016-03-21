@@ -13,7 +13,7 @@ class Approve_ctrl extends CI_Controller
 		$this->load->model('Ads_model');
 
 	}
-
+	//approve an advertisement according to vehicle id and email, and send an email to that email address
 	public function approve($vehicleid,$email)
 	{
 		
@@ -22,8 +22,8 @@ class Approve_ctrl extends CI_Controller
   			'protocol' => 'smtp',
   			'smtp_host' => 'ssl://smtp.googlemail.com',
   			'smtp_port' => 465,
-  			'smtp_user' => 'autotraderslk@gmail.com', // change it to yours
-  			'smtp_pass' => 'autotraderslk1', // change it to yours
+  			'smtp_user' => 'autotraderslk@gmail.com', 
+  			'smtp_pass' => 'autotraderslk1',
   			'mailtype' => 'html',
   			'charset' => 'iso-8859-1',
   			'wordwrap' => TRUE
@@ -35,23 +35,19 @@ class Approve_ctrl extends CI_Controller
 		$this->email->set_newline("\r\n");
 		$this->email->from('autotraderslk@gmail.com');
 		$this->email->to($email); 
-		//$this->email->cc('another@another-example.com'); 
-		//$this->email->bcc('them@their-example.com'); 
+		
 
 		$this->email->subject('Your ad has been Approved and posted');
 		$body=$this->load->view('pages/sendemail',$this->data,TRUE);
 		$this->email->message($body);	
 
-		//$this->email->send();
+		
 
 		if($this->email->send())
     	{
     		$this->Ads_model->approve($vehicleid);
-			/*$this->data['posts']=$this->Ads_model->getpendingads();
-      		$data['message']='Ad has been approved';*/
       		$pendingads=$this->Ads_model->count_pending_ads;
       		$pendingads--;
-      		//$this->session->set_userdata('pendingads',$pendingads);
       		$this->session->set_userdata((['logged_in']['pendingads']),$pendingads);
       		$this->session->set_flashdata('success_msg', 'Advertisement has been approved and email has sent successfully');
       		redirect("http://localhost/ci/notify_ctrl");
@@ -66,6 +62,25 @@ class Approve_ctrl extends CI_Controller
 		
 	}
 
+	public function get_reason($vehicleid)
+	{
+		$this->data['posts']=$this->Ads_model->get_ad_to_send($vehicleid);
+		$this->load->view("pages/templates/header");
+		$this->load->view("pages/reject_reason",$this->data);
+		$this->load->view("pages/templates/footer");
+	}
+
+
+	public function test($vehicleid,$email)
+	{
+		$data['posts']=$this->Ads_model->get_ad_to_send($vehicleid);
+		$data['reason']=$this->input->post('reason');
+		$this->load->view('pages/send_rejectemail',$data);
+	}
+
+
+
+	//reject a particular advertisement and send reject email to the user
 	public function reject($vehicleid,$email)
 	{
 		$config = Array(
@@ -79,29 +94,25 @@ class Approve_ctrl extends CI_Controller
   			'wordwrap' => TRUE
 		);
 
-		$this->data['posts']=$this->Ads_model->get_ad_to_send($vehicleid);
-
+		$data['posts']=$this->Ads_model->get_ad_to_send($vehicleid);
+		$data['reason']=$this->input->post('reason');
+		
 		$this->load->library('email',$config);
 		$this->email->set_newline("\r\n");
 		$this->email->from('autotraderslk@gmail.com');
 		$this->email->to($email); 
-		//$this->email->cc('another@another-example.com'); 
-		//$this->email->bcc('them@their-example.com'); 
 
 		$this->email->subject('Your ad has been rejected');
-		$body=$this->load->view('pages/send_rejectemail',$this->data,TRUE);
+		$body=$this->load->view('pages/send_rejectemail',$data,TRUE);
 		$this->email->message($body);	
 
-		//$this->email->send();
 
 		if($this->email->send())
     	{
     		$this->Ads_model->reject($vehicleid);
     		$pendingads=$this->Ads_model->count_pending_ads;
       		$pendingads--;
-      		//$this->session->set_userdata('pendingads',$pendingads);
-      		$this->session->set_userdata((['logged_in']['pendingads']),$pendingads);
-      		//$this->session->set_userdata('pendingads',$pendingads);
+       		$this->session->set_userdata((['logged_in']['pendingads']),$pendingads);
       		$this->session->set_flashdata('success_msg', 'Advertisement has been rejected and email has sent successfully');
       		redirect("http://localhost/ci/notify_ctrl");
     	}

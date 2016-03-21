@@ -53,7 +53,7 @@
                                     <td><?php echo $email?></td>
                                     <td><?php echo $password?></td>
                                     <td align="center"><a href="<?php echo 'http://localhost/ci/admin_ctrl/get_admin/'.$email?>"><input type="button" class="btn-primary" value="Edit"></a>
-                                    <a href="<?php echo 'http://localhost/ci/admin_ctrl/delete_admin/'.$email?>"><button class="text-danger" title="Delete"><i class="fa fa-times"></i></button></a></td>
+                                    <a href="<?php echo 'http://localhost/ci/admin_ctrl/delete_admin/'.$email?>"><button class="text-danger" title="Delete" onclick="return deleteconfirm();"><i class="fa fa-times"></i></button></a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -63,3 +63,13 @@
         </div>
    	</div>
     <!-- End Body Content -->
+
+    <script type="text/javascript">
+        function deleteconfirm()
+        {
+            job=confirm("Are you sure you want to delete this admin?");
+            if (job!=true) {
+            return false;
+            }
+        }
+    </script>

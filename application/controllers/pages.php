@@ -4,7 +4,7 @@
 */
 class Pages extends CI_Controller
 {
-	
+	//load pages
 	function view($page='home')
 	{
 

@@ -10,7 +10,7 @@ class Admin_feedback_ctrl extends CI_Controller
 
 	}
 
-
+	//view all the feedbacks in the database
 	public function index()
 	{
 		$this->data['adminfeeds']=$this->main_model->get_feedback();
@@ -19,6 +19,8 @@ class Admin_feedback_ctrl extends CI_Controller
 		$this->load->view('pages/templates/footer');	
 
 	}
+
+	// change the feedback status into checked in all feedbacks view
 	public function change_feedback_status($feedbackid)
 	{
 		$this->main_model->change_feedback_status($feedbackid);
@@ -26,6 +28,7 @@ class Admin_feedback_ctrl extends CI_Controller
       	redirect("http://localhost/ci/admin_feedback_ctrl");
 	}
 
+	// delete the feedback from the all feedback view
 	public  function delete_feedback($feedbackid)
 	{
 
@@ -33,6 +36,24 @@ class Admin_feedback_ctrl extends CI_Controller
 		$this->main_model->delete_feedback($feedbackid);
 		$this->session->set_flashdata('success_msg', 'Message has deleted successfully');
       	redirect("http://localhost/ci/admin_feedback_ctrl");
+	}
+
+	// display the email and message in the reply to feedback form
+	public function get_feedback_email($feedbackid)
+	{
+		$this->data['details']=$this->main_model->get_feedback_email($feedbackid);
+		$this->load->view('pages/templates/header');
+		$this->load->view('pages/feedbackemail',$this->data);
+		$this->load->view('pages/templates/footer');
+	}
+
+	// display the view form of the feedback according to the selection 
+	public function get_feedback_view($feedbackid)
+	{
+		$this->data['details']=$this->main_model->get_feedback_view($feedbackid);
+		$this->load->view('pages/templates/header');
+		$this->load->view('pages/feedback_view',$this->data);
+		$this->load->view('pages/templates/footer');
 	}
 
 

@@ -9,7 +9,7 @@
 			
 		}
 
-
+		//load all the admin information from the database
 		public function index(){
 			$this->load->model('admin_model');
 			$this->data['admins']=$this->admin_model->get_all_admins();

@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['admin_table_ctrl']="admin_table_ctrl";
 $route['header_ctrl']="header_ctrl";
 $route['all_ads_ctrl']="all_ads_ctrl";
+$route['search/search_keyword']="search/search_keyword";
 $route['admin_feedback_ctrl']="admin_feedback_ctrl";
 $route['demo_ctrl']="demo_ctrl";
 $route['edit_ad_ctrl']="edit_ad_ctrl";

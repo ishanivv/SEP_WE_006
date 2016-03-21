@@ -20,17 +20,17 @@
                       $vehicleid=$detail->Vehicleid;
                       $email=$detail->Email;
                       $image1=$detail->Image1;
-  	    	    		    echo '<img src="http://localhost/ci/images/'.$image1.'" style="width:100%; height:100%" />';?>
+  	    	    		    echo '<img src="http://localhost/ci/images/Vehicleimages/'.$image1.'" style="width:100%; height:100%" />';?>
   	    				</li>
   	    				<li>
                   <?php
   	    	    		    $image2=$detail->Image2;
-                      echo '<img src="http://localhost/ci/images/'.$image2.'" style="width:100%; height:100%" />';?>
+                      echo '<img src="http://localhost/ci/images/Vehicleimages/'.$image2.'" style="width:100%; height:100%" />';?>
   	    				</li> 
                 <li>
                   <?php
                       $image3=$detail->Image3;
-                      echo '<img src="http://localhost/ci/images/'.$image3.'" style="width:100%; height:100%" />';?>
+                      echo '<img src="http://localhost/ci/images/Vehicleimages/'.$image3.'" style="width:100%; height:100%" />';?>
                 </li>   
         			  </ul>
         			</div>
@@ -40,17 +40,17 @@
             			<li>
                   <?php
   	    	    		    $image1=$detail->Image1;
-                      echo '<img src="http://localhost/ci/images/'.$image1.'" style="width:100%; height:100%" />';?>
+                      echo '<img src="http://localhost/ci/images/Vehicleimages/'.$image1.'" style="width:100%; height:100%" />';?>
   	    				</li>
   	    				<li>
   	    	    		<?php
                       $image2=$detail->Image2;
-                      echo '<img src="http://localhost/ci/images/'.$image2.'" style="width:100%; height:100%" />';?>
+                      echo '<img src="http://localhost/ci/images/Vehicleimages/'.$image2.'" style="width:100%; height:100%" />';?>
   	    				</li>
   	    				<li>
                   <?php
                       $image3=$detail->Image3;
-                      echo '<img src="http://localhost/ci/images/'.$image3.'" style="width:100%; height:100%" />';?>     
+                      echo '<img src="http://localhost/ci/images/Vehicleimages/'.$image3.'" style="width:100%; height:100%" />';?>     
                 </li>
        				   </ul>
         			</div>

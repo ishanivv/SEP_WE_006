@@ -9,6 +9,7 @@ class Reset_Password extends CI_Controller
 		$this->load->view('pages/templates/footer');
 	}
 
+        //Function is for the validation of the reset password
 	public function reset()
 	{
 		$this->load->model('database','',TRUE);
@@ -67,6 +68,7 @@ class Reset_Password extends CI_Controller
                 }
 	}
 
+        // Function for check email exist
 	function email_exists($value)
 	{
 		$this->load->model('database','',TRUE);

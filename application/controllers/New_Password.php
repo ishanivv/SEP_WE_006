@@ -9,6 +9,7 @@ class New_Password extends CI_Controller {
             $this->load->view('pages/templates/footer');
         }
 
+        //Function for the validation of the new password
         public function newp()
         {
             $data['message'] = 'Please correct these errors...';
@@ -40,12 +41,19 @@ class New_Password extends CI_Controller {
         		$this->Password = $_POST['password'];
 
         		$this->database->set_new_password(md5($_POST['password']),$this->session->userdata['logged_in']['email']);
+                $this->database->unsetReset($this->session->userdata['logged_in']['email']);
                 $data['message']='Password has been changed';
                 $this->load->view('pages/templates/header');
         		//$this->load->view('pages/newPasswordSet');
                 $this->load->view('pages/changePassword',$data);
                 $this->load->view('pages/templates/footer');
         	}
+        }
+
+        public function check_old_password($value)
+        {
+            $this->load->model('database','',TRUE);
+            return $this->database->check_old_password($value,$this->session->userdata['logged_in']['email']);
         }
 }
 ?>

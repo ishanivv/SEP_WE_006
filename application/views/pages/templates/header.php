@@ -16,6 +16,7 @@
   ================================================== -->
 <link href="http://localhost/ci/css/bootstrap.css" rel="stylesheet" type="text/css">
 <!--<link rel="stylesheet" href="http://localhost/ci/css/flexslider.css" type="text/css"/>-->
+<!--<link href="http://localhost/ci/vendor/flexslider/css/flexslider.css" rel="stylesheet" type="text/css">-->
 <link href="http://localhost/ci/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
 <link href="http://localhost/ci/css/style.css" rel="stylesheet" type="text/css">
 <link href="http://localhost/ci/vendor/prettyphoto/css/prettyPhoto.css" rel="stylesheet" type="text/css">
@@ -54,10 +55,21 @@
                                         $messages=($this->session->userdata['logged_in']['messages']);
                                         $notifications=$pendingads+$messages;
 
-                                        if ($type=="admin") {
+                                        if($type=="super admin")
+                                        {
                                             echo '<li>';
                                             echo '<a href="http://localhost/ci/admin_table_ctrl">Manage Admins</a>';
                                             echo '</li>';
+                                            echo '<li>';
+                                            echo '<a href="javascript:void(0)">Notifications <span class="badge">'.$notifications.'</span></a>';
+                                            echo '<ul class="dropdown">';
+                                            echo '<li><a href="http://localhost/ci/notify_ctrl">Pending Ads <span class="badge">'.$pendingads.'</span></a></li>';
+                                            echo '<li><a href="http://localhost/ci/admin_feedback_ctrl">Messages <span class="badge">'.$messages.'</span></a></li>';
+                                            echo '</ul>';
+                                            echo '</li>';
+                                        }
+
+                                        if ($type=="admin") {    
                                             echo '<li>';
                                             echo '<a href="javascript:void(0)">Notifications <span class="badge">'.$notifications.'</span></a>';
                                             echo '<ul class="dropdown">';
@@ -120,210 +132,108 @@
                 <!-- Search Form -->
                 <div class="search-form">
                     <div class="search-form-inner">
-                        <form>
+                        <form method="post" action="<?php echo base_url();?>search/search_keyword">
                             <h3>Find a Car with our Quick Search</h3>
                             <div class="row">
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label>Postcode</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label>Body Type</label>
-                                            <select name="Body Type" class="form-control selectpicker">
-                                                <option selected>Any</option>
-                                                <option>Wagon</option>
-                                                <option>Minivan</option>
-                                                <option>Coupe</option>
-                                                <option>Crossover</option>
-                                                <option>Van</option>
-                                                <option>SUV</option>
-                                                <option>Minicar</option>
-                                                <option>Sedan</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label>Make</label>
                                             <select name="Make" class="form-control selectpicker">
                                                 <option selected>Any</option>
-                                                <option>Jaguar</option>
-                                                <option>BMW</option>
-                                                <option>Mercedes</option>
-                                                <option>Porsche</option>
-                                                <option>Nissan</option>
-                                                <option>Mazda</option>
-                                                <option>Acura</option>
-                                                <option>Audi</option>
-                                                <option>Bugatti</option>
+                                                <option value="af">Alfa Romeo</option>
+                                                <option value="am">Aston Martin</option>
+                                                <option value="Audi">Audi</option>
+                                                <option value="Austin">Austin</option>
+                                                <option value="BMW">BMW</option>
+                                                <option value="Buick">Buick</option>
+                                                <option value="Cadillac">Cadillac</option>
+                                                <option value="Changan">Changan</option>
+                                                <option value="Chery">Chery</option>
+                                                <option value="Chevrolet">Chevrolet</option>
+                                                <option value="Chrysler">Chrysler</option>
+                                                <option value="Citroen">Citroen</option>
+                                                <option value="Daewoo">Daewoo</option>
+                                                <option value="Daihatsu">Daihatsu</option>
+                                                <option value="Datsun">Datsun</option>
+                                                <option value="Dodge">Dodge</option>
+                                                <option value="Ferrari">Ferrari</option>
+                                                <option value="Fiat">Fiat</option>
+                                                <option value="Ford">Ford</option>
+                                                <option value="Geely">Geely</option>
+                                                <option value="GMC">GMC</option>
+                                                <option value="Hino">Hino</option>
+                                                <option value="Honda">Honda</option>
+                                                <option value="Hummer">Hummer</option>
+                                                <option value="Hyundai">Hyundai</option>
+                                                <option value="Isuzu">Isuzu</option>
+                                                <option value="Jaguar">Jaguar</option>
+                                                <option value="Jeep">Jeep</option>
+                                                <option value="Kia">Kia</option>
+                                                <option value="Lamborgini">Lamborgini</option>
+                                                <option value="Land Rover">Land Rover</option>
+                                                <option value="Lexus">Lexus</option>
+                                                <option value="Lincoln">Lincoln</option>
+                                                <option value="Mahidra">Mahidra</option>
+                                                <option value="Maruti">Maruti</option>
+                                                <option value="Mazda">Mazda</option>
+                                                <option value="Mercedes-Benz">Mercedes-Benz</option>
+                                                <option value="MG">MG</option>
+                                                <option value="Micro">Micro</option>
+                                                <option value="Mini">Mini</option>
+                                                <option value="Mitsubishi">Mitsubishi</option>
+                                                <option value="Morris">Morris</option>
+                                                <option value="Moto Guzzi">Moto Guzzi</option>
+                                                <option value="Nissan">Nissan</option>
+                                                <option value="Oldsmobile">Oldsmobile</option>
+                                                <option value="Opel">Opel</option>
+                                                <option value="Perodua">Perodua</option>
+                                                <option value="Peugeot">Peugeot</option>
+                                                <option value="Plymouth">Plymouth</option>
+                                                <option value="Pontiac">Pontiac</option>
+                                                <option value="Porsche">Porsche</option>
+                                                <option value="Proton">Proton</option>
+                                                <option value="Renault">Renault</option>
+                                                <option value="Rover">Rover</option>
+                                                <option value="Royal Enfield">Royal Enfield</option>
+                                                <option value="SAAB">SAAB</option>
+                                                <option value="Scion">Scion</option>
+                                                <option value="SEAT">SEAT</option>
+                                                <option value="Skoda">Skoda</option>
+                                                <option value="Smart">Smart</option>
+                                                <option value="Ssang Yong">Ssang Yong</option>
+                                                <option value="Subaru">Subaru</option>
+                                                <option value="Suzuki">Suzuki</option>
+                                                <option value="Tata">Tata</option>
+                                                <option value="Toyota">Toyota</option>
+                                                <option value="Vauxhall">Vauxhall</option>
+                                                <option value="Volkswagen">Volkswagen</option>
+                                                <option value="Volvo">Volvo</option>
+                                                <option value="Zotye">Zotye</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6">
                                             <label>Model</label>
-                                            <select name="Model" class="form-control selectpicker">
-                                                <option selected>Any</option>
-                                                <option>GTX</option>
-                                                <option>GTR</option>
-                                                <option>GTS</option>
-                                                <option>RLX</option>
-                                                <option>M6</option>
-                                                <option>S Class</option>
-                                                <option>C Class</option>
-                                                <option>B Class</option>
-                                                <option>A Class</option>
-                                            </select>
+                                            <input type="text" name="Model" class="form-control" placeholder="Any">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label>Price Min</label>
-                                            <select name="Min Price" class="form-control selectpicker">
-                                                <option selected>Any</option>
-                                                <option>$10000</option>
-                                                <option>$20000</option>
-                                                <option>$30000</option>
-                                                <option>$40000</option>
-                                                <option>$50000</option>
-                                                <option>$60000</option>
-                                                <option>$70000</option>
-                                                <option>$80000</option>
-                                                <option>$90000</option>
-                                                <option>$100000</option>
-                                            </select>
+                                            <input type="number" name="PriceMin" class="form-control" placeholder="from">
                                         </div>
                                         <div class="col-md-6">
                                             <label>Price Max</label>
-                                            <select name="Max Price" class="form-control selectpicker">
-                                                <option selected>Any</option>
-                                                <option>$10000</option>
-                                                <option>$20000</option>
-                                                <option>$30000</option>
-                                                <option>$40000</option>
-                                                <option>$50000</option>
-                                                <option>$60000</option>
-                                                <option>$70000</option>
-                                                <option>$80000</option>
-                                                <option>$90000</option>
-                                                <option>$100000</option>
-                                            </select>
+                                            <input type="number" name="PriceMax" class="form-control" placeholder="to">
+                                        </div>
+                                        <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="submit" class="btn btn-primary btn-lg btn-block" value="Search">
+                                        </div>
+                                        <div class="col-md-6">
+                                        <a href="http://localhost/ci/advancesearch"><input type="button" value="Advanced Search" class="btn btn-block btn-info btn-lg"></a>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" id="inlineCheckbox1" value="option1"> Brand new only
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" id="inlineCheckbox2" value="option2"> Certified
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label>Min Year</label>
-                                            <select name="Min Year" class="form-control selectpicker">
-                                                <option selected>Any</option>
-                                                <option>2005</option>
-                                                <option>2006</option>
-                                                <option>2007</option>
-                                                <option>2008</option>
-                                                <option>2009</option>
-                                                <option>2010</option>
-                                                <option>2011</option>
-                                                <option>2012</option>
-                                                <option>2013</option>
-                                                <option>2014</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label>Max Year</label>
-                                            <select name="Max Year" class="form-control selectpicker">
-                                                <option selected>Any</option>
-                                                <option>2005</option>
-                                                <option>2006</option>
-                                                <option>2007</option>
-                                                <option>2008</option>
-                                                <option>2009</option>
-                                                <option>2010</option>
-                                                <option>2011</option>
-                                                <option>2012</option>
-                                                <option>2013</option>
-                                                <option>2014</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label>Min Mileage</label>
-                                            <select name="Min Mileage" class="form-control selectpicker">
-                                                <option selected>Any</option>
-                                                <option>10000</option>
-                                                <option>20000</option>
-                                                <option>30000</option>
-                                                <option>40000</option>
-                                                <option>50000</option>
-                                                <option>60000</option>
-                                                <option>70000</option>
-                                                <option>80000</option>
-                                                <option>90000</option>
-                                                <option>100000</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label>Max Mileage</label>
-                                            <select name="Max Mileage" class="form-control selectpicker">
-                                                <option selected>Any</option>
-                                                <option>10000</option>
-                                                <option>20000</option>
-                                                <option>30000</option>
-                                                <option>40000</option>
-                                                <option>50000</option>
-                                                <option>60000</option>
-                                                <option>70000</option>
-                                                <option>80000</option>
-                                                <option>90000</option>
-                                                <option>100000</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label>Transmission</label>
-                                            <select name="Transmission" class="form-control selectpicker">
-                                                <option selected>Any</option>
-                                                <option>5 Speed Manual</option>
-                                                <option>5 Speed Automatic</option>
-                                                <option>6 Speed Manual</option>
-                                                <option>6 Speed Automatic</option>
-                                                <option>7 Speed Manual</option>
-                                                <option>7 Speed Automatic</option>
-                                                <option>8 Speed Manual</option>
-                                                <option>8 Speed Automatic</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label>Body Color</label>
-                                            <select name="Body Color" class="form-control selectpicker">
-                                                <option selected>Any</option>
-                                                <option>Red</option>
-                                                <option>Black</option>
-                                                <option>White</option>
-                                                <option>Yellow</option>
-                                                <option>Brown</option>
-                                                <option>Grey</option>
-                                                <option>Silver</option>
-                                                <option>Gold</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <input type="submit" class="btn btn-block btn-info btn-lg" value="Find my vehicle now">
-                                        </div>
                                     </div>
                                 </div>
                             </div>

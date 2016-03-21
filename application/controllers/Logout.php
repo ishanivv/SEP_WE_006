@@ -6,7 +6,7 @@
 			$this->load->library('session');
 
 		}
-
+		//Function for the logout from the current session
 		public function out()
 		{
 			

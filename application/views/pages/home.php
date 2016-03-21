@@ -43,66 +43,12 @@
     	<div id="content" class="content full padding-b0">
             <div class="container">
             	<!-- Welcome Content and Services overview -->
-            	<div class="col-md-3" style="padding-left:0px">
-            		<section class="signup-form sm-margint">
-            		<form name="form1" method="post" action="http://localhost/ci/search/search_keyword">
-            		<div class="regular-signup">
-            		<h3>Search</h3>
-                    <div class="row">
-                    <div class="col-md-6">
-					<label>Vehicle Type</label>
-				        <select name="category" class="form-control selectpicker">
-							<option>Any</option>
-							<option value="Car">Car</option>
-							<option value="Van">Van</option>
-							<option value="Bus">Bus</option>
-						</select>
-                    </div>
-                    </div>
-					<div class="row">
-                    <div class="col-md-6">
-					<label>Vehicle Make</label>
-						<select name="make" class="form-control selectpicker">
-							<option>Any</option>
-							<option value="Toyota">Toyota</option>
-							<option value="Honda">Honda</option>
-							<option value="Nissan">Nissan</option>
-							<option value="Mitsubishi">Mitsubishi</option>
-							<option value="Mazda">Mazda</option>
-							<option value="Suzuki">Suzuki</option>
-							<option value="Daihatsu">Daihatsu</option>
-							<option value="Subaru">Subaru</option>
-							<option value="Isuzu">Isuzu</option>
-							<option value="BMW">BMW</option>
-							<option value="Marcedes">Marcedes</option>
-							<option value="Others">Others</option>
-						</select>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-md-6">
-					<label>Vehicle Model</label>
-						<select name="ttype" class="form-control selectpicker">
-							<option>Any</option>
-							<option value="Aqua">Aqua</option>
-                            <option value="Allion">Allion</option>
-                            <option value="Axio">Axio</option>
-							<option value="Corolla">Corolla</option>
-						</select>
-                    </div>
-                    </div>
-					<div><input type="submit" value="Search" name="search" class="btn btn-primary btn-lg" />
-					</div>
-					</div>
-					</form>
-					</section>
-            		</div>
             		<div class="row">
-                		<div class="col-md-8">
+                		<div class="col-md-14">
                     		<h1 class="uppercase strong">Welcome to AutoTraders<br>Listing portal</h1>
-                        	<p class="lead">AutoTraders is the Sri Lanka's leading portal for<br>easy and quick <span class="accent-color">buying and selling</span></p>
+                        	<p class="lead">AutoTraders is the Sri Lanka's leading portal for easy and quick <span class="accent-color">buying and selling</span></p>
                     		<p>Welcome to Sri Lanka's largest vehicle portal. Best choice for buying and selling of each type of vehicles.</p>
-                        	<p>You can browse through vehicles according to your requirement. Feel free to inform your experience and inquiries through <span class="accent-color"><a href="contactus">customer feedback</a></span></p>
+                        	<p>You can browse through vehicles according to your requirement. Feel free to inform your experience and inquiries through <span class="accent-color"><a href="contactus">contact us page</a></span></p>
                     	</div>
                 	</div>
                 </div>

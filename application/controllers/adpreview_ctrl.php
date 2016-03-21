@@ -14,6 +14,7 @@ class Adpreview_ctrl extends CI_Controller
 
 	}
 
+	//get the information about a particular approved advertisement using vehicleid
 	public function getad_preview($vehicleid)
 	{
 		$this->data['details']=$this->ads_model->getad_preview($vehicleid);
@@ -22,6 +23,7 @@ class Adpreview_ctrl extends CI_Controller
 		$this->load->view('pages/templates/footer');
 	}
 
+	//get the information about a particular pending advertisement using vehicle id
 	public function getad_preview_notify($vehicleid){
 		$this->data['details']=$this->ads_model->getad_preview($vehicleid);
 		$this->load->view('pages/templates/header');
@@ -29,6 +31,7 @@ class Adpreview_ctrl extends CI_Controller
 		$this->load->view('pages/templates/footer');
 	}
 
+	//get google map according to the district and location
 	public function get_map($district,$location)
 	{
 		$this->load->library('googlemaps');

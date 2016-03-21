@@ -12,6 +12,7 @@ class Post_ctrl extends CI_Controller
 
 	}
 
+    //insert Ad details into vehicle table
 	public function insert_into_vehicle()
 	{
 		$this->load->model('main_model');
@@ -49,7 +50,8 @@ class Post_ctrl extends CI_Controller
             'required|regex_match[/^[0-9]{4}$/]',
             array
             (
-               'required'      => 'You have not provided %s.',        
+               'required'      => 'You have not provided %s.',    
+               'numeric'      =>'%s field sould not contain alphabetical characters'    
             )
         );
 
@@ -69,10 +71,11 @@ class Post_ctrl extends CI_Controller
         (
             'Mileage', 
             'Mileage', 
-            'required|numeric|greater_than[0.99]',
+            'required|numeric',
             array
             (
-                'required'      => 'You have not provided %s.',         
+                'required'      => 'You have not provided %s.',  
+                'numeric'      =>'%s field sould not contain alphabetical characters'       
             )
         );
 
@@ -106,6 +109,7 @@ class Post_ctrl extends CI_Controller
        		array
             (
                 'required'      => 'You have not provided %s.',
+                'numeric'      =>'%s field sould not contain alphabetical characters'
           	)
         );
 
@@ -117,6 +121,7 @@ class Post_ctrl extends CI_Controller
             array
             (
                 'required'      => 'You have not provided %s.',
+                'numeric'      =>'%s field sould not contain alphabetical characters'
                     
             )
         );
@@ -141,7 +146,7 @@ class Post_ctrl extends CI_Controller
             array
             (
                 'required'      => 'You have not provided %s.',
-                    
+                'numeric'      =>'%s field sould not contain alphabetical characters'
             )
         );
 

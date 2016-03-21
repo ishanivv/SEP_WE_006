@@ -4,18 +4,22 @@
     	<div id="content" class="content full">
         	<div class="container">
             	<div class="row">
-            	<div>
-				<h3>Search Result</h3>
+            	<div class="results-container">
+            	<div id="results-holder" class="results-list-view" style="padding-left:10px">
+				<h3>Search Results</h3>
+				<div style="color:#999">
+            	<h3 align="center" style="color:#999;background-color:#ffffff"><?php echo $this->session->flashdata('no_result_msg');?></h3>
+            	</div>
 				<?php
 					foreach($posts as $post){?>
 						<div style="width: 915px;height: 200px;float: left;background-color:#fff;opacity:0.9;border-color:#cc3e19;border-style:solid;margin-bottom:30px">
 						<div style="width: 200px;height: 150px;float: left;padding: 20px">
 							<?php $image=$post->Image1; 
 								  $vehicleid=$post->Vehicleid;
-							echo '<img src="http://localhost/ci/images/' . $image . '" style="width:200px; height:150px;"/>';?>
+							echo '<img src="http://localhost/ci/images/Vehicleimages/' . $image . '" style="width:200px; height:150px;"/>';?>
 						</div>
 						<div style="width: 700px;height: 200px;float: left;margin:0;padding-left: 10px">
-							<div style="width: 703px;height:26px;float:left;background-color:#cc3e19;color:#ffffff;top:0;padding-left:5px">
+							<div style="width: 703px;height:26px;float:left;background-color:#cc3e19;border-radius:3px;color:#ffffff;top:0;padding-left:5px">
 							<?php echo $post->Brand . " " . $post->Model . " " . $post->Modelyear;?>
 							</div>
 							<div style="width:200px;height:150px;float: left">
@@ -30,17 +34,18 @@
 							<p style="color:#000"><b>FUEL TYPE: </b><?php echo $post->Fueltype;?></p>
 							</div>
 							<div style="width:200px;height:150px;float:left;padding:5px">
-							<p style="width:100px;background-color:#4d4d4d;color:#fff;padding:5px;font-size:16px"><b>Rs. </b><?php echo $post->Price;?></p>
-							<a href="<?php echo 'ad_preview_ctrl/getad_preview/'.$vehicleid?>"><input type="button" value="View" class="btn-primary"></a>
-				
+							<h4 style="width:105px;background-color:#66b2ff;border-radius:3px;color:#fff;padding:5px;font-size:16px"><b>Rs. </b><?php echo $post->Price;?></h4>
+							<a href="<?php echo 'http://localhost/ci/adpreview_ctrl/getad_preview/'.$vehicleid?>"><input type="button" value="View" class="btn-primary"></a>
 							</div>
 						</div>
-						</div>
-						</div>
+						</div>	
 				<?php }?>
+				</div>
 				</div>
 
 				</div>
+				</div>
+				
 			</div>
 		</div>
 	</div>

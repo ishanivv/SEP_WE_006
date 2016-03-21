@@ -14,6 +14,7 @@ class Editad_ctrl extends CI_Controller
         $this->load->library('form_validation');
 	}
 
+    //show details of selected ad.Input parametr is vehicle id.
 	public function show_myad($vehicleid)
 	{
 		$data=array();	
@@ -23,6 +24,7 @@ class Editad_ctrl extends CI_Controller
         $this->load->view('pages/templates/footer');		
     }
 
+    //update the details of ad belongs to given vehicle id.input parameter is vehicle id.
     public function update_myad($vehicleid)
     {
 		$this->form_validation->set_rules
@@ -55,7 +57,8 @@ class Editad_ctrl extends CI_Controller
             'required|regex_match[/^[0-9]{4}$/]',
             array
             (
-               'required'      => 'You have not provided %s.',        
+               'required'      => 'You have not provided %s.',  
+               'numeric'      =>'%s field sould not contain alphabetical characters'      
             )
         );
 
@@ -75,7 +78,7 @@ class Editad_ctrl extends CI_Controller
         (
             'Mileage', 
             'Mileage', 
-            'required|numeric|greater_than[0.99]',
+            'required|numeric',
             array
             (
                 'required'      => 'You have not provided %s.',         
@@ -112,6 +115,7 @@ class Editad_ctrl extends CI_Controller
             array
             (
                 'required'      => 'You have not provided %s.',
+                'numeric'      =>'%s field sould not contain alphabetical characters'
             )
         );
 
@@ -123,6 +127,7 @@ class Editad_ctrl extends CI_Controller
             array
             (
                 'required'      => 'You have not provided %s.',
+                'numeric'      =>'%s field sould not contain alphabetical characters'
                     
             )
         );
@@ -151,22 +156,35 @@ class Editad_ctrl extends CI_Controller
             )
         );
 
-          
+
         if ($this->form_validation->run() == FALSE)
         {
+            $data['posts']=$this->editad_model->getselectedad($vehicleid);
         	$this->load->view('pages/templates/header');
-            $this->load->view('pages/EditAd_view',$data);
+            $this->load->view('pages/editad_view',$data);
             $this->load->view('pages/templates/footer');
         }
         else
         {	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  				                                                                  
             $status="Pending" ;  
+            $p1=$this->input->post('imgPath1');  
+             $p2=$this->input->post('imgPath2');
+             $p3=$this->input->post('imgPath3');
+
+
+             $path1=substr($p1,12);
+             $path2=substr($p2,12);
+             $path3=substr($p3,12);
+
+             $a=strtok($path1, "/");
+             $b=strtok($path2,"/");
+             $c=strtok($path3,"/");
             
             $data = array(
 		        'Brand' => $this->input->post('Brand'),
-                'Image1' => $this->input->post('image1'),
-                'Image2' => $this->input->post('image2'),
-                'Image3' => $this->input->post('image3'),
+                'Image1' => $a,
+                'Image2' => $b,
+                'Image3' => $c,
                 'Model' => $this->input->post('Model'),
                 'Modelyear' => $this->input->post('ModelYear'),
                 'VehicleCondition' =>$this->input->post('VehicleCondition'),
@@ -180,6 +198,8 @@ class Editad_ctrl extends CI_Controller
                 'Description' => $this->input->post('Description'),
                 'Phone' => $this->input->post('Phone'),
                 'Email' => $this->input->post('Email'),
+                'Location'=>$this->input->post('location'),
+                'District'=>$this->input->post('district'),
                 'Status' => $status,
             );
 			
@@ -192,25 +212,4 @@ class Editad_ctrl extends CI_Controller
     } 
 }         
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-?>
-
-		
-
-
-
-		
-
-
-
-
-
-
-
-		
-
-
-		
-
-
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+?>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   

@@ -36,29 +36,38 @@
 				<?php
 					foreach($posts as $post){
 						$vehicleid=$post->Vehicleid;
-						?>
+						$image=$image=$post->Image1;
+						$brand=$post->Brand;
+						$model=$post->Model;
+						$modelyear=$post->Modelyear;
+						$condition=$post->VehicleCondition;
+						$mileage=$post->Mileage;
+						$transmission=$post->Transmission;
+						$fuel=$post->Fueltype;
+						}?>
 					<p>Dear Customer, </p>
 					<p>Your vehicle adverstisement has been posted successfully. To view your ad <a href="<?php echo 'http://localhost/ci/adpreview_ctrl/getad_preview/'.$vehicleid?>">Click here</a></p>
+					<p>Reference no for your advertisement is <?php echo $vehicleid ?></p>
 				</div>
 						<div style="width: 915px;height: 200px;float: left;background-color:#fff;opacity:0.9;border-color:#cc3e19;border-style:solid;margin-bottom:30px">
 						<div style="width: 200px;height: 150px;float: left;padding: 20px">
-							<?php $image=$post->Image1; 
-							echo '<img src="https://raw.githubusercontent.com/ishanivv/SEP_WE_006/master/images/' . $image . '" style="width:200px; height:150px;"/>';?>
+							<?php  
+							echo '<img src="https://raw.githubusercontent.com/ishanivv/SEP_WE_006/master/images/Vehicleimages/' . $image . '" style="width:200px; height:150px;"/>';?>
 						</div>
 						<div style="width: 600px;height: 200px;float: left;margin:0;padding-left: 10px">
 							<div style="width: 600px;height:26px;float:left;background-color:#cc3e19;border-radius:3px;color:#ffffff;top:0;padding-left:5px">
-							<b><?php echo $post->Brand . " " . $post->Model . " " . $post->Modelyear;?></b>
+							<b><?php echo  $brand. " " . $model . " " . $modelyear;?></b>
 							</div>
 							<div style="width:200px;height:150px;float: left">
-							<p style="color:#000"><b>BRAND: </b><?php echo $post->Brand;?></p>
-							<p style="color:#000"><b>MODEL : </b><?php echo $post->Model;?></p>
-							<p style="color:#000"><b>MODEL YEAR : </b><?php echo $post->Modelyear;?></p>
-							<p style="color:#000"><b>CONDITION : </b><?php echo $post->VehicleCondition;?></p>
+							<p style="color:#000"><b>BRAND: </b><?php echo $brand;?></p>
+							<p style="color:#000"><b>MODEL : </b><?php echo $model;?></p>
+							<p style="color:#000"><b>MODEL YEAR : </b><?php echo $modelyear;?></p>
+							<p style="color:#000"><b>CONDITION : </b><?php echo $condition;?></p>
 							</div>
 							<div style="width:200px;height:150px;float: left">
-							<p style="color:#000"><b>MILEAGE : </b><?php echo $post->Mileage;?>KM</p>
-							<p style="color:#000"><b>TRANSMISSION: </b><?php echo $post->Transmission;?></p>
-							<p style="color:#000"><b>FUEL TYPE: </b><?php echo $post->Fueltype;?></p>
+							<p style="color:#000"><b>MILEAGE : </b><?php echo $mileage;?>KM</p>
+							<p style="color:#000"><b>TRANSMISSION: </b><?php echo $transmission;?></p>
+							<p style="color:#000"><b>FUEL TYPE: </b><?php echo $fuel;?></p>
 							</div>
 							<div style="width:200px;height:150px;float:left;padding:5px">
 							<h4 style="width:105px;background-color:#66b2ff;border-radius:3px;color:#fff;padding:5px;font-size:16px"><b>Rs. </b><?php echo $post->Price;?></h4>
@@ -67,8 +76,7 @@
 							</div>
 						</div>
 						</div>
-						<?php } 
-						?>
+						
 			</div>
 </body>
 </html>

@@ -8,6 +8,7 @@ class Database extends CI_Model
 		parent::__construct();
 	}
 
+	//Function for check whether name exist
 	public function name_exists($value)
 	{
 		$this->db->where('name',$value);
@@ -22,6 +23,7 @@ class Database extends CI_Model
 		}
 	}
 
+	//Function for the check email exist
 	public function email_exists($value)
 	{
 		$this->db->where('email',$value);
@@ -36,12 +38,14 @@ class Database extends CI_Model
 		}
 	}
 
+	//Function for insert data to the database
 	public function register()
 	{
 		$data=array('Email'=>$this->input->post('email'),'Name'=>$this->input->post('Name'),'Password'=>md5($this->input->post('password')),'Type' =>$this->input->post('userType'));
 		$this->db->insert('user',$data);
 	}
 
+	//Function for retreiving data from the database for login 
 	public function login($em,$pw)
 	{
 		$this -> db -> select('*');
@@ -60,6 +64,8 @@ class Database extends CI_Model
 		}
 	}
 
+	/*check whether the user is admin or not. return true for admin. 
+	otherwise false. input parameter is email*/
 	public function isadmin($em)
 	{
 		$this->db->select('Email','Type');
@@ -74,6 +80,30 @@ class Database extends CI_Model
 		else{
 			return FALSE;
 		}
+	}
+
+	//Function for generating random password
+	public function randPass($em)
+	{
+		$this->db->select('Email','Name','ResetPassword');
+		$this->db->from('user');
+		$this->db->where('Email',$em);
+		$this->db->where('ResetPassword','yes');
+		$this->db->limit(1);
+		$query=$this->db->get();
+		if($query->num_rows()==1){
+			return TRUE;
+		}
+		else{
+			return FALSE;
+		}
+	}
+
+	//Function for send password to the mail for resetting
+	public function unsetReset($em)
+	{
+		$this->db->query("UPDATE user SET ResetPassword = 'no' WHERE Email = '".$em."'");
+		return;
 	}
 
 	public function resetPassword($email)
@@ -93,7 +123,7 @@ class Database extends CI_Model
 		
 		$msg = 'Your new password is : '.$randomString.'';
 		
-		$data=array('Password' => md5($this->password));
+		$data=array('Password' => md5($this->password),'ResetPassword' => 'yes');
 		$this->db->where('Email',$email);
 		$this->db->update('user',$data);
 
@@ -101,6 +131,7 @@ class Database extends CI_Model
 		
 	}
 
+	//send random password to email
 	public function sendPasswordResetMail($email,$password)
 	{
 		$config = Array
@@ -134,6 +165,7 @@ class Database extends CI_Model
     	}
 	}
 
+	//Function for get name
 	public function get_name($email)
 	{
 		$query = $this->db->query("SELECT * FROM user WHERE 'Email' = '".$email."'");
@@ -143,6 +175,7 @@ class Database extends CI_Model
 		}
 	}
 
+	//Function for set new password
 	public function set_new_password($password,$email)
 	{
 		$this->db->query("UPDATE user SET Password = '".$password."' WHERE Email = '".$email."'");

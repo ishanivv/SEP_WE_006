@@ -52,8 +52,8 @@
                                         ?>
                                     </td>
                                     <td align="center">
-                                    <a href="<?php echo 'http://localhost/ci/feedback_reply_ctrl/get_feedback_email/'.$feedbackid?>"><input type="button" class="btn-primary" value="View"></a>
-                                    <a href="<?php echo 'http://localhost/ci/feedback_reply_ctrl/get_feedback_email/'.$feedbackid?>"><input type="button" class="btn-primary" value="Reply"></a>
+                                    <a href="<?php echo 'http://localhost/ci/admin_feedback_ctrl/get_feedback_view/'.$feedbackid?>"><input type="button" class="btn-primary" value="View"></a>
+                                    <a href="<?php echo 'http://localhost/ci/admin_feedback_ctrl/get_feedback_email/'.$feedbackid?>"><input type="button" class="btn-primary" value="Reply"></a>
                                     <a href="<?php echo 'http://localhost/ci/admin_feedback_ctrl/delete_feedback/'.$feedbackid ?>"><button class="text-danger" title="Delete" onclick="return deleteconfirm();"><i class="fa fa-times"></i></button></a></td>
                                 </tr>
                             </tbody>
@@ -69,7 +69,7 @@
     <script type="text/javascript">
     function deleteconfirm()
     {
-        job=confirm("Are you sure you want to delete this admin?");
+        job=confirm("Are you sure you want to delete this message?");
         if (job!=true) {
           return false;
         }

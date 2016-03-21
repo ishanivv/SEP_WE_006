@@ -12,6 +12,7 @@ class Feedback_ctrl extends CI_Controller
 
 	}
 
+	// validations of the contact us form and view the contact us page with the successfull message 
 	public function insert_into_feedback()
 	{
 		$this->load->library('form_validation');

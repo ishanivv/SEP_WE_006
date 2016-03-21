@@ -9,19 +9,18 @@
                             	<a href="user-dashboard.html" class="btn btn-block btn-primary add-listing-btn">New Ad listing</a>
                                 <ul class="list-group">
                                     <li class="list-group-item active"> <span class="badge">5</span> <a href="<?php echo 'http://localhost/ci/dashboard_ctrl/load_my_ads/'.$this->session->userdata['logged_in']['email']?>"><i class="fa fa-home"></i> Dashboard</a></li>
-                                    <li class="list-group-item"> <span class="badge">5</span> <a href="user-dashboard-saved-searches.html"><i class="fa fa-folder-o"></i> Saved Searches</a></li>
-                                    <li class="list-group-item"> <span class="badge">12</span> <a href="user-dashboard-saved-cars.html"><i class="fa fa-star-o"></i> Saved Cars</a></li>
-                                    <li class="list-group-item"> <a href="add-listing-form.html"><i class="fa fa-plus-square-o"></i> Create new Ad</a></li>
+                                    <!--<li class="list-group-item"> <span class="badge">5</span> <a href="user-dashboard-saved-searches.html"><i class="fa fa-folder-o"></i> Saved Searches</a></li>
+                                    <li class="list-group-item"> <span class="badge">12</span> <a href="user-dashboard-saved-cars.html"><i class="fa fa-star-o"></i> Saved Cars</a></li>-->
+                                    <li class="list-group-item"> <a href="http://localhost/ci/select_location"><i class="fa fa-plus-square-o"></i> Create new Ad</a></li>
                                     <li class="list-group-item"> <span class="badge"><?php echo $this->session->userdata['logged_in']['ads']; ?></span> <a href="<?php echo 'http://localhost/ci/my_ads_ctrl/get_my_ads/'.$this->session->userdata['logged_in']['email']?>"><i class="fa fa-edit"></i> Manage Ads</a></li>
                                     <li class="list-group-item"> <a href="http://localhost/ci/New_Password"><i class="fa fa-user"></i> My Profile</a></li>
-                                    <li class="list-group-item"> <a href="user-dashboard-settings.html"><i class="fa fa-cog"></i> Account Settings</a></li>
                                     <li class="list-group-item"> <a href="http://localhost/ci/Logout/out"><i class="fa fa-sign-out"></i> Log Out</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-9 col-sm-8">
                         	<h2>Dashboard</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam.</p>
+                            <p>Manage your Ads, Saved cars, saved searches and profile here</p>
                             <div class="dashboard-block">
                             	<div class="dashboard-block-head">
                                 	<a href="user-dashboard-saved-cars.html" class="btn btn-default btn-sm pull-right">See all Ads (2)</a>
@@ -47,7 +46,7 @@
                                             <tr>
                                                 <td>
                                                     <!-- Result -->
-                                                    <a href="<?php echo 'http://localhost/ci/adpreview_ctrl/getad_preview/'.$vehicleid?>" class="car-image"><?php echo '<img src="http://localhost/ci/images/' . $image . '" style="width:100px; height:70px;"/>';?></a>
+                                                    <a href="<?php echo 'http://localhost/ci/adpreview_ctrl/getad_preview/'.$vehicleid?>" class="car-image"><?php echo '<img src="http://localhost/ci/images/Vehicleimages/' . $image . '" style="width:100px; height:70px;"/>';?></a>
                                                     <div class="search-find-results">
                                                         <h5><a href="<?php echo 'http://localhost/ci/adpreview_ctrl/getad_preview/'.$vehicleid?>"><?php echo $post->Brand . " " . $post->Model . " " . $post->Modelyear;?></a></h5>
                                                         <ul class="inline">
@@ -78,10 +77,10 @@
                                                     }
                                                     ?>  
                                                 <td align="center">
-                                                    <a href="<?php echo 'myads_ctrl/edit_myad/'.$vehicleid?>"><input type="button" class="btn-primary" title="Edit" value="Edit"></a>
+                                                    <a href="<?php echo 'http://localhost/ci/editad_ctrl/show_myad/'.$vehicleid?>"><input type="button" class="btn-primary" title="Edit" value="Edit"></a>
                                                     <!--<a href="<?php //echo 'myads_ctrl/delete_myad/'.$vehicleid?>"><input type="button" class="btn-primary" value="Delete"></a>-->
                                                     <!--<button class="text-default" title="Archive"><i class="fa fa-archive"></i></button>  -->                                              
-                                                    <button class="text-danger" title="Delete"><i class="fa fa-times"></i></button>
+                                                    <a href="<?php echo 'http://localhost/ci/deletead_ctrl/delete_ad/'.$vehicleid?>"><button class="text-danger" title="Delete"><i class="fa fa-times" onclick="return deleteconfirm();"></i></button></a>
                                                 </td>
                                             </tr>
                                             <?php }?>
@@ -215,7 +214,7 @@
                                         </tbody>
                                     </table>
                                	</div>
-                                <button class="btn btn-default btn-sm disabled">Delete Selected</button>
+                                
                             </div>
                         </div>
                     </div>
@@ -224,3 +223,13 @@
         </div>
    	</div>
     <!-- End Body Content -->
+
+    <script type="text/javascript">
+    function deleteconfirm()
+    {
+        job=confirm("Are you sure you want to delete this ad?");
+        if (job!=true) {
+          return false;
+        }
+    }
+    </script>

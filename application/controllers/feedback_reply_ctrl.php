@@ -12,14 +12,7 @@ class Feedback_reply_ctrl extends CI_Controller
 		$this->load->model('main_model');
 	}
 
-	public function get_feedback_email($feedbackid)
-	{
-		$this->data['details']=$this->main_model->get_feedback_email($feedbackid);
-		$this->load->view('pages/templates/header');
-		$this->load->view('pages/feedbackemail',$this->data);
-		$this->load->view('pages/templates/footer');
-	}
-
+	// send reply email accoring to the email & message
 	public function reply_to_feedback($email,$feedbackid)
 	{
 

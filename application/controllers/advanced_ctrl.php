@@ -9,12 +9,11 @@
     }
 
     
- 
+    // validations of the advanced search form and send the results of the advanced search to the searchresult page
     function search_advanced ()
     {
-        $category = $this->input->post('category');
         $make = $this->input->post('make');
-        $model = $this->input->post('ttype');
+        $model = $this->input->post('model');
         $condition = $this->input->post('condition');
         $pria = $this->input->post('pria');
         $prib = $this->input->post('prib');
@@ -126,9 +125,15 @@
 
         else{
 
-            $this->data ['posts'] = $this->main_model->advanced_ctrl($category,$make,$model,$condition,$pria,$prib,$transmission,$year1,$year2,$fuel,$dis1,$dis2,$cap1,$cap2);
+            $this->data ['posts'] = $this->main_model->advanced_search($make,$model,$condition,$pria,$prib,$transmission,$year1,$year2,$fuel,$dis1,$dis2,$cap1,$cap2);
+            
+            if(empty($this->data['posts']))
+            {
+                $this->session->set_flashdata('no_result_msg', 'No search results found');
+            }
+            
             $this->load->view('pages/templates/header');
-            $this->load->view('pages/allads_view',$this->data);
+            $this->load->view('pages/searchresult',$this->data);
             $this->load->view('pages/templates/footer');
         }
         //$this->load->view('pages/result_view',$this->data);
