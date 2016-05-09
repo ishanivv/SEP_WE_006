@@ -87,12 +87,12 @@ class Admin_ctrl extends CI_Controller
                 {
                 	$this->admin_model->insert_into_admin();
                     $this->session->set_flashdata('success_msg', 'A new admin has been added successfully and sent the successful email');
-      				redirect("http://localhost/ci/admin_table_ctrl");
+      				redirect("http://www.autotraders.ga/admin_table_ctrl");
                 }
                 else
                 {
                     $this->session->set_flashdata('success_msg', 'Please try again');
-      				redirect("http://localhost/ci/admin_table_ctrl");
+      				redirect("http://www.autotraders.ga/admin_table_ctrl");
                 }
 			
 		}
@@ -130,12 +130,12 @@ class Admin_ctrl extends CI_Controller
                 {
                 	$this->admin_model->delete_admin($email);
                     $this->session->set_flashdata('success_msg', 'Admin has been deleted successfully');
-					redirect('http://localhost/ci/admin_table_ctrl');
+					redirect('http://www.autotraders.ga/admin_table_ctrl');
                 }
                 else
                 {
                     $this->session->set_flashdata('success_msg', 'Please try again');
-      				redirect("http://localhost/ci/admin_table_ctrl");
+      				redirect("http://www.autotraders.ga/admin_table_ctrl");
                 }
 		
 	}
@@ -196,7 +196,7 @@ class Admin_ctrl extends CI_Controller
 		else{
 			$this->admin_model->edit_admin();
 			$this->session->set_flashdata('success_msg', 'Successfully updated the information');
-			redirect('http://localhost/ci/admin_table_ctrl');	
+			redirect('http://www.autotraders.ga/admin_table_ctrl');	
 		}
 
     }

@@ -1,11 +1,11 @@
 <?php
     if(!(isset($this->session->userdata['logged_in']))) 
     {
-        redirect("http://localhost/ci/Login");
+        redirect("http://www.autotraders.ga/Login");
     }
 ?>
 <div class="main" role="main">
-	<div style="background-image:url(http://localhost/ci/images/gallerybg.jpg);background-repeat:no-repeat;
+	<div style="background-image:url(http://www.autotraders.ga/images/gallerybg.jpg);background-repeat:no-repeat;
                 background-size:100% 100%;
                 background-attachment:fixed">
     	<div id="content" class="content full">
@@ -13,7 +13,7 @@
             	<div class="row">
                     <div class="col-md-6">
 						<section class="signup-form sm-margint">
-							<form method="post" action="http://localhost/ci/postad">
+							<form method="post" action="http://www.autotraders.ga/postad">
 								<div class="regular-signup">
                         			<h3>Select district and location</h3>
 										<select id="dis" name="dis" class="form-control" onchange="populate(this.id,'loc')">

@@ -1,5 +1,5 @@
 <!-- Start Body Content -->
-  <div class="page-header parallax" style="background-image:url(http://localhost/ci/images/black_infiniti.jpg); height:300px"></div>	
+  <div class="page-header parallax" style="background-image:url(http://www.autotraders.ga/images/black_infiniti.jpg); height:300px"></div>	
   	<div class="main" role="main">
     	<div id="content" class="content full">
         	<div class="container">
@@ -18,7 +18,7 @@
 							<?php $image=$post->Image1; 
 								  $vehicleid=$post->Vehicleid;
 								  $email=$post->Email;
-							echo '<img src="http://localhost/ci/images/Vehicleimages/' . $image . '" style="width:200px; height:150px;"/>';?>
+							echo '<img src="http://www.autotraders.ga/images/Vehicleimages/' . $image . '" style="width:200px; height:150px;"/>';?>
 						</div>
 						<div style="width: 700px;height: 200px;float: left;margin:0;padding-left: 10px">
 							<div style="width: 703px;height:26px;float:left;background-color:#cc3e19;border-radius:3px;color:#ffffff;top:0;padding-left:5px">
@@ -40,7 +40,7 @@
 							</div>
 							<div>
 							<a href="<?php echo 'adpreview_ctrl/getad_preview_notify/'.$vehicleid?>"><input type="button" value="View" class="btn-primary"></a>
-							<a href="<?php echo 'http://localhost/ci/approve_ctrl/approve/'.$vehicleid.'/'.$email?>"><input type="button" value="Approve" class="btn-primary" onclick="return approveconfirm();"></a>
+							<a href="<?php echo 'http://www.autotraders.ga/approve_ctrl/approve/'.$vehicleid.'/'.$email?>"><input type="button" value="Approve" class="btn-primary" onclick="return approveconfirm();"></a>
 							<a href="<?php echo 'approve_ctrl/get_reason/'.$vehicleid?>"><input type="button" value="Reject" class="btn-primary" onclick="return rejectconfirm();"></a>
 							</div>
 						</div>

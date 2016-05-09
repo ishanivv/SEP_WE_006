@@ -1,7 +1,7 @@
 
     <!-- Start Body Content -->
     <div class="main" role="main">
-    <div style="background-image:url(http://localhost/ci/images/City-Night-City-Road-Vehicles.jpg);background-repeat:no-repeat;
+    <div style="background-image:url(http://www.autotraders.ga/images/City-Night-City-Road-Vehicles.jpg);background-repeat:no-repeat;
                 background-size:100% 100%;
                 background-attachment:fixed">
     	<div id="content" class="content full">
@@ -9,7 +9,7 @@
             	<div class="row">
                     <div class="col-md-4">
                     	<section class="signup-form sm-margint">
-                            <form method="post" action="http://localhost/ci/Reset_Password/reset">
+                            <form method="post" action="http://www.autotraders.ga/Reset_Password/reset">
                                 <div class="regular-signup">
                                 <h3>Forgot Password</h3>
                                 <div style="color:green">

@@ -47,14 +47,14 @@
                                         <?php }
                                             else {
                                         ?>
-                                        <a href="<?php echo 'http://localhost/ci/admin_feedback_ctrl/change_feedback_status/'.$feedbackid ?>"><input type="button" class="btn-primary" value="<?php echo $adminfeed->Status ?>" onclick="this.disabled=true;this.value='Checked';this.class='btn-success'"></a>
+                                        <a href="<?php echo 'http://www.autotraders.ga/admin_feedback_ctrl/change_feedback_status/'.$feedbackid ?>"><input type="button" class="btn-primary" value="<?php echo $adminfeed->Status ?>" onclick="this.disabled=true;this.value='Checked';this.class='btn-success'"></a>
                                         <?php } 
                                         ?>
                                     </td>
                                     <td align="center">
-                                    <a href="<?php echo 'http://localhost/ci/admin_feedback_ctrl/get_feedback_view/'.$feedbackid?>"><input type="button" class="btn-primary" value="View"></a>
-                                    <a href="<?php echo 'http://localhost/ci/admin_feedback_ctrl/get_feedback_email/'.$feedbackid?>"><input type="button" class="btn-primary" value="Reply"></a>
-                                    <a href="<?php echo 'http://localhost/ci/admin_feedback_ctrl/delete_feedback/'.$feedbackid ?>"><button class="text-danger" title="Delete" onclick="return deleteconfirm();"><i class="fa fa-times"></i></button></a></td>
+                                    <a href="<?php echo 'http://www.autotraders.ga/admin_feedback_ctrl/get_feedback_view/'.$feedbackid?>"><input type="button" class="btn-primary" value="View"></a>
+                                    <a href="<?php echo 'http://www.autotraders.ga/admin_feedback_ctrl/get_feedback_email/'.$feedbackid?>"><input type="button" class="btn-primary" value="Reply"></a>
+                                    <a href="<?php echo 'http://www.autotraders.ga/admin_feedback_ctrl/delete_feedback/'.$feedbackid ?>"><button class="text-danger" title="Delete" onclick="return deleteconfirm();"><i class="fa fa-times"></i></button></a></td>
                                 </tr>
                             </tbody>
                             <?php }?>

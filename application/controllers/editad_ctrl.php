@@ -159,10 +159,33 @@ class Editad_ctrl extends CI_Controller
 
         if ($this->form_validation->run() == FALSE)
         {
-            $data['posts']=$this->editad_model->getselectedad($vehicleid);
+                $Vehicleid=$vehicleid;
+                $Brand=$this->input->post('Brand');
+                $Image1=$this->input->post('imgPath1');
+                $Image2=$this->input->post('imgPath2');
+                $Image3 = $this->input->post('imgPath3');
+                $Model = $this->input->post('Model');
+                $Modelyear = $this->input->post('ModelYear');
+                $VehicleCondition=$this->input->post('VehicleCondition');
+                $Mileage=$this->input->post('Mileage');
+                $BodyType = $this->input->post('BodyType');
+                $Transmission = $this->input->post('Transmission');
+                $Fueltype = $this->input->post('groupFuel');
+                $EngineCapacity =$this->input->post('EngineCapacity');
+                $Price = $this->input->post('Price');
+                $Negotiable = $this->input->post('checkbox5');
+                $Description = $this->input->post('Description');
+                $Phone = $this->input->post('Phone');
+                $Email = $this->input->post('Email');
+                $Location=$this->input->post('location');
+                $District=$this->input->post('district');
+
+            //$data['posts']=$this->editad_model->getselectedad($vehicleid);
         	$this->load->view('pages/templates/header');
-            $this->load->view('pages/editad_view',$data);
+            $this->load->view('pages/editad_validate_view',compact('Vehicleid','Brand','Image1','Image2','Image3','Model','Modelyear','VehicleCondition','Mileage','BodyType','Transmission','Fueltype','EngineCapacity','Price','Negotiable','Description','Phone','Email','Location','District'));
+            //$this->load->view('pages/editad_view',compact('posts'));
             $this->load->view('pages/templates/footer');
+
         }
         else
         {	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  				                                                                  

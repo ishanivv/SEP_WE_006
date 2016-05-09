@@ -12,6 +12,7 @@ class All_ads_ctrl extends CI_Controller
 		$this->load->database();
 		$this->load->model('Ads_model');
 		$this->load->library('pagination');
+		$this->load->helper('cookie');
 
 	}
 	//load all the approved ads from the database and view with pages
@@ -39,7 +40,7 @@ class All_ads_ctrl extends CI_Controller
 		$config['total_rows']=$this->Ads_model->count_all_ads();
 		$config['per_page']=5;
 		$config['uri_segment']=3;
-		$config['base_url']="http://localhost/ci/all_ads_ctrl/index";
+		$config['base_url']="http://www.autotraders.ga/all_ads_ctrl/index";
 		$this->pagination->initialize($config); 
 		$page_links=$this->pagination->create_links();
 
@@ -48,6 +49,9 @@ class All_ads_ctrl extends CI_Controller
 		$this->load->view('pages/allads_view',compact('posts','page_links'));
 		$this->load->view('pages/templates/footer');
 	}
+
+
+	
 }
 
 ?>

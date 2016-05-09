@@ -1,11 +1,11 @@
  <?php
 	if(!(isset($this->session->userdata['logged_in']))) 
 	{
-		redirect("http://localhost/ci/Login");
+		redirect("http://www.autotraders.ga/Login");
 	}
 ?>
 <div class="main" role="main">
-<div style="background-image:url(http://localhost/ci/images/road.jpg);width:100%;background-repeat:no-repeat;
+<div style="background-image:url(http://www.autotraders.ga/images/road.jpg);width:100%;background-repeat:no-repeat;
 				background-size:100% 100%;
 				background-attachment:fixed">
 		<div id="content" class="content full">
@@ -29,6 +29,7 @@
    						<form name="myForm3" method="post" action="<?php echo base_url().'editAd_ctrl/update_myad/'.$post->Vehicleid;?>">
    						
    						<div>
+   						<label class="col-md-4">District* </label>	
 						<select id="dis" name="district" class="form-control" onchange="populate(this.id,'loc')">
 											<option value="<?php echo $post->District;?>"><?php echo $post->District;?></option>
 											<option>Select District</option>
@@ -58,6 +59,7 @@
 											<option value="Trincomalee">Trincomalee</option>
 											<option value="Vavuniya">Vavuniya</option>
 										</select>
+										<label class="col-md-4">Location* </label>
 										<select id="loc" name="location" class="form-control">
 										<option value="<?php echo $post->Location;?>"><?php echo $post->Location;?></option>
 										<option>Select Location</option>
@@ -107,6 +109,7 @@
 						<div class="spacer-20"></div>
 						<h4>Fill the details</h4>
 						<p>All field marked with * are required</p>
+						<label class="col-md-4">Brand* </label>
 						<select name="Brand" class="form-control selectpicker">
 							<option value="<?php echo $post->Brand;?>"><?php echo $post->Brand;?></option>
 							<option value="brand">Brand*</option>
@@ -154,9 +157,12 @@
 							<option value="Toyota">Toyota</option>
 
 					</select>
+					<label class="col-md-4">Model* </label>
 					<input type="text" name="Model" Placeholder="Model*" class="form-control" value="<?php echo $post->Model;?>">
+					<label class="col-md-4">Model Year* </label>
 					<input type="text" name="ModelYear" Placeholder="Model Year*" class="form-control" value="<?php echo $post->Modelyear;?>">
 					
+					<label class="col-md-4">Vehicle Condition* </label>
 					<select name="VehicleCondition" class="form-control selectpicker">
 						<option value="<?php echo $post->VehicleCondition;?>"><?php echo $post->VehicleCondition;?></option>
 						<option value="condition">Condition*</option>
@@ -164,7 +170,10 @@
 						<option value="Used">Used</option>
 						<option value="Reconditioned">Reconditioned</option>
 					</select>
+					<label class="col-md-4">Mileage* </label>
 					<input type="text" name="Mileage" placeholder="Mileage*" class="form-control" value="<?php echo $post->Mileage;?>">
+					
+					<label class="col-md-4">Body Type* </label>
 					<select name="BodyType" class="form-control selectpicker">
 						<option value="<?php echo $post->BodyType;?>"><?php echo $post->BodyType;?></option>
 						<option value="bodytype">Body Type*</option>
@@ -176,6 +185,7 @@
 						<option value="SUV / 4x4">SUV / 4x4</option>
 						<option value="MPV">MPV</option>
 					</select>
+					<label class="col-md-4">Transmission* </label>
 					<select name="Transmission" class="form-control selectpicker">
 						<option value="<?php echo $post->Transmission;?>"><?php echo $post->Transmission;?></option>
 						<option value="transmission">Transmission*</option>
@@ -218,11 +228,12 @@
 				<?php } ?>
 
 					<div class="spacer-20"></div>
-
+					<label class="col-md-4">Engine capacity (cc)*</label>
 					<input type="text" name="EngineCapacity" placeholder="Engine capacity (cc)*" class="form-control"
 					 value="<?php echo $post->EngineCapacity;?>">
 
 					<div class="spacer-20"></div>
+					<label class="col-md-4">Price(Rs.)*</label>
 					<input type="text" name="Price" placeholder="Price(Rs.)*" class="col-md-4" value="<?php echo $post->Price;?>"/>
 
 					<?php if(  $post->Negotiable == "1") {?>
@@ -234,10 +245,12 @@
 					<?php } ?>
 
 					<div class="spacer-20"></div>	
-
+					<label class="col-md-4">Description*</label>
 					<textarea rows="10" cols="103" name="Description" placeholder="Description*"  
 					 class="form-control"><?php echo $post->Description ?></textarea>
+					 <label class="col-md-4">Phone*</label>
 					<input type="text" name="Phone" placeholder="Phone*" value="<?php echo $post->Phone ?>" class="form-control">
+					<label class="col-md-4">Email*</label>
 					<input type="text" name="Email" placeholder="Email*" class="form-control" 
 					value=<?php echo $this->session->userdata['logged_in']['email'] ?>>
 					<input type="submit" name="editad" class="btn btn-primary btn-lg" value="EDIT AD">

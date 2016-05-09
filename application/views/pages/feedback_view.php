@@ -29,8 +29,8 @@
                                     <!--<input type="email" class="form-control" name="email" placeholder="Your E-mail">-->
                                     <!--<textarea rows="4" cols="65" name="reply" placeholder="Reply" disabled="disabled"></textarea> -->
                                     <div class="spacer-20"></div>
-                                    <a href="<?php echo 'http://localhost/ci/admin_feedback_ctrl/get_feedback_email/'.$feedbackid?>"><input type="button" class="btn btn-primary btn-lg" value="Reply">
-                                    <a href="<?php echo 'http://localhost/ci/admin_feedback_ctrl/delete_feedback/'.$feedbackid ?>"><input type="button" class="btn btn-primary btn-lg" value="delete" onclick="return deleteconfirm();"></a>
+                                    <a href="<?php echo 'http://www.autotraders.ga/admin_feedback_ctrl/get_feedback_email/'.$feedbackid?>"><input type="button" class="btn btn-primary btn-lg" value="Reply">
+                                    <a href="<?php echo 'http://www.autotraders.ga/admin_feedback_ctrl/delete_feedback/'.$feedbackid ?>"><input type="button" class="btn btn-primary btn-lg" value="delete" onclick="return deleteconfirm();"></a>
 
                                     <?php }?>
                                 <div>

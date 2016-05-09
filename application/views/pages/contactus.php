@@ -1,5 +1,8 @@
 <!-- Start Body Content -->
   	<div class="main" role="main">
+    <div style="background-image:url(http://www.autotraders.ga/images/road2.jpg);width:100%;background-repeat:no-repeat;
+                background-size:100% 100%;
+                background-attachment:fixed">
     	<div id="content" class="content full">
         	<div class="container">
             	<div class="row">
@@ -32,4 +35,5 @@
             </div>
         </div>
    	</div>
+    </div>
     <!-- End Body Content -->

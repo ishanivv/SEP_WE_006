@@ -39,7 +39,46 @@ class Reset_Password extends CI_Controller
 
         	       if($newpassword)
         	       {
-        		      if($this->database->sendPasswordResetMail($_POST['email'],$newpassword))
+                                $config = Array
+                                (
+                                        'protocol' => 'smtp',
+                                        'smtp_host' => 'ssl://smtp.googlemail.com',
+                                        'smtp_port' => 465,
+                                        'smtp_user' => 'autotraderslk@gmail.com',
+                                        'smtp_pass' => 'autotraderslk1',
+                                        'mailtype' => 'html',
+                                        'charset' => 'iso-8859-1',
+                                        'wordwrap' => TRUE
+                                );
+
+                                $this->load->library('email',$config);
+                                $this->email->set_newline("\r\n");
+                                $this->email->from('autotraderslk@gmail.com');
+                                $this->email->to($_POST['email']);
+                                $this->email->subject('New Password');
+                                $message = 'Your password has been reset. Your new password is "'.$newpassword.'"(without quotes). Use this password to login. We recommend you to change the password after logged in.';
+                                $this->email->message($message);        
+                
+                                if($this->email->send())
+                                {
+                                        $data['message'] = 'Your password has been reset. Check your email inbox for new password';
+                
+                                     $this->load->view('pages/templates/header');
+                                     $this->load->view('pages/resetPassword',$data);
+                                     $this->load->view('pages/templates/footer');
+                                        //return true;
+                                }
+                                else
+                                {
+                                        $data['message'] = 'Please try again';
+                
+                                     $this->load->view('pages/templates/header');
+                                     $this->load->view('pages/resetPassword',$data);
+                                     $this->load->view('pages/templates/footer');
+                                //show_error($this->email->print_debugger());
+                                        //return false;
+                                }
+        		      /*if($this->database->sendPasswordResetMail($_POST['email'],$newpassword))
         		      {
         		              $data['message'] = 'Your password has been reset. Check your email inbox for new password';
         	
@@ -54,7 +93,7 @@ class Reset_Password extends CI_Controller
         			     $this->load->view('pages/templates/header');
         			     $this->load->view('pages/resetPassword',$data);
         			     $this->load->view('pages/templates/footer');
-        		      }
+        		      }*/
         		
         	       }
         	       else

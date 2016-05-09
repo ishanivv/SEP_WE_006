@@ -1,10 +1,14 @@
 <div class="main" role="main">
+<div style="background-image:url(http://www.autotraders.ga/images/homebg.jpg);background-repeat:no-repeat;
+                background-size:100% 100%;
+                background-attachment:fixed">
+        <div id="content" class="content full">
         <div id="content" class="content full">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">		
                     <section class="signup-form sm-margint">
-                        <form name="form1" method="post" action="http://localhost/ci/advanced_ctrl/search_advanced">
+                        <form name="form1" method="post" action="http://www.autotraders.ga/advanced_ctrl">
             		        <div class="regular-signup">
             	           	<h3>Advanced Search</h3>
 					        <div class="row">
@@ -103,6 +107,21 @@
                         </div>
                         <div class="row">
                         <div class="col-md-6">
+                        <label>Body Type</label>
+                            <select name="BodyType" class="form-control selectpicker">
+                                <option>Any</option>
+                                <option value="Saloon">Saloon</option>
+                                <option value="Hatchbatch">Hatchback</option>
+                                <option value="Station wagen">Station wagon</option>
+                                <option value="Convertible">Convertible</option>
+                                <option value="Coupe/Sports">Coupe/Sports</option>
+                                <option value="SUV / 4x4">SUV / 4x4</option>
+                                <option value="MPV">MPV</option>
+                            </select> 
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-md-6">
                         <label>Price</label>
                              <input type="number" name = "pria" class="form-control" placeholder="from" />
                              <input type="number" name = "prib" class="form-control" placeholder="to" />
@@ -154,13 +173,47 @@
                              <input type="number" name = "cap2" Placeholder="to" class="form-control"/>
                         </div>
                         </div>
+                        <div class="row">
+                        <div class="col-md-6">
+                            <label>District</label>
+                                <select id="dis" name="district" class="form-control">
+                                    <option value="Any">Any</option>
+                                    <option value="Colombo">Colombo</option>
+                                    <option value="Kandy">Kandy</option>
+                                    <option value="Galle">Galle</option>
+                                    <option value="Ampara">Ampara</option>
+                                    <option value="Anuradhapura">Anuradhapura</option>                                                <option value="Badulla">Badulla</option>
+                                    <option value="Batticaloa">Batticaloa</option>
+                                    <option value="Gampaha">Gampaha</option>
+                                    <option value="Hambantota">Hambantota</option>
+                                    <option value="Jaffna">Jaffna</option>
+                                    <option value="Kalutara">Kautara</option>
+                                    <option value="Kegalle">Kegalle</option>
+                                    <option value="Kilinochchi">Kilinochchi</option>
+                                    <option value="Kurunegala">Kurunegala</option>
+                                    <option value="Mannar">Mannar</option>
+                                    <option value="Matale">Matale</option>
+                                    <option value="Matara">Matara</option>
+                                    <option value="Moneragala">Moneragala</option>
+                                    <option value="Mullativu">Mullativu</option>
+                                    <option value="Nuwara Eliya">Nuwara Eliya</option>
+                                    <option value="Polonnaruwa">Polonnaruwa</option>
+                                    <option value="Puttalam">Puttalam</option>
+                                    <option value="Ratnapura">Ratnapura</option>
+                                    <option value="Trincomalee">Trincomalee</option>
+                                    <option value="Vavuniya">Vavuniya</option>
+                                </select>
+                        </div>
+                        </div>
     					<div><input type="submit" value="Search" name="search" class="btn btn-primary btn-lg" />
     					</div>
     					</div>
     					</form>
+                        </section>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 					 

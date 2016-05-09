@@ -40,7 +40,7 @@ class Notify_ctrl extends CI_Controller
 		$config['total_rows']=$this->Ads_model->count_pending_ads();
 		$config['per_page']=5;
 		$config['uri_segment']=3;
-		$config['base_url']="http://localhost/ci/notify_ctrl/index";
+		$config['base_url']="http://www.autotraders.ga/notify_ctrl/index";
 		$this->pagination->initialize($config); 
 		$page_links=$this->pagination->create_links();
 

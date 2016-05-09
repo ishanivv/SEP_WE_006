@@ -8,7 +8,7 @@
                          <div class="regular-signup">                    
                           <b><h3>Your Ad has been updated successfully, your ad will be posted shortly. Please Check emails!</h3></b>
                             <div class="spacer-20"></div>
-                            <a href="http://localhost/ci"><button class="btn btn-primary btn-lg">ok</button></a>
+                            <a href="http://www.autotraders.ga"><button class="btn btn-primary btn-lg">ok</button></a>
                         </div>
                     </section>
                     </div>

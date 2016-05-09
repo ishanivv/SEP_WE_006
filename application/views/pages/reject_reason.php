@@ -6,7 +6,7 @@
                     <div class="col-md-11">
                     	<section class="signup-form sm-margint">
                         <?php    foreach($posts as $post){?>
-                          <form method="post" action="<?php echo 'http://localhost/ci/approve_ctrl/reject/'.$post->Vehicleid.'/'.$post->Email?>" >
+                          <form method="post" action="<?php echo 'http://www.autotraders.ga/approve_ctrl/reject/'.$post->Vehicleid.'/'.$post->Email?>" >
                             	<!-- Regular Signup -->
                                 <div class="regular-signup">
                         			<h3>Reason for rejecting</h3>
@@ -14,7 +14,7 @@
                                 <div style="width: 200px;height: 150px;float: left;padding: 20px">
                                     <?php $image=$post->Image1; 
                                           $vehicleid=$post->Vehicleid;
-                                    echo '<img src="http://localhost/ci/images/Vehicleimages/' . $image . '" style="width:200px; height:150px;"/>';?>
+                                    echo '<img src="http://www.autotraders.ga/images/Vehicleimages/' . $image . '" style="width:200px; height:150px;"/>';?>
                                 </div>
                                 <div style="width: 700px;height: 200px;float: left;margin:0;padding-left: 10px">
                                     <div style="width: 703px;height:26px;float:left;background-color:#cc3e19;border-radius:3px;color:#ffffff;top:0;padding-left:5px">
@@ -33,7 +33,7 @@
                                     </div>
                                     <div style="width:200px;height:150px;float:left;padding:5px">
                                     <h4 style="width:105px;background-color:#66b2ff;border-radius:3px;color:#fff;padding:5px;font-size:16px"><b>Rs. </b><?php echo $post->Price;?></h4>
-                                    <a href="<?php echo 'http://localhost/ci/adpreview_ctrl/getad_preview/'.$vehicleid?>"><input type="button" value="View" class="btn-primary"></a>
+                                    <a href="<?php echo 'http://www.autotraders.ga/adpreview_ctrl/getad_preview/'.$vehicleid?>"><input type="button" value="View" class="btn-primary"></a>
                                     </div>
                                 </div>
                                 </div>  

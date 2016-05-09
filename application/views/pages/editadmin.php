@@ -14,7 +14,7 @@
 
                                 }
                             ?>
-                            <form method="post" action="<?php echo 'http://localhost/ci/admin_ctrl/edit_admin/'.$email?>">
+                            <form method="post" action="<?php echo 'http://www.autotraders.ga/admin_ctrl/edit_admin/'.$email?>">
                             	<!-- Regular Signup -->
                                 <div class="regular-signup">
                         			<h3>Manage Administrators</h3>
@@ -31,7 +31,7 @@
                                     <input type="password" id="cpwd" name="cpwd" class="form-control" placeholder="Confirm Password"/>
                                     <div class="spacer-20"></div>
                                     <input type="submit" class="btn btn-primary" value="Edit Admin">
-                                    <a href="http://localhost/ci/admin_table_ctrl"><input type="button" class="btn btn-primary" value="Cancel"></a>
+                                    <a href="http://www.autotraders.ga/admin_table_ctrl"><input type="button" class="btn btn-primary" value="Cancel"></a>
                                 </div>
                             </form>
                         </section>
@@ -52,8 +52,8 @@
                                     <td><?php echo $name?></td>
                                     <td><?php echo $email?></td>
                                     <td><?php echo $password?></td>
-                                    <td align="center"><a href="<?php echo 'http://localhost/ci/admin_ctrl/get_admin/'.$email?>"><input type="button" class="btn-primary" value="Edit"></a>
-                                    <a href="<?php echo 'http://localhost/ci/admin_ctrl/delete_admin/'.$email?>"><button class="text-danger" title="Delete" onclick="return deleteconfirm();"><i class="fa fa-times"></i></button></a></td>
+                                    <td align="center"><a href="<?php echo 'http://www.autotraders.ga/admin_ctrl/get_admin/'.$email?>"><input type="button" class="btn-primary" value="Edit"></a>
+                                    <a href="<?php echo 'http://www.autotraders.ga/admin_ctrl/delete_admin/'.$email?>"><button class="text-danger" title="Delete" onclick="return deleteconfirm();"><i class="fa fa-times"></i></button></a></td>
                                 </tr>
                             </tbody>
                         </table>

@@ -1,11 +1,11 @@
 <?php
     if(!(isset($this->session->userdata['logged_in']))) 
     {
-        redirect("http://localhost/ci/Login");
+        redirect("http://www.autotraders.ga/Login");
     }
 ?>
 <div class="main" role="main">
-<div style="background-image:url(http://localhost/ci/images/road.jpg);width:100%;background-repeat:no-repeat;
+<div style="background-image:url(http://www.autotraders.ga/images/road.jpg);width:100%;background-repeat:no-repeat;
 				background-size:100% 100%;
 				background-attachment:fixed">
     	<div id="content" class="content full">
@@ -32,7 +32,7 @@
 						<input type="text" name="district" class="form-control" value="<?php //echo $_POST['dis']?>">
 						<label>Location</label>
 						<input type="text" name="location" class="form-control" value="<?php //echo $_POST['loc']?>">
-						<a href="http://localhost/ci/select_location">Change location</a>-->
+						<a href="http://www.autotraders.ga/select_location">Change location</a>-->
 						<div>
 						<select id="dis" name="district" class="form-control" onchange="populate(this.id,'loc')">
 											<option>Select District</option>

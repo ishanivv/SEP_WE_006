@@ -14,20 +14,20 @@
 <meta name="format-detection" content="telephone=no">
 <!-- CSS
   ================================================== -->
-<link href="http://localhost/ci/css/bootstrap.css" rel="stylesheet" type="text/css">
-<!--<link rel="stylesheet" href="http://localhost/ci/vendor/flexslider/css/flexslider.css" type="text/css" media="screen" />-->
-<link href="http://localhost/ci/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
-<link href="http://localhost/ci/css/style.css" rel="stylesheet" type="text/css">
-<link href="http://localhost/ci/vendor/prettyphoto/css/prettyPhoto.css" rel="stylesheet" type="text/css">
-<link href="http://localhost/ci/vendor/owl-carousel/css/owl.carousel.css" rel="stylesheet" type="text/css">
-<link href="http://localhost/ci/vendor/owl-carousel/css/owl.theme.css" rel="stylesheet" type="text/css">
+<link href="http://www.autotraders.ga/css/bootstrap.css" rel="stylesheet" type="text/css">
+<!--<link rel="stylesheet" href="http://www.autotraders.ga/vendor/flexslider/css/flexslider.css" type="text/css" media="screen" />-->
+<link href="http://www.autotraders.ga/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
+<link href="http://www.autotraders.ga/css/style.css" rel="stylesheet" type="text/css">
+<link href="http://www.autotraders.ga/vendor/prettyphoto/css/prettyPhoto.css" rel="stylesheet" type="text/css">
+<link href="http://www.autotraders.ga/vendor/owl-carousel/css/owl.carousel.css" rel="stylesheet" type="text/css">
+<link href="http://www.autotraders.ga/vendor/owl-carousel/css/owl.theme.css" rel="stylesheet" type="text/css">
 <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" media="screen" /><![endif]-->
-<link href="http://localhost/ci/css/custom.css" rel="stylesheet" type="text/css"><!-- CUSTOM STYLESHEET FOR STYLING -->
+<link href="http://www.autotraders.ga/css/custom.css" rel="stylesheet" type="text/css"><!-- CUSTOM STYLESHEET FOR STYLING -->
 <!-- Color Style -->
-<link href="http://localhost/ci/colors/color1.css" rel="stylesheet" type="text/css">
+<link href="http://www.autotraders.ga/colors/color1.css" rel="stylesheet" type="text/css">
 <!-- SCRIPTS
   ================================================== -->
-<script src="http://localhost/ci/js/modernizr.js"></script><!-- Modernizr -->
+<script src="http://www.autotraders.ga/js/modernizr.js"></script><!-- Modernizr -->
 
 </head>
 <body>
@@ -46,7 +46,7 @@
 						$fuel=$post->Fueltype;
 						}?>
 					<p>Dear Customer, </p>
-					<p>Your vehicle adverstisement has been posted successfully. To view your ad <a href="<?php echo 'http://localhost/ci/adpreview_ctrl/getad_preview/'.$vehicleid?>">Click here</a></p>
+					<p>Your vehicle adverstisement has been posted successfully. To view your ad <a href="<?php echo 'http://www.autotraders.ga/adpreview_ctrl/getad_preview/'.$vehicleid?>">Click here</a></p>
 					<p>Reference no for your advertisement is <?php echo $vehicleid ?></p>
 				</div>
 						<div style="width: 915px;height: 200px;float: left;background-color:#fff;opacity:0.9;border-color:#cc3e19;border-style:solid;margin-bottom:30px">
@@ -71,7 +71,7 @@
 							</div>
 							<div style="width:200px;height:150px;float:left;padding:5px">
 							<h4 style="width:105px;background-color:#66b2ff;border-radius:3px;color:#fff;padding:5px;font-size:16px"><b>Rs. </b><?php echo $post->Price;?></h4>
-							<a href="<?php echo 'http://localhost/ci/ad_preview_ctrl/get_ad_preview/'.$vehicleid?>"><input type="button" value="View" class="btn-primary"></a>
+							<a href="<?php echo 'http://www.autotraders.ga/adpreview_ctrl/getad_preview/'.$vehicleid?>"><input type="button" value="View" class="btn-primary"></a>
 				
 							</div>
 						</div>

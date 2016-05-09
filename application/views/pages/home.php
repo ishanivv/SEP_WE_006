@@ -10,17 +10,7 @@
         <!-- End Hero Slider -->
     </div>
     <!-- Utiity Bar -->
-    <div class="utility-bar">
-    	<div class="container">
-        	<div class="row">
-            	<div class="col-md-4 col-sm-6 col-xs-8">
-                	<div class="toggle-make">
-                		<a href="#"><i class="fa fa-navicon"></i></a>
-                    	<span>Browse by body style</span>
-                    </div>
-                </div>
-          	</div>
-      	</div>
+    <div>
     	<div class="by-type-options">
     		<div class="container">
                	<div class="row">

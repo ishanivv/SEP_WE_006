@@ -131,6 +131,16 @@ class Database extends CI_Model
 		
 	}
 
+	public function updateDetails($Phone,$Type,$email)
+	{
+		$data=array(
+			'Phone'=>$Phone,
+			'Type'=>$Type,
+			);
+		$this->db->where('Email',$email);
+		$this->db->update('user',$data);
+	}
+
 	//send random password to email
 	public function sendPasswordResetMail($email,$password)
 	{
@@ -165,6 +175,83 @@ class Database extends CI_Model
     	}
 	}
 
+	public function sendRegisterEmail($email)
+	{
+		$config = Array
+		(
+			'protocol' => 'smtp',
+			'smtp_host' => 'ssl://smtp.googlemail.com',
+			'smtp_port' => 465,
+			'smtp_user' => 'autotraderslk@gmail.com',
+			'smtp_pass' => 'autotraderslk1',
+			'mailtype' => 'html',
+			'charset' => 'iso-8859-1',
+			'wordwrap' => TRUE
+		);
+
+		$this->load->library('email',$config);
+		$this->email->set_newline("\r\n");
+		$this->email->from('autotraderslk@gmail.com');
+		$this->email->to($email);
+		$this->email->subject('Registration');
+		$message = 'You have successfully registered. You can now proceed with posting free advertisements.';
+		$this->email->message($message);	
+		
+		if($this->email->send())
+    	{
+      		return true;
+     	}
+     	else
+    	{
+     		show_error($this->email->print_debugger());
+     		return false;
+    	}
+	}
+
+
+	public function check_old_password($password,$email)
+	{
+		$this->db->where('Email',$email);
+		$this->db->where('Password',$password);
+		$query = $this->db->get('user');
+		if($query->num_rows() == 1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public function getActivities($email){
+
+		$query = $this->db->query("SELECT * FROM activityLog WHERE Email = '".$email."';");
+
+		$index = 0;
+
+		if($query->num_rows()>100){
+			$index = $query->num_rows() - 100;
+		}
+
+		$rowIndex = 0;
+
+		$data = array();
+
+		while($index<($query->num_rows())){
+			$row = $query->row_array($rowIndex); 
+			$data[$rowIndex][0] = $row['ID'];
+			$data[$rowIndex][1] = $row['Email'];
+			$data[$rowIndex][2] = $row['Activity'];
+			$data[$rowIndex][3] = $row['URL'];
+			$data[$rowIndex][4] = $row['dateTime'];
+			$rowIndex++;
+			$index++;
+		}
+
+		return $data;
+
+	}
 	//Function for get name
 	public function get_name($email)
 	{
@@ -178,8 +265,43 @@ class Database extends CI_Model
 	//Function for set new password
 	public function set_new_password($password,$email)
 	{
-		$this->db->query("UPDATE user SET Password = '".$password."' WHERE Email = '".$email."'");
+		$data=array(
+			'Password'=>$password,
+			'ResetPassword'=>'no',
+			);
+		$this->db->where('Email',$email);
+		$this->db->update('user',$data);
+		//$this->db->query("UPDATE user SET Password = '".$password."' WHERE Email = '".$email."'");
+		//$this->db->query("UPDATE user SET ResetPassword = 'no' WHERE Email = '".$email."'");
+		
 		return;
 	}
+
+	public function getImage($email)
+    {
+            $this->session->userdata('is_logged_in');
+
+            $data = '';
+            $query = $this->db->query("SELECT Photo FROM user WHERE Email = '$email'");
+
+
+            if($query->num_rows())
+            {
+            	$data = $query->row_array();
+                $data = $data['Photo'];
+                $query->free_result();
+                return true;  
+            }
+            else
+            {
+                echo "Picture Not Found!";
+                return $data;
+            }
+    }
+
+    public function log_activity($email,$activity,$url,$dateTime){
+    	$this->db->query("INSERT INTO activityLog(Email,Activity,URL,dateTime) VALUES('".$email."','".$activity."','".$url."','".$dateTime."');");
+    	return true;
+    }
 }
 ?>

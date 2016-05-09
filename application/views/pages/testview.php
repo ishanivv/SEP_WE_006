@@ -23,12 +23,12 @@
                         <div class="col-md-8">
                             <div class="single-listing-images">
                                 <div class="featured-image format-image">
-                                    <a href="http://localhost/ci/images/Vehicleimages/Allion/4.jpg" data-rel="prettyPhoto[gallery]" class="media-box"><img src="http://localhost/ci/images/Vehicleimages/Allion/4.jpg" style="width:100%; height:100%" alt=""></a>
+                                    <a href="http://www.autotraders.ga/images/Vehicleimages/Allion/4.jpg" data-rel="prettyPhoto[gallery]" class="media-box"><img src="http://www.autotraders.ga/images/Vehicleimages/Allion/4.jpg" style="width:100%; height:100%" alt=""></a>
                                 </div>
                                 <div class="additional-images">
                                         <ul class="owl-carousel" data-columns="2" data-pagination="no" data-arrows="yes" data-single-item="no" data-items-desktop="2" data-items-desktop-small="2" data-items-tablet="1" data-items-mobile="1">
-                                            <li class="item format-image"> <a href="http://localhost/ci/images/Vehicleimages/Allion/6.jpg" style="width:100%; height:100%" data-rel="prettyPhoto[gallery]" class="media-box"><img src="http://localhost/ci/images/Vehicleimages/Allion/6.jpg" style="width:100%; height:100%" alt=""></a></li>
-                                            <li class="item format-image"> <a href="http://localhost/ci/images/Vehicleimages/Allion/allion3.jpg" style="width:100%; height:100%" data-rel="prettyPhoto[gallery]" class="media-box"><img src="http://localhost/ci/images/Vehicleimages/Allion/allion3.jpg" style="width:100%; height:100%" alt=""></a></li>
+                                            <li class="item format-image"> <a href="http://www.autotraders.ga/images/Vehicleimages/Allion/6.jpg" style="width:100%; height:100%" data-rel="prettyPhoto[gallery]" class="media-box"><img src="http://www.autotraders.ga/images/Vehicleimages/Allion/6.jpg" style="width:100%; height:100%" alt=""></a></li>
+                                            <li class="item format-image"> <a href="http://www.autotraders.ga/images/Vehicleimages/Allion/allion3.jpg" style="width:100%; height:100%" data-rel="prettyPhoto[gallery]" class="media-box"><img src="http://www.autotraders.ga/images/Vehicleimages/Allion/allion3.jpg" style="width:100%; height:100%" alt=""></a></li>
                                         </ul>
                                 </div>
                             </div>

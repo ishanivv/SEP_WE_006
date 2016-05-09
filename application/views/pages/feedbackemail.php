@@ -6,7 +6,7 @@
                     <div class="col-md-6">
                     	<section class="signup-form sm-margint">
                         <?php foreach ($details as $detail){?>
-                          <form method="post" action="<?php echo 'http://localhost/ci/feedback_reply_ctrl/reply_to_feedback/'.$detail->Email.'/'.$detail->Feedbackid?>" >
+                          <form method="post" action="<?php echo 'http://www.autotraders.ga/feedback_reply_ctrl/reply_to_feedback/'.$detail->Email.'/'.$detail->Feedbackid?>" >
                             	<!-- Regular Signup -->
                                 <div class="regular-signup">
                         			<h3>Reply to Messages</h3>

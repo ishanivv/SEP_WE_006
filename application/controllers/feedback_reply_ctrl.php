@@ -43,13 +43,15 @@ class Feedback_reply_ctrl extends CI_Controller
 			if($this->email->send())
     		{
     			$this->main_model->change_feedback_status($feedbackid);
+    			$messages=$this->main_model->count_feedbacks();
+    			$this->session->set_userdata('messages',$messages);
 				$this->session->set_flashdata('success_msg', 'Email has sent successfully');
-      			redirect("http://localhost/ci/admin_feedback_ctrl");
+      			redirect("http://www.autotraders.ga/admin_feedback_ctrl");
      		}
      		else
     		{
      			$this->session->set_flashdata('success_msg', 'Check your internet connection and try again');
-      			redirect("http://localhost/ci/admin_feedback_ctrl");
+      			redirect("http://www.autotraders.ga/admin_feedback_ctrl");
     		}
     	
 	}

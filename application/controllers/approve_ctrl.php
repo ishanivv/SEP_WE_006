@@ -46,17 +46,39 @@ class Approve_ctrl extends CI_Controller
 		if($this->email->send())
     	{
     		$this->Ads_model->approve($vehicleid);
-      		$pendingads=$this->Ads_model->count_pending_ads;
-      		$pendingads--;
-      		$this->session->set_userdata((['logged_in']['pendingads']),$pendingads);
-      		$this->session->set_flashdata('success_msg', 'Advertisement has been approved and email has sent successfully');
-      		redirect("http://localhost/ci/notify_ctrl");
+      		
+      		
+      		$emails=$this->Ads_model->check_saved_search($vehicleid);
+      		$this->email->set_newline("\r\n");
+			$this->email->from('autotraderslk@gmail.com');
+			
+			/*foreach ($emails as $row) {
+				echo $row;
+			}*/
+			$this->email->to($emails);
+
+			$this->email->subject("There's a vehicle available to your saved search");
+			$body=$this->load->view('pages/searchemail',$this->data,TRUE);
+			$this->email->message($body);
+
+			if($this->email->send()){
+				$data['pendingadss']=$this->Ads_model->count_pending_ads();
+	      		$this->session->set_userdata('pendingads',$data['pendingadss']);
+	      		$this->session->set_flashdata('success_msg', 'Advertisement has been approved and email has sent successfully');
+	      		redirect("http://www.autotraders.ga/notify_ctrl");
+	      	}
+	      	else
+	     	{
+				$this->session->set_flashdata('success_msg', 'Check your internet connection and try again');
+	      		redirect("http://www.autotraders.ga/notify_ctrl");
+	     	}
+      		
       		
      	}
      	else
      	{
 			$this->session->set_flashdata('success_msg', 'Check your internet connection and try again');
-      		redirect("http://localhost/ci/notify_ctrl");
+      		redirect("http://www.autotraders.ga/notify_ctrl");
      	}
 
 		
@@ -110,16 +132,15 @@ class Approve_ctrl extends CI_Controller
 		if($this->email->send())
     	{
     		$this->Ads_model->reject($vehicleid);
-    		$pendingads=$this->Ads_model->count_pending_ads;
-      		$pendingads--;
-       		$this->session->set_userdata((['logged_in']['pendingads']),$pendingads);
+    		$data['pendingadss']=$this->Ads_model->count_pending_ads();
+      		$this->session->set_userdata('pendingads',$data['pendingadss']);
       		$this->session->set_flashdata('success_msg', 'Advertisement has been rejected and email has sent successfully');
-      		redirect("http://localhost/ci/notify_ctrl");
+      		redirect("http://www.autotraders.ga/notify_ctrl");
     	}
     	else
     	{
     		$this->session->set_flashdata('success_msg', 'Check your internet connection and try again');
-      		redirect("http://localhost/ci/notify_ctrl");
+      		redirect("http://www.autotraders.ga/notify_ctrl");
     	}
 
 	}

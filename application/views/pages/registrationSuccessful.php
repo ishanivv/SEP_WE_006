@@ -32,14 +32,11 @@
                         </div>
                         <div class="spacer-20"></div>
                         <br/>
-                        <div>
-                            <p>Don't have an account? <span class="accent-color"><a href="register">Register here</a></span></p>
-                        </div>
                         <div class="spacer-20"></div>
                     </div>
                     <div class="col-md-4">
                     	<section class="signup-form sm-margint">
-                            <form method="post" action="http://localhost/ci/Login">
+                            <form method="post" action="http://www.autotraders.ga/Login">
                                 <div class="regular-signup">
                         			<h3>Registration Successful</h3>
                                     Continue to Login page...

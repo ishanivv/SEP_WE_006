@@ -51,8 +51,8 @@
                                         $email=$admin->Email;
                                     ?>
                                     <!--<td><a href="<?php //echo 'admin_ctrl/delete_admin/'.$email?>"><input type="button" class="btn-primary" value="Delete"></a></td>-->
-                                    <td align="center"><a href="<?php echo 'http://localhost/ci/admin_ctrl/get_admin/'.$admin->Email?>"><input type="button" class="btn-primary" value="Edit"></a>
-                                    <a href="<?php echo 'http://localhost/ci/admin_ctrl/delete_admin/'.$email?>"><button class="text-danger" title="Delete" onclick="return deleteconfirm();"><i class="fa fa-times"></i></button></a></td>
+                                    <td align="center"><a href="<?php echo 'http://www.autotraders.ga/admin_ctrl/get_admin/'.$admin->Email?>"><input type="button" class="btn-primary" value="Edit"></a>
+                                    <a href="<?php echo 'http://www.autotraders.ga/admin_ctrl/delete_admin/'.$email?>"><button class="text-danger" title="Delete" onclick="return deleteconfirm();"><i class="fa fa-times"></i></button></a></td>
                                 </tr>
                             </tbody>
                                 <?php }?>

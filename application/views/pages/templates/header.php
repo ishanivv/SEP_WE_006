@@ -14,33 +14,46 @@
 <meta name="format-detection" content="telephone=no">
 <!-- CSS
   ================================================== -->
-<link href="http://localhost/ci/css/bootstrap.css" rel="stylesheet" type="text/css">
-<!--<link rel="stylesheet" href="http://localhost/ci/css/flexslider.css" type="text/css"/>-->
-<!--<link href="http://localhost/ci/vendor/flexslider/css/flexslider.css" rel="stylesheet" type="text/css">-->
-<link href="http://localhost/ci/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
-<link href="http://localhost/ci/css/style.css" rel="stylesheet" type="text/css">
-<link href="http://localhost/ci/vendor/prettyphoto/css/prettyPhoto.css" rel="stylesheet" type="text/css">
-<link href="http://localhost/ci/vendor/owl-carousel/css/owl.carousel.css" rel="stylesheet" type="text/css">
-<link href="http://localhost/ci/vendor/owl-carousel/css/owl.theme.css" rel="stylesheet" type="text/css">
+<link href="http://www.autotraders.ga/css/bootstrap.css" rel="stylesheet" type="text/css">
+<!--<link rel="stylesheet" href="http://www.autotraders.ga/css/flexslider.css" type="text/css"/>-->
+<!--<link href="http://www.autotraders.ga/vendor/flexslider/css/flexslider.css" rel="stylesheet" type="text/css">-->
+<link href="http://www.autotraders.ga/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
+<link href="http://www.autotraders.ga/css/style.css" rel="stylesheet" type="text/css">
+<!--<link href="http://www.autotraders.ga/js/jquery-ui-1.11.1.custom/jquery-ui.css" rel="stylesheet" type="text/css">-->
+<link href="http://www.autotraders.ga/vendor/prettyphoto/css/prettyPhoto.css" rel="stylesheet" type="text/css">
+<link href="http://www.autotraders.ga/vendor/owl-carousel/css/owl.carousel.css" rel="stylesheet" type="text/css">
+<link href="http://www.autotraders.ga/vendor/owl-carousel/css/owl.theme.css" rel="stylesheet" type="text/css">
 <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" media="screen" /><![endif]-->
-<link href="http://localhost/ci/css/custom.css" rel="stylesheet" type="text/css"><!-- CUSTOM STYLESHEET FOR STYLING -->
+<link href="http://www.autotraders.ga/css/custom.css" rel="stylesheet" type="text/css"><!-- CUSTOM STYLESHEET FOR STYLING -->
 <!-- Color Style -->
-<link href="http://localhost/ci/colors/color1.css" rel="stylesheet" type="text/css">
+<link href="http://www.autotraders.ga/colors/color1.css" rel="stylesheet" type="text/css">
 <!-- SCRIPTS
   ================================================== -->
-<script src="http://localhost/ci/js/modernizr.js"></script><!-- Modernizr -->
+<script src="http://www.autotraders.ga/js/modernizr.js"></script><!-- Modernizr -->
+<script src="http://www.autotraders.ga/js/jquery-latest.js"></script>
+<script src="http://www.autotraders.ga/js/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+
 </head>
 <body class="home">
+
+
 <!--[if lt IE 7]>
 	<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
 <![endif]-->
 <div class="body">
+
+    <div id="preloader" style="position: fixed; background: rgba(0, 0, 0, 0.8); z-index: 99999; width: 100%; height: 100%; top: 0; visibility: hidden;">
+        <div style="text-align: center; top: 50%; position: relative;">
+            <img src="http://www.autotraders.ga/images/preloader.gif" />
+        </div>
+    </div>
+
 	<!-- Start Site Header -->
 	<div class="site-header-wrapper">
         <header class="site-header">
             <div class="container sp-cont">
                 <div class="site-logo">
-                    <h1><a href="index.html"><img src="http://localhost/ci/images/logo.png" alt="Logo"></a></h1>
+                    <h1><a href="http://www.autotraders.ga"><img src="http://www.autotraders.ga/images/logo.png" alt="Logo"></a></h1>
                     <span class="site-tagline">Buying or Selling,<br>just got easier!</span>
                 </div>
                 <div class="header-right">
@@ -50,21 +63,21 @@
 
                                     if (isset($this->session->userdata['logged_in'])) {
                                         $email = ($this->session->userdata['logged_in']['email']);
-                                        $type = ($this->session->userdata['logged_in']['type']);
-                                        $pendingads=($this->session->userdata['logged_in']['pendingads']);
-                                        $messages=($this->session->userdata['logged_in']['messages']);
+                                        $type = ($this->session->userdata['type']);
+                                        $pendingads=$this->session->userdata['pendingads'];
+                                        $messages=$this->session->userdata['messages'];
                                         $notifications=$pendingads+$messages;
 
                                         if($type=="super admin")
                                         {
                                             echo '<li>';
-                                            echo '<a href="http://localhost/ci/admin_table_ctrl">Manage Admins</a>';
+                                            echo '<a href="http://www.autotraders.ga/admin_table_ctrl">Manage Admins</a>';
                                             echo '</li>';
                                             echo '<li>';
                                             echo '<a href="javascript:void(0)">Notifications <span class="badge">'.$notifications.'</span></a>';
                                             echo '<ul class="dropdown">';
-                                            echo '<li><a href="http://localhost/ci/notify_ctrl">Pending Ads <span class="badge">'.$pendingads.'</span></a></li>';
-                                            echo '<li><a href="http://localhost/ci/admin_feedback_ctrl">Messages <span class="badge">'.$messages.'</span></a></li>';
+                                            echo '<li><a href="http://www.autotraders.ga/notify_ctrl">Pending Ads <span class="badge">'.$pendingads.'</span></a></li>';
+                                            echo '<li><a href="http://www.autotraders.ga/admin_feedback_ctrl">Messages <span class="badge">'.$messages.'</span></a></li>';
                                             echo '</ul>';
                                             echo '</li>';
                                         }
@@ -73,8 +86,8 @@
                                             echo '<li>';
                                             echo '<a href="javascript:void(0)">Notifications <span class="badge">'.$notifications.'</span></a>';
                                             echo '<ul class="dropdown">';
-                                            echo '<li><a href="http://localhost/ci/notify_ctrl">Pending Ads <span class="badge">'.$pendingads.'</span></a></li>';
-                                            echo '<li><a href="http://localhost/ci/admin_feedback_ctrl">Messages <span class="badge">'.$messages.'</span></a></li>';
+                                            echo '<li><a href="http://www.autotraders.ga/notify_ctrl">Pending Ads <span class="badge">'.$pendingads.'</span></a></li>';
+                                            echo '<li><a href="http://www.autotraders.ga/admin_feedback_ctrl">Messages <span class="badge">'.$messages.'</span></a></li>';
                                             echo '</ul>';
                                             echo '</li>';
                                         }
@@ -82,7 +95,7 @@
 
                             ?>
                             <li>
-                                <a href="<?php echo 'http://localhost/ci/dashboard_ctrl/load_my_ads/'.$email?>">
+                                <a href="<?php echo 'http://www.autotraders.ga/dashboard_ctrl/load_my_ads/'.$email?>">
                                 <?php    
                                     echo $email;
                                     echo '</a>';
@@ -90,7 +103,7 @@
                                 else
                                 {
                                     echo "<li>";
-                                    echo '<a href="http://localhost/ci/Login">Login</a>';
+                                    echo '<a href="http://www.autotraders.ga/Login">Login</a>';
                                 }
                             ?>
                             </li>
@@ -98,11 +111,11 @@
                             <?php
                                 if(!(isset($this->session->userdata['logged_in'])))
                                 {
-                                    echo '<a href="http://localhost/ci/Register">Register</a>';
+                                    echo '<a href="http://www.autotraders.ga/Register">Register</a>';
                                 }
                                 else
                                 {
-                                    echo "<a href='http://localhost/ci/Logout/out'>Logout</a>";
+                                    echo "<a href='http://www.autotraders.ga/Logout/out'>Logout</a>";
                                 }
                             ?>
                             </li>
@@ -123,16 +136,17 @@
                 <!-- Main Navigation -->
                 <nav class="main-navigation dd-menu toggle-menu" role="navigation">
                     <ul class="sf-menu">
-                        <li><a href="http://localhost/ci/home">HOME</a></li>
-                        <li><a href="http://localhost/ci/all_ads_ctrl">ALL ADS</a></li>
-                        <li><a href="http://localhost/ci/postad">POST AD</a></li>
-                        <li><a href="http://localhost/ci/contactus">CONTACT US</a> </li>
+                        <li><a href="http://www.autotraders.ga/home">HOME</a></li>
+                        <li><a href="http://www.autotraders.ga/all_ads_ctrl">ALL ADS</a></li>
+                        <li><a href="http://www.autotraders.ga/postad">POST AD</a></li>
+                        <li><a href="http://www.autotraders.ga/contactus">CONTACT US</a> </li>
+                        <li><a href="http://www.autotraders.ga/dealers_ctrl">DEALERS</a> </li>
                     </ul>
                 </nav> 
                 <!-- Search Form -->
                 <div class="search-form">
                     <div class="search-form-inner">
-                        <form method="post" action="<?php echo base_url();?>search/search_keyword">
+                        <form method="post" action="http://www.autotraders.ga/search">
                             <h3>Find a Car with our Quick Search</h3>
                             <div class="row">
                                 <div class="col-md-12">
@@ -231,7 +245,7 @@
                                             <input type="submit" class="btn btn-primary btn-lg btn-block" value="Search">
                                         </div>
                                         <div class="col-md-6">
-                                        <a href="http://localhost/ci/advancesearch"><input type="button" value="Advanced Search" class="btn btn-block btn-info btn-lg"></a>
+                                        <a href="http://www.autotraders.ga/advancesearch"><input type="button" value="Advanced Search" class="btn btn-block btn-info btn-lg"></a>
                                         </div>
                                     </div>
                                     </div>

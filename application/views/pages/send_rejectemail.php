@@ -14,20 +14,20 @@
 <meta name="format-detection" content="telephone=no">
 <!-- CSS
   ================================================== -->
-<link href="http://localhost/ci/css/bootstrap.css" rel="stylesheet" type="text/css">
-<!--<link rel="stylesheet" href="http://localhost/ci/vendor/flexslider/css/flexslider.css" type="text/css" media="screen" />-->
-<link href="http://localhost/ci/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
-<link href="http://localhost/ci/css/style.css" rel="stylesheet" type="text/css">
-<link href="http://localhost/ci/vendor/prettyphoto/css/prettyPhoto.css" rel="stylesheet" type="text/css">
-<link href="http://localhost/ci/vendor/owl-carousel/css/owl.carousel.css" rel="stylesheet" type="text/css">
-<link href="http://localhost/ci/vendor/owl-carousel/css/owl.theme.css" rel="stylesheet" type="text/css">
+<link href="http://www.autotraders.ga/css/bootstrap.css" rel="stylesheet" type="text/css">
+<!--<link rel="stylesheet" href="http://www.autotraders.ga/vendor/flexslider/css/flexslider.css" type="text/css" media="screen" />-->
+<link href="http://www.autotraders.ga/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
+<link href="http://www.autotraders.ga/css/style.css" rel="stylesheet" type="text/css">
+<link href="http://www.autotraders.ga/vendor/prettyphoto/css/prettyPhoto.css" rel="stylesheet" type="text/css">
+<link href="http://www.autotraders.ga/vendor/owl-carousel/css/owl.carousel.css" rel="stylesheet" type="text/css">
+<link href="http://www.autotraders.ga/vendor/owl-carousel/css/owl.theme.css" rel="stylesheet" type="text/css">
 <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" media="screen" /><![endif]-->
-<link href="http://localhost/ci/css/custom.css" rel="stylesheet" type="text/css"><!-- CUSTOM STYLESHEET FOR STYLING -->
+<link href="http://www.autotraders.ga/css/custom.css" rel="stylesheet" type="text/css"><!-- CUSTOM STYLESHEET FOR STYLING -->
 <!-- Color Style -->
-<link href="http://localhost/ci/colors/color1.css" rel="stylesheet" type="text/css">
+<link href="http://www.autotraders.ga/colors/color1.css" rel="stylesheet" type="text/css">
 <!-- SCRIPTS
   ================================================== -->
-<script src="http://localhost/ci/js/modernizr.js"></script><!-- Modernizr -->
+<script src="http://www.autotraders.ga/js/modernizr.js"></script><!-- Modernizr -->
 
 </head>
 <body>

@@ -24,8 +24,10 @@ class Admin_feedback_ctrl extends CI_Controller
 	public function change_feedback_status($feedbackid)
 	{
 		$this->main_model->change_feedback_status($feedbackid);
+		$messages=$this->main_model->count_feedbacks();
+    	$this->session->set_userdata('messages',$messages);
 		$this->session->set_flashdata('success_msg', 'Message status has been changed');
-      	redirect("http://localhost/ci/admin_feedback_ctrl");
+      	redirect("http://www.autotraders.ga/admin_feedback_ctrl");
 	}
 
 	// delete the feedback from the all feedback view
@@ -35,7 +37,7 @@ class Admin_feedback_ctrl extends CI_Controller
 		$this->load->model('main_model');
 		$this->main_model->delete_feedback($feedbackid);
 		$this->session->set_flashdata('success_msg', 'Message has deleted successfully');
-      	redirect("http://localhost/ci/admin_feedback_ctrl");
+      	redirect("http://www.autotraders.ga/admin_feedback_ctrl");
 	}
 
 	// display the email and message in the reply to feedback form

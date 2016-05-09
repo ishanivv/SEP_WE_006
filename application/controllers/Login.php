@@ -47,7 +47,7 @@ class Login extends CI_Controller
 
             if ($this->form_validation->run() == FALSE)
             {
-                //$data['message'] = 'correct these mistakes or <a href="http://localhost/ci/ResetPassword">Reset password</a>';
+                //$data['message'] = 'correct these mistakes or <a href="http://www.autotraders.ga/ResetPassword">Reset password</a>';
                 $this->load->view('pages/templates/header');
                 $this->load->view('pages/login');
                 $this->load->view('pages/templates/footer');
@@ -71,16 +71,18 @@ class Login extends CI_Controller
 
                         $this->load->model('main_model');
                         $messages=$this->main_model->count_feedbacks();
+                        $savedsearch=$this->main_model->count_savedsearch($_POST['email']);
 
                         $session_data=array(
                             'email'=>$result[0]->Email,
-                            'type'=>$result[0]->Type,
-                            'ads'=>$ads,
-                            'pendingads'=>$pendingads,
-                            'messages'=>$messages,
                         );
                         $this->session->set_userdata('logged_in',$session_data);
-                    
+                        $this->session->set_userdata('pendingads',$pendingads);
+                        $this->session->set_userdata('ads',$ads);
+                        $this->session->set_userdata('messages',$messages);
+                        $this->session->set_userdata('savedsearch',$savedsearch);
+                        $this->session->set_userdata('type',$result[0]->Type);
+
                         setcookie('remember', 'yes', time() + (86400 * 30), "/");
                         setcookie('email',$_POST['email'], time() + (86400 * 30), "/");
 

@@ -49,10 +49,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+$route['dealers_ctrl']="dealers_ctrl";
+$route['dealers_ctrl/load_dealer_view']="dealers_ctrl/load_dealer_view";
+$route['insertFavourite']="favourite_ctrl/insert_into_favourite";
+$route['fetchVehicleDetails'] = "ajax/index";
+$route['changeStatus']="saved_search_ctrl/change_status";
+$route['compare_ctrl/get_compare_details']="compare_ctrl/get_compare_details";
 $route['admin_table_ctrl']="admin_table_ctrl";
 $route['header_ctrl']="header_ctrl";
 $route['all_ads_ctrl']="all_ads_ctrl";
-$route['search/search_keyword']="search/search_keyword";
+$route['advanced_ctrl']="advanced_ctrl";
+$route['search']="search";
+$route['saved_search_ctrl']="saved_search_ctrl";
 $route['admin_feedback_ctrl']="admin_feedback_ctrl";
 $route['demo_ctrl']="demo_ctrl";
 $route['edit_ad_ctrl']="edit_ad_ctrl";
@@ -69,3 +78,6 @@ $route['(:any)'] = "pages/view/$1";
 $route['default_controller'] = "pages/view";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+
+

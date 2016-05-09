@@ -34,23 +34,24 @@
                         </div>
                         <div class="spacer-20"></div>
                         <br/>
-                        <div>
-                            <p>Don't have an account? <span class="accent-color"><a href="http://localhost:8080/projects/ci/register">Register here</a></span></p>
-                        </div>
+    
                         <div class="spacer-20"></div>
                     </div>
                     <div class="col-md-4">
                     	<section class="signup-form sm-margint">
                                 <div class="regular-signup">
-                                <form method="post" action="http://localhost:8080/projects/ci/NewPassword/newp">
+                                <form method="post" action="http://www.autotraders.ga/New_Password/newp">
                                         <h3>Create new password</h3>
                                         Enter your new password and confirm it...
                                         <div class="spacer-20"></div>
+                                    <div style="color:red">
                                     <?php
                                         $CI =& get_instance();
                                         $CI->load->library('form_validation');
                                         echo validation_errors();
                                     ?>
+                                    </div>
+                                        <input type="password" name="oldPassword" class="form-control" placeholder="Old Password" id="oldPassword"/>
                                         <input type="password" name="password" class="form-control" placeholder="Password" id="password"/>
                                         <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"/>
                                         <div class="spacer-20"></div>
